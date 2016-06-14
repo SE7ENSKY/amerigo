@@ -4,6 +4,7 @@ html
 		meta(charset="UTF-8")
 		meta(content="width=device-width, minimum-scale=1, maximum-scale=1", name="viewport")
 		meta(name="author", content="SE7ENSKY frontend studio <hello@se7ensky.com>")
+		meta(name="theme-color" content="#e53c26")
 		title
 			block title
 				if file.title
@@ -13,7 +14,7 @@ html
 		block fonts
 		block styles
 		block scripts
-	body(class=file.bodyClasses)
+	body
 		block root
 			!= content
 		block analytics
