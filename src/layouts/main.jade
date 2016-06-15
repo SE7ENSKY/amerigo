@@ -1,6 +1,7 @@
 extends root
 
 block root
+	+b.preloader: +i
 	+b("header").header Header
 	
 	main.main
@@ -10,7 +11,7 @@ block root
 	+b("footer").footer Footer
 
 block fonts
-	link(href='http://fonts.googleapis.com/css?family=Fira+Sans:400,400italic|Roboto:400,700,400italic&subset=latin,cyrillic' rel='stylesheet' type='text/css')
+	link(href="//cloud.webtype.com/css/73ce1cd5-dad0-4708-b74b-591cdd14b2e8.css" rel="stylesheet" type="text/css")
 
 block styles
 	link(rel="icon" sizes="192x192" href=asset("i/app/app-icon-192x192.png"))
@@ -23,9 +24,13 @@ block styles
 	link(rel="apple-touch-icon" sizes="144x144" href=asset("i/app/apple-touch-icon-144x144.png"))
 	link(rel="apple-touch-icon" sizes="152x152" href=asset("i/app/apple-touch-icon-152x152.png"))
 
-	link(rel="shortcut icon", href=asset("i/favicon.png?v=1"))
+	link(rel="shortcut icon", href=asset("i/favicon.png?v=2"))
 	link(rel="stylesheet", href=asset("amerigo.min.css"))
 
 block scripts
 	script(src=asset("jquery-1.11.0.min.js") defer)
 	script(src=asset("amerigo.min.js") defer)
+
+	script(src="https://use.typekit.net/gal7est.js")
+	script.
+		try{Typekit.load({ async: true });}catch(e){}

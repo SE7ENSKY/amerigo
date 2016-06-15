@@ -1,0 +1,39 @@
+.preloader
+	display none
+	position fixed
+	top 0
+	right 0
+	bottom 0
+	left 0
+	background-color #fff
+	&__badge
+		position absolute
+		top 0
+		left 50%
+		margin-left -62px
+		background url("i/logo-badge.svg") no-repeat 0 bottom
+		width 124px
+		height 60%
+		max-height 1500px
+	&__logo
+		position absolute
+		top 60%
+		left 50%
+		width 318px
+		margin-top 80px
+		margin-left -(@width / 2)
+		&-main
+			display block
+			margin 0 auto
+			width 318px
+			height 23px
+		&-text
+			display block
+			margin 30px auto 0
+			width 236px
+			height 10px
+	&__stamp
+		position absolute
+		right 30px
+		bottom 30px
+	
