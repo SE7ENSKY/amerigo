@@ -1,0 +1,56 @@
+.container
+	+e.header
+		+e("h2").title!= title
+		+e.text!= text
+	+e("form").form
+		fieldset
+			.row
+				.col-6
+					.form-group
+						input#field-feedback-first-name.form-control(type="text")
+						label.control-label(for="field-feedback-first-name") First name<sup>*</sup>
+				.col-6
+					.form-group
+						input#field-feedback-last-name.form-control(type="text")
+						label.control-label(for="field-feedback-last-name") Last name<sup>*</sup>
+			.row
+				.col-6
+					.form-group
+						input#field-feedback-email.form-control(type="email")
+						label.control-label(for="field-feedback-email") Email address<sup>*</sup>
+				.col-6
+					.form-group
+						input#field-feedback-phone.form-control(type="tel")
+						label.control-label(for="field-feedback-phone") Phone number<sup>*</sup>
+			.row
+				.col-6
+					.form-group
+						input#field-feedback-first-name.form-control(type="text")
+						label.control-label(for="field-feedback-first-name") First name<sup>*</sup>
+				.col-6
+					.form-group
+						input#field-feedback-last-name.form-control(type="text")
+						label.control-label(for="field-feedback-last-name") Last name<sup>*</sup>
+			.row
+				.col-6
+					.form-group
+						input#field-feedback-first-name.form-control(type="text")
+						label.control-label(for="field-feedback-first-name") First name<sup>*</sup>
+				.col-6
+					.form-group
+						input#field-feedback-last-name.form-control(type="text")
+						label.control-label(for="field-feedback-last-name") Last name<sup>*</sup>
+			.row
+				.col-6
+					.form-group
+						input#field-feedback-first-name.form-control(type="text")
+						label.control-label(for="field-feedback-first-name") First name<sup>*</sup>
+				.col-6
+					.form-group
+						input#field-feedback-last-name.form-control(type="text")
+						label.control-label(for="field-feedback-last-name") Last name<sup>*</sup>
+			.form-group
+				textarea.form-control(rows="3" placeholder="MESSAGE")
+			+e.fotm-footer
+				+e("button").form-button.btn(type="submit") Submit
+	+e.stamp.stamp

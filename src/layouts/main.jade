@@ -2,13 +2,15 @@ extends root
 
 block root
 	+b.preloader: +i
-	+b("header").header Header
+	+b("header").header: +i
 	
 	main.main
 		block main
 			!= content
 	
-	+b("footer").footer Footer
+	+b("section").feedback: +i({ title: "get in touch", text: "Questions or inquiries can easily be sent to us <br>via email through the form submission below" })
+	
+	+b("footer").footer: +i
 
 block fonts
 	link(href="//cloud.webtype.com/css/73ce1cd5-dad0-4708-b74b-591cdd14b2e8.css" rel="stylesheet" type="text/css")
@@ -24,7 +26,7 @@ block styles
 	link(rel="apple-touch-icon" sizes="144x144" href=asset("i/app/apple-touch-icon-144x144.png"))
 	link(rel="apple-touch-icon" sizes="152x152" href=asset("i/app/apple-touch-icon-152x152.png"))
 
-	link(rel="shortcut icon", href=asset("i/favicon.png?v=2"))
+	link(rel="shortcut icon", href=asset("i/favicon.ico"))
 	link(rel="stylesheet", href=asset("amerigo.min.css"))
 
 block scripts

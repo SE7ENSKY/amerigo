@@ -1,0 +1,61 @@
+.overview
+	&__inner
+		@media md_lg
+			padding-left 10%
+			padding-right 10%
+	&__title
+		font-size 30px
+		text-transform uppercase
+		color brandColor
+	&__text
+		margin-bottom 75px
+		font-family bodoni
+		font-size 30px
+		line-height 1.4
+		@media md_lg
+			width 80%
+	&__subtitle
+		margin-bottom 80px
+		font-family mainFont
+		font-size 48px
+		font-weight 100
+		text-transform uppercase
+	&__list
+		&-item
+			clearfix()
+			margin-bottom 70px
+			&:last-child
+				margin-bottom 30px
+			&:nth-child(odd)
+				.overview__list
+					&-image
+						float left
+						margin-right 20px
+					&-content
+						padding-right 10%
+			&:nth-child(even)
+				text-align right
+				.overview__list
+					&-image
+						float right
+						margin-left 20px
+					&-content
+						padding-left 10%
+		&-image
+			width 140px
+			height 190px
+			img
+				max-width 100%
+		&-content
+			overflow hidden
+		&-name
+			font-family bodoni
+			font-size 30px
+			line-height 1.1
+			text-transform uppercase
+			color brandColor
+		&-position
+			margin-bottom 5px
+			font-family garamondPro
+			font-style italic
+			color #939598

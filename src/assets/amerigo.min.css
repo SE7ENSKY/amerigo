@@ -4,8 +4,11 @@ cssmin: true
 ---
 /*! project.css v1.0.0 | SE7ENSKY frontend studio <hello@se7ensky.com> */
 
+/*= require vendor/fullpage/jquery.fullpage */
+
 /*= require assets/styles/normalize */
 /*= require assets/styles/typo */
+/*= require assets/styles/forms */
 /*= require assets/styles/general */
 /*= require_tree blocks */
 /*= require assets/styles/helpers */

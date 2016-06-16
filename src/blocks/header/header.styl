@@ -1,0 +1,20 @@
+.header
+	position absolute
+	z-index 150
+	top 0
+	left 0
+	right 0
+	height 60px
+	background-color #fff
+	&__logo
+		position absolute
+		top 0
+		left 50%
+		width 80px
+		transform translate(-50%, -10px)
+		transition .3s transform ease-in-out
+		&:hover
+			transform translate(-50%, 0)
+	&__menu
+		float right
+		margin-top 25px

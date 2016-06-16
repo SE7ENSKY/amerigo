@@ -1,0 +1,15 @@
++e.inner.container
+	+e("h2").title!= title
+	+e.text!= text
+	+e("h3").subtitle!= listTitle
+	+e.list
+		if items
+			each item in items
+				+e.list-item
+					+e.list-image
+						img(src=item.image alt=item.name)
+					+e.list-content
+						+e.list-name!= item.name
+						+e.list-position!= item.position
+						+e.list-text!= item.text
+.section-arrow

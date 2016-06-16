@@ -1,2 +1,31 @@
-- title: Home
-  url: /
+- title: "About"
+  url: "/"
+  children:
+    - title: "About Amerigo"
+      url: "/"
+    - title: "Our Team"
+      url: "/"
+- title: "Amerigo program"
+  url: "/"
+  children:
+    - title: "Amerigo Baccalaureate"
+      url: "/"
+    - title: "English Language"
+      url: "/"
+    - title: "University Preparation"
+      url: "/"
+- title: "Student life"
+  url: "/"
+  children:
+    - title: "Residential Life"
+      url: "/"
+    - title: "Cultural Immersion"
+      url: "/"
+    - title: "Technology"
+      url: "/"
+    - title: "Activities"
+      url: "/"
+    - title: "Campus Tours & Travel"
+      url: "/"
+- title: "Contact us"
+  url: "/"

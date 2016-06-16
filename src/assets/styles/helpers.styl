@@ -7,3 +7,21 @@
 	overflow hidden
 	clip rect(0,0,0,0)
 	border 0
+
+.row
+	clearfix()
+	margin 0 -15px
+
+for item in 1..12
+	.col-{item}
+		width (100% / 12 * item)
+
+[class^="col-"]
+[class*=" col-"]
+	position relative
+	padding 0 15px
+	float left
+	min-height 1px
+	@media phone
+		float none
+		width auto
