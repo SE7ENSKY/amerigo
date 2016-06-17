@@ -1,1 +1,33 @@
 .container
+	+e.inner
+		+e("ul").menu
+			each item, i in mainMenu
+				if i < 3
+					+e("li").menu-item
+						+e("a").menu-link(href=item.url)= item.title
+						if item.children
+							+e("ul").menu-sub
+								each subItem in item.children
+									+e("li").menu-sub-item
+										+e("a").menu-sub-link(href=subItem.url)= subItem.title
+		+e.section
+			+e.section-title Contact us
+			+e.address 401 North Michigan Av,
+				br
+				| Suite 3300
+				br
+				| Chicago, IL 60611
+				br
+				| T&#32;
+				a(href="callto:#{site.phone.value}")= site.phone.title
+			+b.socials.__socials: +i({ items: site.socials })
+		+e.section
+			+e.section-title Language
+			+e("ul").language
+				+e("li").language-item
+					+e("a").language-link(href="/") English
+				+e("li").language-item
+					+e("a").language-link(href="/") Vietnamese
+				+e("li").language-item
+					+e("a").language-link(href="/") Chinese
+

@@ -10,8 +10,8 @@ $ ->
 		responsiveWidth: 768
 		responsiveHeight: 650
 		scrollBar: true
-		# autoScrolling: false
 		fitToSection: false
+		normalScrollElements: '.overview, .footer'
 		navigation: true
 		navigationPosition: 'right'
 		anchors: ['welcome', 'about', 'overview']

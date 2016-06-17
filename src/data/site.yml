@@ -3,6 +3,15 @@ keywords: "Academy, global education, american education, education, college pre
 url: "http://amerigoeducation.com"
 address: "401 North Michigan Av, Suite 3300 Chicago, IL 60611"
 phone:
-  - title: "+ 312 465 7017"
-    value: "3124657017"
+  title: "+ 312 465 7017"
+  value: "3124657017"
+socials:
+  - icon: "facebook"
+    url: "/"
+  - icon: "twitter"
+    url: "/"
+  - icon: "linkedin"
+    url: "/"
+  - icon: "instagram"
+    url: "/"
 
