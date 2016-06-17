@@ -1,7 +1,8 @@
 extends main
 
 block main
-	+b("section").welcome.section(data-anchor="welcome" style="background-image: url('#{file.welcome.image}');"): +i({ text: file.welcome.text })
+	h1.sr-only= site.title
+	+b.welcome.section(data-anchor="welcome" style="background-image: url('#{file.welcome.image}');"): +i({ text: file.welcome.text })
 
 	+b("section").about.section(data-anchor="about"): +i({ image: file.about.image, title: file.about.title, text: file.about.text })
 

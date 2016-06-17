@@ -16,5 +16,5 @@ mixin menu(prefix, items, addUlClasses, addLiClasses)
 						span.badge= item.badge
 				if item.children
 					+menu(prefix + "-sub", item.children)
-
+h2.sr-only Main menu
 +menu(prefix, items, addUlClasses, addLiClasses)

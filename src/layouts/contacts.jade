@@ -1,0 +1,17 @@
+extends main
+
+block main
+	if file.title
+		h1.sr-only= file.title
+	+b.page._contacts
+		.container
+			+e.sidebar
+				blockquote
+					p!= file.blockquote.text
+					cite!= file.blockquote.cite
+			+e.content
+				if file.sections
+					each item in file.sections
+						+e("section").section
+							+e("h2").section-title!= item.title
+							!= item.text

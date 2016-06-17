@@ -8,7 +8,7 @@ block root
 		block main
 			!= content
 		
-		unless file.hideFeedback
+		if file.showFeedback
 			+b("section").feedback.section(data-anchor='feedback'): +i({ title: "get in touch", text: "Questions or inquiries can easily be sent to us <br>via email through the form submission below" })
 	
 		+b("footer").footer.section.fp-auto-height(data-anchor='footer'): +i
