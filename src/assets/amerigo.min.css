@@ -11,5 +11,6 @@ cssmin: true
 /*= require assets/styles/forms */
 /*= require assets/styles/buttons */
 /*= require assets/styles/general */
+/*= require vendor/intl-tel-input/intlTelInput */
 /*= require_tree blocks */
 /*= require assets/styles/helpers */
