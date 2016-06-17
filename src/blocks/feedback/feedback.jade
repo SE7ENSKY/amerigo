@@ -7,50 +7,54 @@
 			.row
 				.col-6
 					.form-group
-						input#field-feedback-first-name.form-control(type="text")
+						input#field-feedback-first-name.form-control(type="text" require)
 						label.control-label(for="field-feedback-first-name") First name<sup>*</sup>
 				.col-6
 					.form-group
-						input#field-feedback-last-name.form-control(type="text")
+						input#field-feedback-last-name.form-control(type="text" require)
 						label.control-label(for="field-feedback-last-name") Last name<sup>*</sup>
 			.row
 				.col-6
 					.form-group
-						input#field-feedback-email.form-control(type="email")
+						input#field-feedback-email.form-control(type="email" require)
 						label.control-label(for="field-feedback-email") Email address<sup>*</sup>
 				.col-6
 					.form-group
-						input#field-feedback-phone.form-control(type="tel")
+						input#field-feedback-phone.form-control(type="tel" require)
 						label.control-label(for="field-feedback-phone") Phone number<sup>*</sup>
 			.row
 				.col-6
 					.form-group
-						input#field-feedback-first-name.form-control(type="text")
-						label.control-label(for="field-feedback-first-name") First name<sup>*</sup>
+						input#field-feedback-city.form-control(type="text")
+						label.control-label(for="field-feedback-city") City
 				.col-6
 					.form-group
-						input#field-feedback-last-name.form-control(type="text")
-						label.control-label(for="field-feedback-last-name") Last name<sup>*</sup>
+						input#field-feedback-country.form-control(type="text" require)
+						label.control-label(for="field-feedback-country") Country<sup>*</sup>
 			.row
 				.col-6
 					.form-group
-						input#field-feedback-first-name.form-control(type="text")
-						label.control-label(for="field-feedback-first-name") First name<sup>*</sup>
+						input#field-feedback-student-age.form-control(type="text")
+						label.control-label(for="field-feedback-student-age") Student age
 				.col-6
 					.form-group
-						input#field-feedback-last-name.form-control(type="text")
-						label.control-label(for="field-feedback-last-name") Last name<sup>*</sup>
+						input#field-feedback-current-school.form-control(type="text")
+						label.control-label(for="field-feedback-current-school") Current School
 			.row
 				.col-6
 					.form-group
-						input#field-feedback-first-name.form-control(type="text")
-						label.control-label(for="field-feedback-first-name") First name<sup>*</sup>
+						select.select7.select7_remove_current(placeholder="Anticipated grade *")
+							option
+							option 9
+							option 10
+							option 11
+							option 12
 				.col-6
 					.form-group
-						input#field-feedback-last-name.form-control(type="text")
-						label.control-label(for="field-feedback-last-name") Last name<sup>*</sup>
+						input#field-feedback-anticipated-start.form-control(type="text" require)
+						label.control-label(for="field-feedback-anticipated-start") Aticipated start<sup>*</sup>
 			.form-group
 				textarea.form-control(rows="3" placeholder="MESSAGE")
-			+e.fotm-footer
+			+e.form-footer
 				+e("button").form-button.btn(type="submit") Submit
 	+e.stamp.stamp

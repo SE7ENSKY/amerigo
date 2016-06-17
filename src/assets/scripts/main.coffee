@@ -5,13 +5,15 @@ unless 'ontouchstart' in window or window.DocumentTouch and document instanceof 
 		$(@).attr 'href', $(@).attr('href').replace('tel:', 'callto:')
 
 $ ->
-	$('#site').fullpage
+	$('.front-page .main').fullpage
 		lockAnchors: true
 		responsiveWidth: 768
 		responsiveHeight: 650
 		scrollBar: true
-		autoScrolling: false
+		# autoScrolling: false
 		fitToSection: false
 		navigation: true
 		navigationPosition: 'right'
 		anchors: ['welcome', 'about', 'overview']
+
+	$(".select7").select7()

@@ -1,11 +1,10 @@
 extends main
 
 block main
-	#site
-		+b("section").welcome.section#welcome(style="background-image: url('#{file.welcome.image}');"): +i({ text: file.welcome.text })
+	+b("section").welcome.section#welcome(style="background-image: url('#{file.welcome.image}');"): +i({ text: file.welcome.text })
 
-		+b("section").about.section#about: +i({ image: file.about.image, title: file.about.title, text: file.about.text })
+	+b("section").about.section#about: +i({ image: file.about.image, title: file.about.title, text: file.about.text })
 
-		+b("section").overview.section#overview: +i({ title: file.overview.title, text: file.overview.text, listTitle: file.overview.listTitle, items: file.overview.list })
+	+b("section").overview.section.fp-auto-height#overview: +i({ title: file.overview.title, text: file.overview.text, listTitle: file.overview.listTitle, items: file.overview.list })
 
 
