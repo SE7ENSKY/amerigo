@@ -5,6 +5,11 @@ unless 'ontouchstart' in window or window.DocumentTouch and document instanceof 
 		$(@).attr 'href', $(@).attr('href').replace('tel:', 'callto:')
 
 $ ->
+
+
+	$(window).load ->
+		window.loaded = true
+		
 	$('.front-page, .tiles-page, .campuses-page, .default-page').find('.main').fullpage
 		lockAnchors: true
 		# responsiveWidth: 768
