@@ -1,8 +1,10 @@
 - title: "About"
   url: "/"
+  active: true
   children:
     - title: "About Amerigo"
       url: "/"
+      active: true
     - title: "Our Team"
       url: "/"
 - title: "Amerigo program"
