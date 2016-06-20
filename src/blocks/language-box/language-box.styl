@@ -1,0 +1,38 @@
+.language-box
+	text-align center
+	&__title
+		margin 0 0 40px
+		font-size 30px
+		text-transform uppercase
+		color brandColor
+		letter-spacing .25pt
+	&__form
+		&-button
+			color #000
+		.form-group
+			margin 0 0 40px
+		.radio
+			position relative
+			display inline-block
+			vertical-align top
+			margin 0 15px
+			font-size 13px
+			text-transform uppercase
+			cursor pointer
+			&:hover span
+				color brandColor
+			label
+				cursor pointer
+			span
+				transition .2s color ease-in-out
+			input
+				position absolute
+				top 0
+				right 0
+				bottom 0
+				left 0
+				opacity 0
+				&:checked + span
+				&[checked="checked"] + span
+					color #000
+					font-weight normal

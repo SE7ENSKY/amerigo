@@ -1,0 +1,117 @@
+.modal
+	display none
+	overflow hidden
+	position fixed
+	min-width 320px
+	top 0
+	right 0
+	bottom 0
+	left 0
+	z-index 1050
+	-webkit-overflow-scrolling touch
+	text-align center
+	outline 0
+	&:after
+		content ""
+		display inline-block
+		vertical-align middle
+		height 100%
+		width 0
+	&.fullwidth-modal
+		.modal
+			&-dialog
+				width 100%
+				height 100%
+				margin 0
+				text-align center
+				&:after
+					content ""
+					display inline-block
+					vertical-align middle
+					height 100%
+					width 0
+			&-content
+				display inline-block
+				vertical-align middle
+				width 600px
+				min-width 300px
+				text-align left
+				@media phone
+					width 95%
+				@media phone_landscape
+					width 80% !important
+	&-dialog
+		position relative
+		display inline-block
+		vertical-align middle
+		margin 10px 0
+		min-width 300px
+		width 600px
+		transform-origin center center
+		transition transform .3s cubic-bezier(0.58, 0.92, 0.32, 1)
+		@media phone
+			width 95%
+		@media phone_landscape
+			width 80% !important
+		&.modal-lg
+			width 930px
+			@media tablet
+				width 740px
+			@media phone
+				width 95%
+	&-body
+		position relative
+		z-index 4
+	&-content
+		position relative
+		padding 25px
+		background-color #fff
+		// box-shadow 0 3px 20px rgba(0,0,0,.2)
+		outline 0
+		text-align left
+		@media phone
+			padding 20px 30px
+		.modal-simple &
+			padding 0
+	&-backdrop
+		position fixed
+		top 0
+		right 0
+		bottom 0
+		left 0
+		z-index 1040
+		background-color #fff
+	&-open
+		overflow hidden
+		.modal
+			overflow-x hidden
+			overflow-y auto
+	&-close
+		position absolute
+		z-index 5
+		top 0
+		right @top
+		width 30px
+		height @width
+		padding 0
+		border 0 none
+		outline none
+		background brandColor
+		transition transform .2s ease, background .2s ease
+		&:before
+		&:after
+			content ""
+			position absolute
+			width 1px
+			top 50%
+			left 50%
+			height 16px
+			margin-top -(@height / 2)
+			background-color #fff
+			transition background-color .15s ease
+		&:before
+			transform rotate(-45deg)
+		&:after
+			transform rotate(45deg)
+		&:hover
+			background redColor

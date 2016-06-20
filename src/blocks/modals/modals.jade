@@ -1,0 +1,16 @@
+mixin modal(name, title, classes)
+	.modal.fade(id=name, class=classes tabindex="-1")
+		.modal-dialog(class=dialogClasses)
+			.modal-content
+				if title
+					.modal-header
+						button.modal-close(data-dismiss="modal" type="button")
+						.modal-title!= title
+				//- else
+				//- 	button.modal-close(data-dismiss="modal" type="button")
+				.modal-body
+					block
+
+
++modal("language-modal", "", "fullwidth-modal")
+	+b.language-box: +i({ title: "Please select your language", btnText: "Confirm" })

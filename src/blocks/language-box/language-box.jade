@@ -1,0 +1,14 @@
++e("h2").title!= title
++e("form").form
+	fieldset
+		.form-group
+			each item, i in langs
+				.radio
+					label
+						if item.active
+							input(type="radio" name="language" value=item.url checked)
+						else
+							input(type="radio" name="language" value=item.url)
+						span= item.title
+		+e.form-footer
+			+e("button").form-button.btn(type="submit")= btnText
