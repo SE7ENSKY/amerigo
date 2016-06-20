@@ -3,11 +3,13 @@ mixin menu(prefix, items, addUlClasses, addLiClasses)
 	- if (!!addUlClasses) ulClasses.push(addUlClasses);
 
 	ul(class=ulClasses)
-		each item in items
+		each item, i in items
 			- liClasses = [ prefix + "-menu__item" ]
 			- if (!!item.children) liClasses.push(prefix + "-menu__item-has_sub");
 			- if (!!addLiClasses) liClasses.push(addLiClasses);
 			- if (item.active) liClasses.push("active");
+			if activeMenuIndex != undefined
+				- if (activeMenuIndex == i) liClasses.push("active");
 
 			li(class=liClasses)
 				a(href=item.url, title=item.title, class="#{prefix}-menu__item-link")

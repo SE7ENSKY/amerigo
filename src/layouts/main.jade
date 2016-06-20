@@ -2,7 +2,7 @@ extends root
 
 block root
 	+b.preloader: +i
-	+b("header").header: +i
+	+b("header").header: +i({activeMenuIndex: file.activeMenuIndex})
 	
 	main.main
 		block main
