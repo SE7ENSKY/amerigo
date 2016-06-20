@@ -20,3 +20,8 @@ $ ->
 		normalScrollElements: '.intl-tel-input'
 
 	$(".select7").select7()
+
+	$(document).on 'click', '[data-menuanchor]', (e) ->
+		$this = $ e.currentTarget
+		anchor = $this.data('menuanchor')
+		$.fn.fullpage.moveTo(anchor)

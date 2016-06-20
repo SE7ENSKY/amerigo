@@ -11,9 +11,9 @@ block main
 		+b.visual.section(class=classes data-anchor="welcome" style="background-image: url('#{file.visual.image}');"): +i({ text: file.visual.text, arrowAnchor: "about", arrowColor: file.visual.arrowColor })
 
 	if file.about
-		+b("section").about.section#about(data-anchor="about"): +i({ image: file.about.image, title: file.about.title, text: file.about.text, arrowAnchor: "overview" })
+		+b("section").about.section(data-anchor="about"): +i({ image: file.about.image, title: file.about.title, text: file.about.text, arrowAnchor: "overview" })
 
 	if file.overview
-		+b("section").overview.section.fp-auto-height#overview(data-anchor="overview"): +i({ title: file.overview.title, text: file.overview.text, listTitle: file.overview.listTitle, items: file.overview.list, arrowAnchor: "feedback" })
+		+b("section").overview.section.fp-auto-height(data-anchor="overview"): +i({ title: file.overview.title, text: file.overview.text, listTitle: file.overview.listTitle, items: file.overview.list, arrowAnchor: "feedback" })
 
 
