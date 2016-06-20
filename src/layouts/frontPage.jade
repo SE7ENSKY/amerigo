@@ -2,10 +2,18 @@ extends main
 
 block main
 	h1.sr-only= site.title
-	+b.welcome.section(data-anchor="welcome" style="background-image: url('#{file.welcome.image}');"): +i({ text: file.welcome.text, arrowAnchor: "about" })
+	if file.visual
+		- classes = ""
+		if file.visual.textPosition
+			- classes = "visual_text-" + file.visual.textPosition
+		if file.visual.textColor
+			- classes += " visual_text-" + file.visual.textColor
+		+b.visual.section(class=classes data-anchor="welcome" style="background-image: url('#{file.visual.image}');"): +i({ text: file.visual.text, arrowAnchor: "about", arrowColor: file.visual.arrowColor })
 
-	+b("section").about.section#about(data-anchor="about"): +i({ image: file.about.image, title: file.about.title, text: file.about.text, arrowAnchor: "overview" })
+	if file.about
+		+b("section").about.section#about(data-anchor="about"): +i({ image: file.about.image, title: file.about.title, text: file.about.text, arrowAnchor: "overview" })
 
-	+b("section").overview.section.fp-auto-height#overview(data-anchor="overview"): +i({ title: file.overview.title, text: file.overview.text, listTitle: file.overview.listTitle, items: file.overview.list, arrowAnchor: "feedback" })
+	if file.overview
+		+b("section").overview.section.fp-auto-height#overview(data-anchor="overview"): +i({ title: file.overview.title, text: file.overview.text, listTitle: file.overview.listTitle, items: file.overview.list, arrowAnchor: "feedback" })
 
 

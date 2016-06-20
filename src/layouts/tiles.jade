@@ -2,4 +2,11 @@ extends main
 
 block main
 	if file.visual
-		+b("section").visual.section(data-anchor="visual" style="background-image: url('#{file.visual.image}');"): +i({ text: file.visual.text, arrowAnchor: "#" })
+		+b("section").visual.section(data-anchor="visual" style="background-image: url('#{file.visual.image}');"): +i({ text: file.visual.text, arrowAnchor: "program-baccalaureate" })
+
+	if file.sections
+		each section in file.sections
+			+b("section").info-card.section(data-anchor=section.program): +i({ image: section.image, title: section.title, subTitle: section.subTitle, text: section.text })
+
+
+
