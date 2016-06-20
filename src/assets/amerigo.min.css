@@ -2,9 +2,9 @@
 group-css-media-queries: true
 cssmin: true
 ---
-/*! project.css v1.0.0 | SE7ENSKY frontend studio <hello@se7ensky.com> */
+/*! amerigo.css v1.0.0 | SE7ENSKY frontend studio <hello@se7ensky.com> */
 
-/*= require vendor/fullpage/jquery.fullpage */
+/*= require vendor/fullpage/jquery.fullPage */
 
 /*= require assets/styles/normalize */
 /*= require assets/styles/typo */

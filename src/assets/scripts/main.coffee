@@ -5,12 +5,16 @@ unless 'ontouchstart' in window or window.DocumentTouch and document instanceof 
 		$(@).attr 'href', $(@).attr('href').replace('tel:', 'callto:')
 
 $ ->
-	$('.front-page .main').fullpage
+	$('.front-page, .programm-page').find('.main').fullpage
 		lockAnchors: true
 		responsiveWidth: 768
 		responsiveHeight: 650
-		scrollBar: true
-		fitToSection: false
+		scrollBar: false
+		# fitToSection: false
+		scrollOverflow: true
+		scrollOverflowOptions: {
+			scrollbars: false
+		}
 		normalScrollElements: '.overview, .footer'
 		# navigation: true
 		# navigationPosition: 'right'
