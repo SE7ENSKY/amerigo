@@ -4,4 +4,5 @@
 	+e.content
 		+e("h2").title!= title
 		+e.text!= text
-.section-arrow
+if arrowAnchor
+	a.section-arrow(data-menuanchor=arrowAnchor href="##{arrowAnchor}")

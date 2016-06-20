@@ -12,9 +12,9 @@ $ ->
 		scrollBar: true
 		fitToSection: false
 		normalScrollElements: '.overview, .footer'
-		navigation: true
-		navigationPosition: 'right'
-		anchors: ['welcome', 'about', 'overview']
+		# navigation: true
+		# navigationPosition: 'right'
+		# anchors: ['welcome', 'about', 'overview']
 		normalScrollElements: '.intl-tel-input'
 
 	$(".select7").select7()

@@ -12,4 +12,5 @@
 						+e.list-name!= item.name
 						+e.list-position!= item.position
 						+e.list-text!= item.text
-.section-arrow
+if arrowAnchor
+	a.section-arrow(data-menuanchor=arrowAnchor href="##{arrowAnchor}")
