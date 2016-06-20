@@ -2,4 +2,4 @@ extends main
 
 block main
 	if file.visual
-		+b("section").visual.section(data-anchor="visual" style="background-image: url('#{file.visual.image}');"): +i({ title: file.visual.title })
+		+b("section").visual.section(data-anchor="visual" style="background-image: url('#{file.visual.image}');"): +i({ text: file.visual.text, arrowAnchor: "#" })

@@ -5,7 +5,7 @@ unless 'ontouchstart' in window or window.DocumentTouch and document instanceof 
 		$(@).attr 'href', $(@).attr('href').replace('tel:', 'callto:')
 
 $ ->
-	$('.front-page, .programm-page').find('.main').fullpage
+	$('.front-page, .program-page').find('.main').fullpage
 		lockAnchors: true
 		responsiveWidth: 768
 		responsiveHeight: 650
