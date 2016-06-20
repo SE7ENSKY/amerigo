@@ -14,6 +14,17 @@
       url: "/"
     - title: "University Preparation"
       url: "/"
+- title: "Campus"
+  url: "/campuses.html"
+  children:
+    - title: "Campus 1"
+      url: "/campus.html"
+    - title: "Campus 2"
+      url: "/campus.html"
+    - title: "Campus 3"
+      url: "/campus.html"
+    - title: "Campus 4"
+      url: "/campus.html"
 - title: "Student life"
   url: "/"
   children:

@@ -1,7 +1,18 @@
 extends main
 
 block main
-	if file.title
-		h1.sr-only= file.title
 	if file.visual
-		+b("section").visual.section(data-anchor="visual" style="background-image: url('#{file.visual.image}');"): +i({ title: file.visual.title })
+		- classes = ""
+		if file.visual.textPosition
+			- classes = "visual_text-" + file.visual.textPosition
+		if file.visual.textColor
+			- classes += " visual_text-" + file.visual.textColor
+		+b.visual.section(class=classes data-anchor="welcome" style="background-image: url('#{file.visual.image}');"): +i({ text: file.visual.text, arrowAnchor: "about", arrowColor: file.visual.arrowColor })
+
+	+b("section").campuses.section(data-anchor='campuses')
+		.container
+			+e("h1").title= file.title
+			+e.list
+				each item in campuses
+					+e.item
+						+b.campus: +i(item)
