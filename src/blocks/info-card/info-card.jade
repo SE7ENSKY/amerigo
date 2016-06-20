@@ -1,13 +1,19 @@
 +e.body
 	+e.body-inner
-		+e.header
-			+e("h2").title
-				+e("span").title-label #{titleLabel} /&#32;
-				+e("span").title-main!= title
+		if title
+			+e.header
+				+e("h2").title
+					+e("span").title-label #{titleLabel} /&#32;
+					+e("span").title-main!= title
 		+e.content
-			+e("h3").subtitle!= subTitle
+			if subTitle
+				+e("h3").subtitle!= subTitle
 			+e.text!= text
-		+e.anchor(data-menuanchor=anchorUrl)
-			+e.anchor-label!= anchorLabel
-			+e.anchor-arrow.section-arrow.section-arrow_light
+		if anchorUrl
+			+e.anchor(data-menuanchor=anchorUrl)
+				+e.anchor-label!= anchorLabel
+				- classes = ""
+				if anchorArrowColor
+					- classes = "section-arrow_" + anchorArrowColor
+				+e.anchor-arrow.section-arrow(class=classes)
 +e.image(style="background-image: url('#{image}');")

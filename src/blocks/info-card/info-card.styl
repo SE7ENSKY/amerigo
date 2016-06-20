@@ -30,6 +30,20 @@
 						margin-left auto
 						margin-right 0
 						padding-right 45px
+	&_simple
+		.info-card
+			&__body
+				color #000
+				background-color #fff
+			&__subtitle
+				color brandColor
+			&__anchor
+				font-family garamondPremier
+				color brandColor
+				font-style italic
+				&-label
+					font-size 23px
+					text-transform none
 	&__body
 	&__image
 		width 50%
@@ -37,6 +51,7 @@
 	&__body
 		margin-right auto
 		background-color brandColor
+		color #fff
 		&-inner
 			display table
 			position relative
@@ -51,6 +66,10 @@
 				width ((980 / 2) - 10)px
 			@media tablet
 				width ((760 /2) - 10)px
+		ul
+			margin 15px 0
+			padding 0
+			list-style none
 	&__image
 		position absolute
 		left 0
@@ -72,6 +91,7 @@
 		margin 0
 		font-size 16px
 		letter-spacing 1pt
+		color #000
 		&-label
 			text-transform uppercase
 	&__subtitle
@@ -79,11 +99,9 @@
 		font-family garamondPremier
 		font-size 30px
 		font-style italic
-		color #fff
 	&__text
 		margin-bottom 20px
 		font-size 16px
-		color #fff
 	&__anchor
 		position absolute
 		bottom 0
