@@ -1,0 +1,7 @@
+extends main
+
+block main
+	if file.title
+		h1.sr-only= file.title
+	if file.visual
+		+b("section").visual.section(data-anchor="visual" style="background-image: url('#{file.visual.image}');"): +i({ title: file.visual.title })
