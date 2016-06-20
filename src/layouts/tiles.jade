@@ -1,4 +1,5 @@
 extends main
 
 block main
-	+b("section").visual: +i({ title: file.visual.title, image: file.visual.image })
+	if file.visual
+		+b("section").visual.section(data-anchor="visual" style="background-image: url('#{file.visual.image}');"): +i({ title: file.visual.title })

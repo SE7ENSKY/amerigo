@@ -6,7 +6,7 @@
     - title: "Our Team"
       url: "/"
 - title: "Amerigo program"
-  url: "/"
+  url: "/program.html"
   children:
     - title: "Amerigo Baccalaureate"
       url: "/"
