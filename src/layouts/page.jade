@@ -1,20 +1,6 @@
 extends main
 
 block main
-	if file.visual
-		- classes = ""
-		if file.visual.textPosition
-			- classes = "visual_text-" + file.visual.textPosition
-		if file.visual.textColor
-			- classes += " visual_text-" + file.visual.textColor
-		+b.visual.section(class=classes data-anchor="welcome" style="background-image: url('#{file.visual.image}');"): +i({ text: file.visual.text, arrowAnchor: "about", arrowColor: file.visual.arrowColor })
-		
-	if file.sections
-		each section in file.sections
-			- classes = ""
-			if section.contentPosition
-				- classes = "info-card_text-" + section.contentPosition
-			+b("section").info-card.section(class=classes data-anchor=section.program): +i({ image: section.image, title: section.title, subTitle: section.subTitle, text: section.text, anchorLabel: section.anchorLabel, anchorUrl: section.anchorUrl })
-
+	!= content
 
 
