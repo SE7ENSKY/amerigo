@@ -1,0 +1,10 @@
+extends main
+
+block main
+	if file.visual
+		- classes = ""
+		if file.visual.textPosition
+			- classes = "visual_text-" + file.visual.textPosition
+		if file.visual.textColor
+			- classes += " visual_text-" + file.visual.textColor
+		+b.visual.section(class=classes data-anchor="welcome" style="background-image: url('#{file.visual.image}');"): +i({ text: file.visual.text, arrowAnchor: "about", arrowColor: file.visual.arrowColor })

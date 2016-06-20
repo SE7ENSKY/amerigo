@@ -7,17 +7,15 @@ unless 'ontouchstart' in window or window.DocumentTouch and document instanceof 
 $ ->
 	$('.front-page, .tiles-page, .campuses-page').find('.main').fullpage
 		lockAnchors: true
-		responsiveWidth: 768
+		# responsiveWidth: 768
 		# responsiveHeight: 650
 		scrollBar: false
-		# fitToSection: false
 		scrollOverflow: true
 		scrollOverflowOptions: {
 			scrollbars: false
+			click: false
 		}
 		normalScrollElements: '.overview, .footer'
-		# navigation: true
-		# navigationPosition: 'right'
 		# anchors: ['welcome', 'about', 'overview']
 		normalScrollElements: '.intl-tel-input'
 
