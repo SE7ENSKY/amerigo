@@ -12,5 +12,6 @@ cssmin: true
 /*= require assets/styles/buttons */
 /*= require assets/styles/general */
 /*= require vendor/intl-tel-input/intlTelInput */
+/*= require vendor/fotorama/fotorama */
 /*= require_tree blocks */
 /*= require assets/styles/helpers */
