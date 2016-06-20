@@ -1,8 +1,13 @@
-+e.image(style="background-image: url('#{image}');")
 +e.body
-	+e.header
-		+e("h2").title
-			+e("span").title-label Amerigo Program /
-			+e("span").title-main!= title
-	+e("h3").subtitle!= subTitle
-	+e.text!= text
+	+e.body-inner
+		+e.header
+			+e("h2").title
+				+e("span").title-label Amerigo Program /
+				+e("span").title-main!= title
+		+e.content
+			+e("h3").subtitle!= subTitle
+			+e.text!= text
+		+e.anchor(data-menuanchor=anchorUrl)
+			+e.anchor-label!= anchorLabel
+			+e.anchor-arrow.section-arrow.section-arrow_light
++e.image(style="background-image: url('#{image}');")

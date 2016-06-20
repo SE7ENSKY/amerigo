@@ -6,7 +6,10 @@ block main
 
 	if file.sections
 		each section in file.sections
-			+b("section").info-card.section(data-anchor=section.program): +i({ image: section.image, title: section.title, subTitle: section.subTitle, text: section.text })
+			- classes = ""
+			if section.contentPosition
+				- classes = "info-card_text-" + section.contentPosition
+			+b("section").info-card.section(class=classes data-anchor=section.program): +i({ image: section.image, title: section.title, subTitle: section.subTitle, text: section.text, anchorLabel: section.anchorLabel, anchorUrl: section.anchorUrl })
 
 
 

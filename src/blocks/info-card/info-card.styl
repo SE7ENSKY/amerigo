@@ -1,2 +1,87 @@
 .info-card
-	display block
+	clearfix()
+	&_text
+		&-right
+			.info-card
+				&__header
+					padding-left 45px
+				&__anchor
+					margin-left 45px
+				&__body
+					float right
+					&-inner
+						padding-left 45px
+		&-left
+			.info-card
+				&__image
+					float right
+				&__header
+					padding-right 45px
+				&__anchor
+					margin-right 45px
+				&__body-inner
+					float right
+					padding-right 45px
+	&__body
+	&__image
+		width 50%
+		height 100%
+	&__body
+		float left
+		background-color brandColor
+		&-inner
+			display table
+			position relative
+			height 100%
+			padding-top 150px
+			padding-bottom 100px
+			@media lg
+				width ((1320 / 2) - 10)px
+			@media md
+				width ((1220 / 2) - 10)px
+			@media sm
+				width ((980 / 2) - 10)px
+			@media tablet
+				width ((760 /2) - 10)px
+	&__image
+		float left
+		background-position center center
+		background-repeat no-repeat
+		background-size cover
+	&__header
+		position absolute
+		top 100px
+		left 0
+		right 0
+	&__content
+		display table-cell
+		vertical-align middle
+	&__title
+		margin 0
+		font-size 16px
+		letter-spacing 1pt
+		&-label
+			text-transform uppercase
+	&__subtitle
+		margin 0 0 30px
+		font-family garamondPremier
+		font-size 30px
+		font-style italic
+		color #fff
+	&__text
+		margin-bottom 20px
+		font-size 16px
+		color #fff
+	&__anchor
+		position absolute
+		bottom 0
+		left 0
+		right 0
+		padding-bottom 50px
+		text-align center
+		color #fff
+		cursor pointer
+		&-label
+			font-size 12px
+			text-transform uppercase
+			letter-spacing 1pt
