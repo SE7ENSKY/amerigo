@@ -1,5 +1,9 @@
 .info-card
 	clearfix()
+	position relative
+	.fp-scroller
+		position relative
+		clearfix()
 	&_text
 		&-right
 			.info-card
@@ -8,26 +12,30 @@
 				&__anchor
 					margin-left 45px
 				&__body
-					float right
+					margin-left auto
+					margin-right 0
 					&-inner
 						padding-left 45px
 		&-left
 			.info-card
 				&__image
-					float right
+					right 0
+					left 50%
 				&__header
 					padding-right 45px
 				&__anchor
 					margin-right 45px
-				&__body-inner
-					float right
-					padding-right 45px
+				&__body
+					&-inner
+						margin-left auto
+						margin-right 0
+						padding-right 45px
 	&__body
 	&__image
 		width 50%
 		height 100%
 	&__body
-		float left
+		margin-right auto
 		background-color brandColor
 		&-inner
 			display table
@@ -44,7 +52,11 @@
 			@media tablet
 				width ((760 /2) - 10)px
 	&__image
-		float left
+		position absolute
+		left 0
+		right 50%
+		top 0
+		bottom 0
 		background-position center center
 		background-repeat no-repeat
 		background-size cover
