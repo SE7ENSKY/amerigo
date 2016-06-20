@@ -1,5 +1,7 @@
 .container
 	+e.name= name
-	+e.image(style="background-image: url('#{image}')")
-	+e.title= title
-	+e.text!= text
+	+e.image
+		+e.img(style="background-image: url('#{image}')")
+	+e.body
+		+e.title= title
+		+e.text!= text
