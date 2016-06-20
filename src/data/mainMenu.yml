@@ -14,7 +14,7 @@
       url: "#program-english-language"
     - title: "University Preparation"
       url: "#program-university-preparation"
-- title: "Campus"
+- title: "Campuses"
   url: "/campuses.html"
   children:
     - title: "Campus 1"

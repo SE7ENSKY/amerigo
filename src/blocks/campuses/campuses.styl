@@ -13,4 +13,29 @@
 		width 33.333%
 		padding 0 12px
 		margin-bottom 60px
+	&__join-link
+		background brandColor
+		color white !important
+		font-size 12px
+		font-family nobel
+		height 40px
+		display block
+		clear both
+		text-transform uppercase
+		text-align center
+		box-shadow 700px 0 0 0.01px brandColor, -700px 0 0 0.01px brandColor
+		cursor pointer
+		transform translateY(-20px)
+		margin-bottom 20px
+		padding 10px 0
+		font-weight 600
+		&:hover
+			&:after
+				margin-left 10px
+		&:after
+			content ' >'
+			transition margin .1s ease-in-out
+			margin-left 5px
+			position absolute
+			font-size 1.2em
 		

@@ -13,6 +13,9 @@ block main
 		.container
 			+e("h1").title= file.title
 			+e.list
-				each item in campuses
+				each item, n in campuses
 					+e.item
 						+b.campus: +i(item)
+					if n == 2
+						+e("a").join-link(data-menuanchor='feedback')!= tr('Become an EDUCATIONAL partner')
+

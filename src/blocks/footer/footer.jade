@@ -1,15 +1,14 @@
 .container
 	+e.inner
 		+e("ul").menu
-			each item, i in mainMenu
-				if i < 3
-					+e("li").menu-item
-						+e("a").menu-link(href=item.url)= item.title
-						if item.children
-							+e("ul").menu-sub
-								each subItem in item.children
-									+e("li").menu-sub-item
-										+e("a").menu-sub-link(href=subItem.url)= subItem.title
+			each item, i in footerMenu
+				+e("li").menu-item
+					+e("a").menu-link(href=item.url)= item.title
+					if item.children
+						+e("ul").menu-sub
+							each subItem in item.children
+								+e("li").menu-sub-item
+									+e("a").menu-sub-link(href=subItem.url)= subItem.title
 		+e.section
 			+e.section-title Contact us
 			+e.address 401 North Michigan Av,
