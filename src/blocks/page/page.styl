@@ -6,12 +6,20 @@
 			&__sidebar
 				float left
 				width 45%
+				@media phone
+					float none
+					width auto
+					margin-bottom 50px
 			&__content
 				float left
 				width 55%
 				padding-left 80px
 				@media tablet
 					padding-left 60px
+				@media phone
+					float none
+					width auto
+					padding-left 0
 				a
 					text-decoration none
 					&:hover
