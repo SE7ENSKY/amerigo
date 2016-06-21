@@ -31,8 +31,8 @@
 				color brandColor
 	&__body
 	&__image
-		width 50%
-		height 100%
+		@media desktop
+			width 50%
 	&__body
 		margin-right auto
 		background-color brandColor
@@ -45,19 +45,26 @@
 			padding-bottom 50px
 			@media desktop
 				width ((980 / 2) - 10)px
+			@media tablet
+				width 760px
+				margin 0 auto !important
+				padding 50px 10px !important
 		ul
 			margin 15px 0
 			padding 0
 			list-style none
 	&__image
-		position absolute
-		left 0
-		right 50%
-		top 0
-		bottom 0
 		background-position center center
 		background-repeat no-repeat
 		background-size cover
+		@media desktop
+			position absolute
+			left 0
+			right 50%
+			top 0
+			bottom 0
+		@media tablet
+			height 400px
 	&__header
 		margin-bottom 50px
 	&__title
@@ -77,7 +84,7 @@
 		font-size 16px
 	&__anchor
 		position relative
-		padding-bottom 40px
+		padding-bottom 30px
 		font-family garamondPremier
 		color brandColor
 		font-style italic
@@ -85,3 +92,5 @@
 		&-label
 			font-size 23px
 			text-transform none
+		.section-arrow
+			bottom 0
