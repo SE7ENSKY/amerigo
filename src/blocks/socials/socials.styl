@@ -1,8 +1,8 @@
 .socials
-	clearfix()
 	&__item
-		float left
-		margin-right 10px
+		display inline-block
+		vertical-align top
+		margin-right 7px
 		width 20px
 		height 20px
 		background-color #939598
@@ -12,6 +12,10 @@
 		background-image url('i/socials.svg')
 		background-repeat no-repeat
 		background-size 80px 20px
+		@media phone
+			width 40px
+			height 40px
+			background-size 160px 40px
 		&:last-child
 			margin-right 0
 		&:hover
@@ -20,7 +24,13 @@
 			background-position 0 0
 		&_twitter
 			background-position -20px 0
+			@media phone
+				background-position -40px 0
 		&_linkedin
 			background-position -40px 0
+			@media phone
+				background-position -80px 0
 		&_instagram
 			background-position -60px 0
+			@media phone
+				background-position -120px 0

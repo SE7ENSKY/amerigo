@@ -38,9 +38,7 @@
 		background-color brandColor
 		color #fff
 		&-inner
-			display table
 			position relative
-			height 100%
 			padding-top 50px
 			padding-bottom 50px
 			@media desktop
@@ -49,6 +47,8 @@
 				width 760px
 				margin 0 auto !important
 				padding 50px 10px !important
+			@media phone
+				padding 30px 10px !important
 		ul
 			margin 15px 0
 			padding 0
@@ -65,8 +65,12 @@
 			bottom 0
 		@media tablet
 			height 400px
+		@media phone
+			height 300px
 	&__header
 		margin-bottom 50px
+		@media phone
+			margin-bottom 30px
 	&__title
 		margin 0
 		font-size 16px

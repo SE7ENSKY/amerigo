@@ -11,14 +11,7 @@
 									+e("a").menu-sub-link(href=subItem.url)= subItem.title
 		+e.section
 			+e.section-title Contact us
-			+e.address 401 North Michigan Av,
-				br
-				| Suite 3300
-				br
-				| Chicago, IL 60611
-				br
-				| T&#32;
-				a(href="callto:#{site.phone.value}")= site.phone.title
+			+e.address!= site.address
 			+b.socials.__socials: +i({ items: site.socials })
 		+e.section
 			+e.section-title Language
