@@ -11,6 +11,8 @@
 .row
 	clearfix()
 	margin 0 -15px
+	@media phone
+		margin 0 -10px
 
 for item in 1..12
 	.col-{item}
@@ -25,6 +27,7 @@ for item in 1..12
 	@media phone
 		float none
 		width auto
+		padding 0 10px
 
 .fade
 	opacity 0
