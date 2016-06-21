@@ -1,0 +1,38 @@
+.gallery
+	.fotorama
+		&__nav
+			&-wrap
+				height 0
+			overflow inherit
+			&__shaft
+				top -25px
+			&__frame
+				width 28px
+				height 4px
+				margin 8px
+				.fotorama__dot
+					top 0
+					left 0
+					width 28px
+					height 4px
+					border 1px solid brandColor
+					border-radius 0
+					background-color inherit
+					transition .3s background-color
+				&.fotorama__active
+					background-color brandColor
+		&__arr
+			&--prev,
+			&--next
+				width 13px
+				height 26px
+				background url('../assets/i/arrows.svg')
+			&--next
+				right 30px
+				background-position center right
+				&:hover
+					transform translateX(5px)
+			&--prev
+				left 30px
+				&:hover
+					transform translateX(-5px)

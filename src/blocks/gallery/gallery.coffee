@@ -9,3 +9,4 @@ $ ->
 		fit: 'cover'
 		navposition: 'bottom'
 		loop: true
+		arrows: 'always'
