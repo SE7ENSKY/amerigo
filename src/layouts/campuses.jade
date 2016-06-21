@@ -13,7 +13,7 @@ block main
 		.container
 			+e("h1").title= file.title
 			+e.list
-				each itemin campuses
+				each item in campuses
 					+e.item
 						+b.campus: +i(item)
 			//- +e("a").join-link(href="/contacts.html")!= tr('Become an EDUCATIONAL partner')
