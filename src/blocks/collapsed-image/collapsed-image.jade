@@ -2,7 +2,3 @@
 .container
 	+e.title!= title
 	+e.text!= text
-	if arrowAnchor
-		if arrowColor
-			- classes = "section-arrow_" + arrowColor
-		.section-arrow(class=classes, data-menuanchor=arrowAnchor)

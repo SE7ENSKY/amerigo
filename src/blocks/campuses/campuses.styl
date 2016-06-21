@@ -1,4 +1,6 @@
 .campuses
+	.container
+		padding-bottom 0
 	&__title
 		color brandColor
 		text-transform uppercase
@@ -14,28 +16,30 @@
 		padding 0 12px
 		margin-bottom 60px
 	&__join-link
-		background brandColor
-		color white !important
-		font-size 12px
-		font-family nobel
-		height 40px
 		display block
 		clear both
-		text-transform uppercase
-		text-align center
-		box-shadow 700px 0 0 0.01px brandColor, -700px 0 0 0.01px brandColor
-		cursor pointer
-		transform translateY(-20px)
+		height 40px
 		margin-bottom 20px
 		padding 10px 0
+		background brandColor
+		font-family nobel
+		font-size 12px
 		font-weight 600
+		color white !important
+		text-transform uppercase
+		text-decoration none
+		text-align center
+		box-shadow 700px 0 0 0.01px brandColor, -700px 0 0 0.01px brandColor
+		transform translateY(-20px)
+		cursor pointer
 		&:hover
 			&:after
-				margin-left 10px
+				transform translateX(5px)
 		&:after
-			content ' >'
-			transition margin .1s ease-in-out
-			margin-left 5px
-			position absolute
-			font-size 1.2em
-		
+			content '>'
+			display inline-block
+			vertical-align middle
+			font-size 14px
+			line-height 1
+			margin -2px 0 0 5px
+			transition .1s transform ease-in-out
