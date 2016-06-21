@@ -7,29 +7,21 @@
 	&_text
 		&-right
 			.info-card
-				&__header
-					padding-left 45px
-				&__anchor
-					margin-left 45px
 				&__body
 					margin-left auto
 					margin-right 0
 					&-inner
-						padding-left 45px
+						padding-left 50px
 		&-left
 			.info-card
 				&__image
 					right 0
 					left 50%
-				&__header
-					padding-right 45px
-				&__anchor
-					margin-right 45px
 				&__body
 					&-inner
 						margin-left auto
 						margin-right 0
-						padding-right 45px
+						padding-right 50px
 	&_simple
 		.info-card
 			&__body
@@ -37,13 +29,6 @@
 				background-color #fff
 			&__subtitle
 				color brandColor
-			&__anchor
-				font-family garamondPremier
-				color brandColor
-				font-style italic
-				&-label
-					font-size 23px
-					text-transform none
 	&__body
 	&__image
 		width 50%
@@ -56,8 +41,8 @@
 			display table
 			position relative
 			height 100%
-			padding-top 150px
-			padding-bottom 100px
+			padding-top 50px
+			padding-bottom 50px
 			@media lg
 				width ((1320 / 2) - 10)px
 			@media md
@@ -80,13 +65,7 @@
 		background-repeat no-repeat
 		background-size cover
 	&__header
-		position absolute
-		top 100px
-		left 0
-		right 0
-	&__content
-		display table-cell
-		vertical-align middle
+		margin-bottom 50px
 	&__title
 		margin 0
 		font-size 16px
@@ -103,15 +82,12 @@
 		margin-bottom 20px
 		font-size 16px
 	&__anchor
-		position absolute
-		bottom 0
-		left 0
-		right 0
-		padding-bottom 50px
+		position relative
+		padding-bottom 40px
+		font-family garamondPremier
+		color brandColor
+		font-style italic
 		text-align center
-		color #fff
-		cursor pointer
 		&-label
-			font-size 12px
-			text-transform uppercase
-			letter-spacing 1pt
+			font-size 23px
+			text-transform none

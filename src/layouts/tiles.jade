@@ -14,7 +14,7 @@ block main
 			- classes = ""
 			if section.contentPosition
 				- classes = "info-card_text-" + section.contentPosition
-			+b("section").info-card.section(class=classes data-anchor=section.program): +i({ image: section.image, title: section.title, titleLabel: section.titleLabel, subTitle: section.subTitle, text: section.text, anchorLabel: section.anchorLabel, anchorUrl: section.anchorUrl, anchorArrowColor: section.anchorArrowColor })
+			+b("section").info-card.section.fp-auto-height(class=classes data-anchor=section.program): +i({ image: section.image, title: section.title, titleLabel: section.titleLabel, subTitle: section.subTitle, text: section.text, anchorLabel: section.anchorLabel, anchorUrl: section.anchorUrl, anchorArrowColor: section.anchorArrowColor })
 
 
 

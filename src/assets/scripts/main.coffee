@@ -5,8 +5,6 @@ unless 'ontouchstart' in window or window.DocumentTouch and document instanceof 
 		$(@).attr 'href', $(@).attr('href').replace('tel:', 'callto:')
 
 $ ->
-
-
 	$(window).load ->
 		window.loaded = true
 		
@@ -14,15 +12,9 @@ $ ->
 		lockAnchors: true
 		# responsiveWidth: 768
 		# responsiveHeight: 650
-		scrollBar: false
-		scrollOverflow: true
-		scrollOverflowOptions: {
-			scrollbars: false
-			click: false
-		}
-		normalScrollElements: '.overview, .footer'
-		# anchors: ['welcome', 'about', 'overview']
-		normalScrollElements: '.intl-tel-input'
+		autoScrolling: false
+		scrollOverflow: false
+		fitToSection: false
 
 	$(".select7").select7()
 
