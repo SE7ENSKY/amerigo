@@ -5,6 +5,9 @@
 		color brandColor
 		@media tablet
 			font-size 24px
+		@media  phone
+			padding-left 30px
+			font-size 24px
 	&__text
 		width 80%
 		margin-bottom 75px
@@ -13,6 +16,9 @@
 		line-height 1.4
 		@media tablet
 			font-size 24px
+		@media  phone
+			padding-left 30px
+			font-size 16px
 	&__subtitle
 		margin-bottom 80px
 		font-family mainFont
@@ -22,12 +28,18 @@
 		@media tablet
 			margin 0 0 40px 0
 			font-size 32px
+		@media phone
+			padding-left 20px
+			margin 0 0 20px 0
+			font-size 20px
 	&__list
 		&-item
 			clearfix()
 			margin-bottom 70px
 			@media tablet
 				margin 0 0 50px 0
+			@media phone
+				margin 0 0 35px 0
 			&:last-child
 				margin-bottom 30px
 			&:nth-child(odd)
@@ -35,9 +47,19 @@
 					&-image
 						float left
 						margin-right 20px
+						@media phone
+							float none
+							margin 0 auto 25px
 					&-content
 						@media desktop
 							padding-right 10%
+						@media phone
+							padding 0 10px
+							text-align center
+					&-text
+						@media phone
+							padding-left 30px
+							text-align left
 
 			&:nth-child(even)
 				text-align right
@@ -45,15 +67,29 @@
 					&-image
 						float right
 						margin-left 20px
+						@media phone
+							float none
+							margin 0 auto 25px
 					&-content
 						@media desktop
 							padding-left 10%
+						@media phone
+							padding 0 10px
+							text-align center
+					&-text
+						@media phone
+							padding-left 30px
+							text-align left
 		&-image
 			width 140px
 			height 190px
 			@media tablet
 				width 180px
 				height 230px
+			@media phone
+				float none
+				width 60%
+				height auto
 			img
 				max-width 100%
 		&-content
@@ -66,6 +102,8 @@
 			color brandColor
 			@media tablet
 				font-size 24px
+			@media phone
+				font-size 18px
 		&-position
 			margin-bottom 5px
 			font-family garamondPro

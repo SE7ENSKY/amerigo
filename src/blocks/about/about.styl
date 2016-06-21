@@ -1,11 +1,21 @@
 .about
 	&__image
-		float left
-		width 40%
+		overflow hidden
 		img
 			width 100%
+		@media phone
+			width 60%
+			margin auto
 	&__content
-		overflow hidden
+		float right
+		width 60%
 		padding-left 30px
+		@media phone
+			float none
+			width 100%
+			margin 0 0 90px 0
 	&__title
 		font-size 32px
+		@media phone
+			font-size 36px
+			margin 0 0 35px 0
