@@ -32,6 +32,16 @@
 			padding-left 20px
 			margin 0 0 20px 0
 			font-size 20px
+	&__toggle
+		text-transform uppercase
+		color brandColor
+		@media desktop
+			display none
+		@media tablet
+			display none
+		@media phone
+			&.active
+				display block !important
 	&__list
 		&-item
 			clearfix()
@@ -58,6 +68,7 @@
 							text-align center
 					&-text
 						@media phone
+							display none
 							padding-left 30px
 							text-align left
 
@@ -78,6 +89,7 @@
 							text-align center
 					&-text
 						@media phone
+							display none
 							padding-left 30px
 							text-align left
 		&-image

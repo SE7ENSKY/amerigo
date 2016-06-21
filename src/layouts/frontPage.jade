@@ -14,6 +14,6 @@ block main
 		+b("section").about.section.fp-auto-height(data-anchor="about"): +i({ image: file.about.image, title: file.about.title, text: file.about.text })
 
 	if file.overview
-		+b("section").overview.section.fp-auto-height(data-anchor="overview"): +i({ title: file.overview.title, text: file.overview.text, listTitle: file.overview.listTitle, items: file.overview.list })
+		+b("section").overview.section.fp-auto-height(data-anchor="overview"): +i({toggle: file.overview.toggle, title: file.overview.title, text: file.overview.text, listTitle: file.overview.listTitle, items: file.overview.list })
 
 
