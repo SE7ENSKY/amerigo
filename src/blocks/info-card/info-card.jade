@@ -16,4 +16,7 @@
 				if anchorArrowColor
 					- classes = "section-arrow_" + anchorArrowColor
 				+e.anchor-arrow.section-arrow(class=classes)
-+e.image(style="background-image: url('#{image}');")
+- classes = ""
+if imageClass
+	- classes = imageClass
++e.image(style="background-image: url('#{image}');" class=classes)

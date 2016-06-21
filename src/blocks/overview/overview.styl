@@ -20,7 +20,7 @@
 		font-weight 100
 		text-transform uppercase
 		@media tablet
-			margin 0 0 20px 0
+			margin 0 0 40px 0
 			font-size 32px
 	&__list
 		&-item
@@ -36,7 +36,9 @@
 						float left
 						margin-right 20px
 					&-content
-						padding-right 10%
+						@media desktop
+							padding-right 10%
+
 			&:nth-child(even)
 				text-align right
 				.overview__list
@@ -44,10 +46,14 @@
 						float right
 						margin-left 20px
 					&-content
-						padding-left 10%
+						@media desktop
+							padding-left 10%
 		&-image
 			width 140px
 			height 190px
+			@media tablet
+				width 180px
+				height 230px
 			img
 				max-width 100%
 		&-content

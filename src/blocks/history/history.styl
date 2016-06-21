@@ -1,20 +1,22 @@
 .history
 	position relative
 	&__image
-		position absolute
-		top 40px
+		float right
+		margin -80px -80px 0 0
 		width 460px
-		right 0
-	&__img
-		padding-bottom 66.6%
+		height 300px
 		background-position center
 		background-size cover
-	
+		@media tablet
+			width 360px
+			height 250px
+			margin -40px 0 0 0
+
 	&__name
 	&__body
 		padding-left 50px
 		padding-right 50px
-		
+
 
 	&__name
 		font-family nobel
@@ -42,5 +44,5 @@
 		letter-spacing -0.03em
 		p
 			margin-bottom 7px
-		
-		
+
+
