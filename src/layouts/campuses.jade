@@ -13,9 +13,8 @@ block main
 		.container
 			+e("h1").title= file.title
 			+e.list
-				each item, n in campuses
+				each itemin campuses
 					+e.item
 						+b.campus: +i(item)
-					if n == 2
-						+e("a").join-link(href="/contacts.html")!= tr('Become an EDUCATIONAL partner')
+			//- +e("a").join-link(href="/contacts.html")!= tr('Become an EDUCATIONAL partner')
 
