@@ -10,8 +10,4 @@ block main
 					p!= file.blockquote.text
 					cite!= file.blockquote.cite
 			+e.content
-				if file.sections
-					each item in file.sections
-						+e("section").section
-							+e("h2").section-title!= item.title
-							!= item.text
+				!= content
