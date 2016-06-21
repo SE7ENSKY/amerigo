@@ -11,13 +11,13 @@ $ ->
 		keyupTimeout = setTimeout (->
 			if not $input.intlTelInput('isValidNumber')
 				if $input.val().length is 0
-					$input.removeClass 'content-form__erorr-input'
+					$input.removeClass 'erorr-input'
 
 				else
-					$input.addClass 'content-form__erorr-input'
+					$input.addClass 'erorr-input'
 
 			else
-				$input.removeClass 'content-form__erorr-input'
+				$input.removeClass 'erorr-input'
 
 			clearTimeout(keyupTimeout)
 		), 2000
@@ -25,19 +25,19 @@ $ ->
 	$input.on 'blur', ->
 		if not $input.intlTelInput('isValidNumber')
 			if $input.val().length is 0
-				$input.removeClass 'content-form__erorr-input'
+				$input.removeClass 'erorr-input'
 				$error.fadeOut()
 				clearTimeout(keyupTimeout)
 			else
-				$input.addClass 'content-form__erorr-input'
+				$input.addClass 'erorr-input'
 
 				clearTimeout(keyupTimeout)
 		else
-			$input.removeClass 'content-form__erorr-input'
+			$input.removeClass 'erorr-input'
 
 		clearTimeout(keyupTimeout)
 
 	$input.on 'keydown focus', ->
-		$input.removeClass 'content-form__erorr-input'
+		$input.removeClass 'erorr-input'
 
 		clearTimeout(keyupTimeout)
