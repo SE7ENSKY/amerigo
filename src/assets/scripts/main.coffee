@@ -4,7 +4,21 @@ unless 'ontouchstart' in window or window.DocumentTouch and document instanceof 
 	$("a[href^='tel:']").each ->
 		$(@).attr 'href', $(@).attr('href').replace('tel:', 'callto:')
 
+window.debounce = debounce = (fn, delay) ->
+	timer = null
+	->
+		context = this
+		args = arguments
+		clearTimeout timer
+		timer = setTimeout(->
+			fn.apply context, args
+		, delay)
+
 $ ->
+	$window = $(window)
+	$window.on 'resize', debounce($window.trigger.bind($window, 'resize-debounce'), 200)
+	# $window.on 'scroll', debounce($window.trigger.bind($window, 'scroll-debounce'), 200)
+
 	$(window).load ->
 		window.loaded = true
 		
@@ -25,3 +39,7 @@ $ ->
 
 	fixFooterFn = ->
 		$(".root").css paddingBottom: "#{$(".footer").outerHeight()}px"
+
+	fixFooterFn()
+	$(window).on 'resize-debounce', ->
+		fixFooterFn()
