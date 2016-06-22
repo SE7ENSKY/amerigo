@@ -16,10 +16,6 @@
 		+e.section
 			+e.section-title Language
 			+e("ul").language
-				+e("li").language-item
-					+e("a").language-link(href="/") English
-				+e("li").language-item
-					+e("a").language-link(href="/") Vietnamese
-				+e("li").language-item
-					+e("a").language-link(href="/") Chinese
-
+				each item, i in langs
+					+e("li").language-item
+						+e("a").language-link(href=item.url)= item.title

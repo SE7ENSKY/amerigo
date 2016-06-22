@@ -15,18 +15,27 @@
 		width 124px
 		height 60%
 		max-height 1500px
+		@media phone
+			height 40%
 	&__logo
 		position absolute
+		z-index 2
 		top 60%
 		left 50%
 		width 318px
 		margin-top 80px
 		margin-left -(@width / 2)
+		@media phone
+			top 40%
+			width 300px
+			margin-left -150px
 		&-main
 			display block
 			margin 0 auto
 			width 318px
 			height 23px
+			@media phone
+				width 300px
 		&-text
 			display block
 			margin 30px auto 0
