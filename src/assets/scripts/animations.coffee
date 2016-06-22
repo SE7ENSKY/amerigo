@@ -42,6 +42,18 @@ initAnimation = ->
 	scene '.overview__subtitle', new TimelineMax()
 		.fromTo('.overview__subtitle', 1, {autoAlpha: 0, y: 20}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0)
 
+	$('.overview__list-item').each ->
+		$item = $(@)
+		$image = $item.find('.overview__list-image')
+		$name = $item.find('.overview__list-name')
+		$position = $item.find('.overview__list-position')
+		$text = $item.find('.overview__list-text')
+		scene @, new TimelineMax()
+			.fromTo($image, 1, {autoAlpha: 0, y: -20}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0)
+			.fromTo($name, 1, {autoAlpha: 0, y: 10}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0)
+			.fromTo($position, 1, {autoAlpha: 0, y: 10}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.1)
+			.fromTo($text, 1, {autoAlpha: 0, y: 10}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
+
 	scene '.feedback button[type="submit"]', new TimelineMax()
 		.fromTo('.feedback__stamp', .2, {autoAlpha: 0, scale: 2}, {autoAlpha: 1, scale: 1, ease: Power2.easeIn})
 
@@ -64,10 +76,8 @@ initAnimation = ->
 
 	$('.campus').each ->
 		$item = $(@)
-
 		scene @, new TimelineMax()
-			.fromTo($(@), 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.1)
-
+			.fromTo(@, 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.1)
 
 	scene '.page-content', new TimelineMax()
 		.fromTo('.page-content', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
@@ -76,13 +86,11 @@ initAnimation = ->
 		.fromTo('.history__title', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
 		.fromTo('.history__text', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
 		.fromTo('.history__image', 1, {autoAlpha: 0, x: 50}, {autoAlpha: 1, x: 0, ease: Power2.easeOut}, 0.2)
+
 	scene '.page_contacts', new TimelineMax()
 		.fromTo('.page_contacts.page__sidebar', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
 		.fromTo('.page_contacts.page__content', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
 	, 0, 0, 1
-
-
-	##
 
 $ ->
 	initAnimation() if window.innerWidth >= 768 and !Modernizr?.touchevents

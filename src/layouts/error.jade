@@ -1,0 +1,11 @@
+extends main
+
+block main
+	+b.page
+		.container
+			+b.error-box
+				if file.title
+					+e("h1").title!= file.contentTitle
+					+e.subtitle!= file.contentSubtitle
+					a(href=site.url) Go to homepage
+
