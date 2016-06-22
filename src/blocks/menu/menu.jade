@@ -7,9 +7,6 @@ mixin menu(prefix, items, addUlClasses, addLiClasses)
 			- liClasses = [ prefix + "-menu__item" ]
 			- if (!!item.children) liClasses.push(prefix + "-menu__item-has_sub");
 			- if (!!addLiClasses) liClasses.push(addLiClasses);
-			- if (item.active) liClasses.push("active");
-			if activeMenuIndex != undefined
-				- if (activeMenuIndex == i) liClasses.push("active");
 
 			li(class=liClasses)
 				a(href=item.url, title=item.title, class="#{prefix}-menu__item-link")
@@ -17,8 +14,6 @@ mixin menu(prefix, items, addUlClasses, addLiClasses)
 					if item.badge
 						span.badge= item.badge
 				if item.children
-					div(class="#{prefix + '-sub-wrap'}")
-						.container
-							+menu(prefix + "-sub", item.children)
+					+menu(prefix + "-sub", item.children)
 h2.sr-only Main menu
 +menu(prefix, items, addUlClasses, addLiClasses)

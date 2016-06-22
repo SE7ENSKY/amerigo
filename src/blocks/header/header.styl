@@ -9,6 +9,17 @@
 	@media phone
 		position fixed
 		height 55px
+	&:before
+		content ''
+		display none
+		position absolute
+		top 100%
+		left 0
+		right 0
+		height 30px
+		background-color greyColor
+	&.active:before
+		display block
 	&__logo
 		position absolute
 		top 0
@@ -24,5 +35,49 @@
 		margin-top 18px
 		@media phone_tablet
 			display none
-	.container
+	>.container
 		position static
+	.mobile-menu
+		position fixed
+		top 10px
+		right 15px
+		display none
+		@media phone_tablet
+			display block
+		&__block
+			width 60px
+			height 45px
+			position relative
+			transform rotate(0deg)
+			transition 0.5s ease-in-out
+			cursor pointer
+			&.active
+				.mobile-menu__line:nth-child(1)
+					top 18px
+					width 0
+					left 50%
+				.mobile-menu__line:nth-child(2)
+					transform rotate(45deg)
+				.mobile-menu__line:nth-child(3)
+					transform rotate(-45deg)
+				.mobile-menu__line:nth-child(4)
+					top 18px
+					width 0
+					left 50%
+		&__line
+			display block
+			position absolute
+			height 9px
+			width 100%
+			background red
+			opacity 1
+			left 0
+			transform rotate(0deg)
+			transition 0.25s ease-in-out
+			&:nth-child(1)
+				top 0
+			&:nth-child(2)
+			&:nth-child(3)
+				top 18px
+			&:nth-child(4)
+				top 36px

@@ -2,11 +2,20 @@
 	margin 0
 	padding 0
 	list-style none
+	position relative
+	@media phone_tablet
+		display none
 	&__item
+		position relative
 		float left
-		padding-right 18px
+		margin-right 18px
+		&.active
+			> .main-sub-menu
+				display block
+			> .main-sub-menu__item-link
+				color brandColor
 		&:last-child
-			padding-right 0
+			margin-right 0
 		&-link
 			display block
 			position relative
@@ -25,7 +34,6 @@
 				transform scaleY(1)
 		&.active &-link
 			color brandColor
-
 		&-has_sub
 			&.active
 			&:hover
@@ -45,29 +53,19 @@
 					opacity 0
 					transition .2s opacity ease-in-out
 					z-index 20
-		&:nth-child(1) .main-sub-menu
-			padding-right 300px
-		&:nth-child(2) .main-sub-menu
-			padding-right 110px
-		&:nth-child(3) .main-sub-menu
-			padding-right 50px
 	.main-sub
-		&-wrap
-			position absolute
-			z-index 1
-			top 100%
-			left 0
-			right 0
-			height 30px
-			background-color greyColor
-			transform scaleY(0)
-			transform-origin center top
-			transition .2s transform ease-in-out, .2s opacity ease-in-out
 		&-menu
-			margin 0 -10px
 			padding 0
 			list-style none
-			text-align right
+			left 50%
+			text-align center
+			transform translateX(-50%)
+			font-size 0
+			display none
+			position absolute
+			top 100%
+			white-space nowrap
+			z-index 2
 			&__item
 				display inline-block
 				vertical-align top
