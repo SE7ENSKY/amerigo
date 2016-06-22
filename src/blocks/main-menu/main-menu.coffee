@@ -1,4 +1,5 @@
 $ ->
+  $body = $('body')
   $header = $('.header')
   $menu = $('.header__menu')
   $mobileMenu = $('.mobile-menu')
@@ -52,12 +53,15 @@ $ ->
   $mobileMenu.on 'click', ->
     $mobileMenu.find('.mobile-menu__block').toggleClass('active')
     if $mobileSubmenu.toggleClass('active').hasClass('active')
+      $body.css("overflow", "hidden")
       $mobileSubmenu.animation.play()
     else
+      $body.css("overflow", "visible")
       $mobileSubmenu.animation.reverse()
 
   $(window).on 'resize', ->
     if window.innerWidth > 999 and $mobileSubmenu.hasClass('active')
       $mobileMenu.find('.mobile-menu__block').removeClass('active')
       $mobileSubmenu.removeClass('active')
+      $body.css("overflow", "visible")
       $mobileSubmenu.animation.reverse()
