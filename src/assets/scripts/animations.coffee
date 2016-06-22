@@ -39,53 +39,24 @@ initAnimation = ->
 		.fromTo('.overview__title', 1, {autoAlpha: 0, y: 20}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0)
 		.fromTo('.overview__text', 1, {autoAlpha: 0, y: 40}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
 
-	scene '.feedback', new TimelineMax()
-		.fromTo('.feedback__stamp', 1, {autoAlpha: 0, scale: 2}, {autoAlpha: 1, scale: 1, ease: Power2.easeOut}, 0.8)
+	scene '.feedback button[type="submit"]', new TimelineMax()
+		.fromTo('.feedback__stamp', .2, {autoAlpha: 0, scale: 2}, {autoAlpha: 1, scale: 1, ease: Power2.easeIn})
 
-	scene '.info-card[data-anchor="program-baccalaureate"]', new TimelineMax()
-		.fromTo('.info-card[data-anchor="program-baccalaureate"] .info-card__text', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
-		.fromTo('.info-card[data-anchor="program-baccalaureate"] .info-card__subtitle', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
-		.fromTo('.info-card[data-anchor="program-baccalaureate"] .info-card__image', 1, {autoAlpha: 0, x: -50}, {autoAlpha: 1, x: 0, ease: Power2.easeOut}, 0.2)
+	$('.info-card').each ->
+		$item = $(@)
+		$image = $item.find('.info-card__image')
+		$title = $item.find('.info-card__title')
+		$subtitle = $item.find('.info-card__subtitle')
+		$text = $item.find('.info-card__text')
 
+		scene @, new TimelineMax()
+			.fromTo($image, 1, {autoAlpha: 0, y: -50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.1)
+			.fromTo($title, 1, {autoAlpha: 0, y: 20}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0)
+			.fromTo($subtitle, 1, {autoAlpha: 0, y: 30}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
+			.fromTo($text, 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.4)
 
-	scene '.info-card[data-anchor="program-english-language"]', new TimelineMax()
-		.fromTo('.info-card[data-anchor="program-english-language"] .info-card__text', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
-		.fromTo('.info-card[data-anchor="program-english-language"] .info-card__subtitle', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
-		.fromTo('.info-card[data-anchor="program-english-language"] .info-card__image', 1, {autoAlpha: 0, x: 50}, {autoAlpha: 1, x: 0, ease: Power2.easeOut}, 0.2)
-
-
-	scene '.info-card[data-anchor="program-university-preparation"]', new TimelineMax()
-		.fromTo('.info-card[data-anchor="program-university-preparation"] .info-card__text', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
-		.fromTo('.info-card[data-anchor="program-university-preparation"] .info-card__subtitle', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
-		.fromTo('.info-card[data-anchor="program-university-preparation"] .info-card__image', 1, {autoAlpha: 0, x: -50}, {autoAlpha: 1, x: 0, ease: Power2.easeOut}, 0.2)
-
-	scene '.info-card[data-anchor="residential-life"]', new TimelineMax()
-		.fromTo('.info-card[data-anchor="residential-life"] .info-card__text', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
-		.fromTo('.info-card[data-anchor="residential-life"] .info-card__subtitle', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
-		.fromTo('.info-card[data-anchor="residential-life"] .info-card__image', 1, {autoAlpha: 0, x: -50}, {autoAlpha: 1, x: 0, ease: Power2.easeOut}, 0.2)
-
-	scene '.info-card[data-anchor="cultural-immersion"]', new TimelineMax()
-		.fromTo('.info-card[data-anchor="cultural-immersion"] .info-card__text', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
-		.fromTo('.info-card[data-anchor="cultural-immersion"] .info-card__subtitle', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
-		.fromTo('.info-card[data-anchor="cultural-immersion"] .info-card__image', 1, {autoAlpha: 0, x: 50}, {autoAlpha: 1, x: 0, ease: Power2.easeOut}, 0.2)
-
-	scene '.info-card[data-anchor="technology"]', new TimelineMax()
-		.fromTo('.info-card[data-anchor="technology"] .info-card__text', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
-		.fromTo('.info-card[data-anchor="technology"] .info-card__subtitle', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
-		.fromTo('.info-card[data-anchor="technology"] .info-card__image', 1, {autoAlpha: 0, x: -50}, {autoAlpha: 1, x: 0, ease: Power2.easeOut}, 0.2)
-
-	scene '.info-card[data-anchor="activities"]', new TimelineMax()
-		.fromTo('.info-card[data-anchor="activities"] .info-card__text', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
-		.fromTo('.info-card[data-anchor="activities"] .info-card__subtitle', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
-		.fromTo('.info-card[data-anchor="activities"] .info-card__image', 1, {autoAlpha: 0, x: 50}, {autoAlpha: 1, x: 0, ease: Power2.easeOut}, 0.2)
-
-	scene '.info-card[data-anchor="campus-tours-travel"]', new TimelineMax()
-		.fromTo('.info-card[data-anchor="campus-tours-travel"] .info-card__text', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
-		.fromTo('.info-card[data-anchor="campus-tours-travel"] .info-card__subtitle', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
-		.fromTo('.info-card[data-anchor="campus-tours-travel"] .info-card__image', 1, {autoAlpha: 0, x: -50}, {autoAlpha: 1, x: 0, ease: Power2.easeOut}, 0.2)
-
-	scene '.page-content[data-anchor="about-campus"]', new TimelineMax()
-		.fromTo('.page-content[data-anchor="about-campus"]', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
+	scene '.page-content', new TimelineMax()
+		.fromTo('.page-content', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
 
 	scene '.history', new TimelineMax()
 		.fromTo('.history__title', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
