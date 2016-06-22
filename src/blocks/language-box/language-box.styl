@@ -1,5 +1,7 @@
 .language-box
 	text-align center
+	@media phone
+		text-align left
 	&__title
 		margin 0 0 40px
 		font-size 30px
@@ -19,6 +21,9 @@
 			font-size 13px
 			text-transform uppercase
 			cursor pointer
+			@media  phone
+				display: block
+				margin 0 0 25px 0
 			&:hover span
 				color brandColor
 			label
