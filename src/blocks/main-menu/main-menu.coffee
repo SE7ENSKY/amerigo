@@ -2,8 +2,8 @@ $ ->
   $body = $('body')
   $header = $('.header')
   $menu = $('.header__menu')
-  $mobileMenu = $('.mobile-menu')
-  $mobileSubmenu = $('.mobile-submenu')
+  $mobileMenu = $('.header__menu-toggle')
+  $mobileSubmenu = $('.mobile-menu')
   $menuItem = $('.main-menu__item')
   $firstMenuItem = $menuItem.first()
   $firstSubMenu = $firstMenuItem.find('.main-sub-menu')
@@ -51,7 +51,7 @@ $ ->
   $menuItem.on('mouseleave touchend', deactivateSubMenu)
 
   $mobileMenu.on 'click', ->
-    $mobileMenu.find('.mobile-menu__block').toggleClass('active')
+    $mobileMenu.toggleClass('active')
     if $mobileSubmenu.toggleClass('active').hasClass('active')
       $body.css("overflow", "hidden")
       $mobileSubmenu.animation.play()
@@ -61,7 +61,7 @@ $ ->
 
   $(window).on 'resize', ->
     if window.innerWidth > 999 and $mobileSubmenu.hasClass('active')
-      $mobileMenu.find('.mobile-menu__block').removeClass('active')
+      $mobileMenu.removeClass('active')
       $mobileSubmenu.removeClass('active')
       $body.css("overflow", "visible")
       $mobileSubmenu.animation.reverse()

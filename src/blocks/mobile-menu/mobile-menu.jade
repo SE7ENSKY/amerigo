@@ -1,0 +1,10 @@
++b("nav").menu.__nav: +i({ prefix: "nav", items: footerMenu, activeMenuIndex: activeMenuIndex })
++e.section
+    +e("a")(href="/contacts.html").section-title Contact us
+    +e.address!= site.address
++e.section
+    +e.section-title Language
+    +e("ul").language
+        each item, i in langs
+            +e("li").language-item
+                +e("a").language-link(href=item.url)= item.title
