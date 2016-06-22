@@ -10,7 +10,7 @@ initAnimation = ->
 			triggerHook: hook
 		)
 			.setTween(tween)
-			.addIndicators({name: '#' + $(el).get(0).id + ' ' + $(el).get(0).className})
+			# .addIndicators({name: '#' + $(el).get(0).id + ' ' + $(el).get(0).className})
 			.addTo controller
 
 	pinOneWhenTwo = (el1, el2, hook = 1) ->
@@ -37,10 +37,17 @@ initAnimation = ->
 
 	scene '.overview', new TimelineMax()
 		.fromTo('.overview__title', 1, {autoAlpha: 0, y: 20}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0)
-		.fromTo('.overview__text', 1, {autoAlpha: 0, y: 40}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
+		.fromTo('.overview__text', 1, {autoAlpha: 0, y: 40}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.1)
+	
+	scene '.overview__subtitle', new TimelineMax()
+		.fromTo('.overview__subtitle', 1, {autoAlpha: 0, y: 20}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0)
 
 	scene '.feedback button[type="submit"]', new TimelineMax()
 		.fromTo('.feedback__stamp', .2, {autoAlpha: 0, scale: 2}, {autoAlpha: 1, scale: 1, ease: Power2.easeIn})
+
+	scene '.footer__inner', new TimelineMax()
+		.fromTo('.footer__inner', 0.5, {autoAlpha: 0}, {autoAlpha: 1, ease: Power2.easeIn})
+	, 0, 0, 1
 
 	$('.info-card').each ->
 		$item = $(@)
