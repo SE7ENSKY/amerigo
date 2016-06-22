@@ -9,10 +9,10 @@ mixin menu(prefix, items, addUlClasses, addLiClasses)
 			- if (!!addLiClasses) liClasses.push(addLiClasses);
 
 			li(class=liClasses)
-				a(href=item.url, title=item.title, class="#{prefix}-menu__item-link")
-					= item.title
-					if item.badge
-						span.badge= item.badge
+				if item.anchor
+					a(data-menuanchor=item.anchor title=item.title, class="#{prefix}-menu__item-link")= item.title
+				else
+					a(href=item.url, title=item.title, class="#{prefix}-menu__item-link")= item.title
 				if item.children
 					+menu(prefix + "-sub", item.children)
 h2.sr-only Main menu

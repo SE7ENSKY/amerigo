@@ -2,10 +2,10 @@
 	.fotorama
 		&__nav
 			&-wrap
-				height 0
-			overflow inherit
-			&__shaft
-				top -25px
+				position absolute
+				bottom 10px
+				left 0
+				right 0
 			&__frame
 				width 28px
 				height 4px
@@ -22,19 +22,20 @@
 				&.fotorama__active
 					background-color brandColor
 		&__arr
-			&--prev,
+			&--prev
 			&--next
-				width 13px
-				height 26px
-				background url('../assets/i/arrows.svg')
+				width 15px
+				height 24px
+				background-image url('i/arrows.svg')
+				background-repeat no-repeat
+				background-size 30px 24px
 			&--next
 				right 30px
-				background-position center right
+				background-position -15px 0
 				&:hover
 					transform translateX(5px)
 			&--prev
 				left 30px
+				background-position 0 0
 				&:hover
 					transform translateX(-5px)
-	.fp-tableCell
-		display block !important
