@@ -53,15 +53,15 @@ $ ->
   $mobileMenu.on 'click', ->
     $mobileMenu.toggleClass('active')
     if $mobileSubmenu.toggleClass('active').hasClass('active')
-      $body.css("overflow", "hidden")
+      $body.addClass('menu-open')
       $mobileSubmenu.animation.play()
     else
-      $body.css("overflow", "visible")
+      $body.removeClass('menu-open')
       $mobileSubmenu.animation.reverse()
 
-  $(window).on 'resize', ->
+  $(window).on 'resize-debounce', ->
     if window.innerWidth > 999 and $mobileSubmenu.hasClass('active')
       $mobileMenu.removeClass('active')
       $mobileSubmenu.removeClass('active')
-      $body.css("overflow", "visible")
+      $body.removeClass('menu-open')
       $mobileSubmenu.animation.reverse()
