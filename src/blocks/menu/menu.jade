@@ -15,5 +15,6 @@ mixin menu(prefix, items, addUlClasses, addLiClasses)
 					a(href=item.url, title=item.title, class="#{prefix}-menu__item-link")= item.title
 				if item.children
 					+menu(prefix + "-sub", item.children)
-h2.sr-only Main menu
+if hideTitle
+	h2.sr-only= hideTitle
 +menu(prefix, items, addUlClasses, addLiClasses)

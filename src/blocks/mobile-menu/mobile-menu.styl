@@ -1,22 +1,25 @@
 .mobile-menu
 	display none
 	position absolute
-	top 55px
+	z-index 100
+	top 0
 	left 0
 	right 0
-	height 100vh
 	width 100%
-	z-index 100
-	content: 'viewport-units-buggyfill;height:100vh;';
-	overflow-y auto
+	height 100vh
+	padding 70px 0 50px
 	background-color #fff
 	transform-origin 100% 0
+	overflow-y auto
 	-webkit-overflow-scrolling touch
+	content 'viewport-units-buggyfill;height:100vh;'
 	&.active
 		display block
 	&__section
 		text-align center
 		margin-bottom 30px
+		&:last-child
+			margin-bottom 0
 		&-title
 			display block
 			font-size 20px
@@ -36,17 +39,17 @@
 			text-decoration none
 	.nav
 		&-menu
-			list-style none
-			margin 60px 0 0
+			margin 0
 			padding 0
+			list-style none
 			text-align center
-			li
+			&__item
 				text-transform uppercase
 				margin-bottom 30px
-			&__item-link
-				font-size 20px
-				font-weight 500
-				text-decoration none
+				&-link
+					font-size 20px
+					font-weight 500
+					text-decoration none
 		&-sub-menu
 			list-style none
 			margin 0
