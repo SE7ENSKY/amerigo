@@ -7,7 +7,6 @@ $ ->
   $firstMenuItem = $menuItem.first()
   $firstSubMenu = $firstMenuItem.find('.main-sub-menu')
   selected = undefined
-  resetMobileMenu = false
 
   TweenMax.set($mobileSubmenu, { autoAlpha: 0, scaleY: 0 })
   $mobileSubmenu.animation = new TimelineLite({ paused: true } ).to($mobileSubmenu, 0.1, { autoAlpha: 1, scaleY: 1, ease: Power1.easeOut })
@@ -58,8 +57,7 @@ $ ->
       $mobileSubmenu.animation.reverse()
 
   $(window).on 'resize', ->
-    if $(window).width() > 999 and not resetMobileMenu
-      $mobileMenu.remove('active')
-      $mobileSubmenu.remove('active')
+    if window.innerWidth > 999 and $mobileSubmenu.hasClass('active')
+      $mobileMenu.find('.mobile-menu__block').removeClass('active')
+      $mobileSubmenu.removeClass('active')
       $mobileSubmenu.animation.reverse()
-      resetMobileMenu = true
