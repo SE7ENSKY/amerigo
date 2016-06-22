@@ -22,3 +22,6 @@ $ ->
 		$this = $ e.currentTarget
 		anchor = $this.data('menuanchor')
 		$.fn.fullpage.moveTo(anchor)
+
+	fixFooterFn = ->
+		$(".root").css paddingBottom: "#{$(".footer").outerHeight()}px"

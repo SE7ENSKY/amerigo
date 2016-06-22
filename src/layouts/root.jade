@@ -15,8 +15,10 @@ html
 		block styles
 		block scripts
 	body(class=file.bodyClasses)
-		block root
-			!= content
+		.root
+			block root
+				!= content
+
 		block analytics
 
 		+b.modals: +i
