@@ -3,10 +3,7 @@
 		font-size 30px
 		text-transform uppercase
 		color brandColor
-		@media tablet
-			font-size 24px
-		@media  phone
-			padding 0 30px
+		@media phone_tablet
 			font-size 24px
 	&__text
 		margin-bottom 75px
@@ -18,7 +15,6 @@
 		@media tablet
 			font-size 24px
 		@media phone
-			padding 0 30px
 			font-size 16px
 	&__subtitle
 		margin-bottom 80px
@@ -30,9 +26,8 @@
 			margin 0 0 40px 0
 			font-size 32px
 		@media phone
-			padding-left 20px
-			margin 0 0 20px 0
-			font-size 20px
+			margin-bottom 20px
+			font-size 28px
 	&__toggle
 		text-transform uppercase
 		color brandColor
@@ -42,6 +37,7 @@
 		@media tablet
 			display none
 		@media phone
+			margin-bottom 10px
 			&.active
 				display block !important
 	&__list
@@ -49,9 +45,11 @@
 			clearfix()
 			margin-bottom 70px
 			@media tablet
-				margin 0 0 50px 0
+				margin-bottom 50px
 			@media phone
-				margin 0 0 35px 0
+				margin-bottom 30px
+				&:last-child
+					margin-bottom 0
 			&:last-child
 				margin-bottom 30px
 			&:nth-child(odd)
@@ -103,7 +101,7 @@
 				height 230px
 			@media phone
 				float none
-				width 60%
+				width 80%
 				height auto
 			img
 				max-width 100%
@@ -126,5 +124,7 @@
 			color #939598
 		&-text
 			@media phone
-				padding 0 30px
+				padding 0 !important
 				text-align left
+
+
