@@ -84,6 +84,15 @@ initAnimation = ->
 		.fromTo('.info-card[data-anchor="campus-tours-travel"] .info-card__subtitle', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
 		.fromTo('.info-card[data-anchor="campus-tours-travel"] .info-card__image', 1, {autoAlpha: 0, x: -50}, {autoAlpha: 1, x: 0, ease: Power2.easeOut}, 0.2)
 
+	scene '.page-content[data-anchor="about-campus"]', new TimelineMax()
+		.fromTo('.page-content[data-anchor="about-campus"]', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
+
+	scene '.history', new TimelineMax()
+		.fromTo('.history__title', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
+		.fromTo('.history__text', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
+		.fromTo('.history__image', 1, {autoAlpha: 0, x: 50}, {autoAlpha: 1, x: 0, ease: Power2.easeOut}, 0.2)
+
+
 	##
 
 $ ->
