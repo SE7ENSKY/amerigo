@@ -11,8 +11,14 @@
 			width 360px
 			height 250px
 			margin -40px 0 0 0
+		@media phone
+			float none
+			width 100%
+			margin 0 0 25px 0
 
 	&__name
+		@media phone
+			margin 0 0 25px 0
 	&__body
 		padding-left 50px
 		padding-right 50px
@@ -25,6 +31,8 @@
 		color brandColor
 		margin-top 10px
 		padding-right 500px
+		@media phone
+			padding 0
 	&__body
 		background brandColor
 		color white
@@ -32,6 +40,10 @@
 		padding-top 30px
 		padding-bottom 30px
 		max-width 80%
+		@media phone
+			max-width 100%
+			margin 0
+			padding 15px
 	&__title
 		font-size 36px
 		font-family bodoni
@@ -44,5 +56,8 @@
 		letter-spacing -0.03em
 		p
 			margin-bottom 7px
+	.container
+		@media phone
+			padding 0 10px
 
 
