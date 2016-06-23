@@ -9,7 +9,7 @@ block main
 		if file.visual.textColor
 			- classes += " visual_text-" + file.visual.textColor
 		if file.visual.title
-			+b.visual.visual_mobile.section(class=classes): +i({ title: file.visual.title, image: file.visual.image })
+			+b.visual.visual_mobile.section(class=classes data-anchor="welcome-mobile"): +i({ title: file.visual.title, image: file.visual.image })
 		+b.visual.section(class=classes data-anchor="welcome" style="background-image: url('#{file.visual.image}');"): +i({ text: file.visual.text, arrowAnchor: file.visual.arrowAnchor, arrowColor: file.visual.arrowColor })
 		
 	if file.about

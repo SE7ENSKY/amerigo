@@ -2,6 +2,8 @@ initAnimation = ->
 	wh = window.innerHeight
 	window.controller = new (ScrollMagic.Controller)
 
+	# controller.scrollPos ->
+	# 	-scroller.y
 
 	scene = (el, tween, duration = 0, offset = 0, hook = 0.75) ->
 		return unless $(el).length
@@ -110,5 +112,14 @@ initAnimation = ->
 		.fromTo('.page_contacts.page__content', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
 	, 0, 0, 1
 
-$ ->
-	initAnimation()
+	scene '.campuses', new TimelineMax()
+		.fromTo('.fixed-panel', .2, {autoAlpha: 0}, {autoAlpha: 1, ease: Power2.easeOut}, 0)
+
+	scene '.feedback', new TimelineMax()
+		.to('.fixed-panel', .2, {autoAlpha: 0, ease: Power2.easeIn}, 0)
+	, 0, 0, 1
+
+$(document).on 'animation.start', initAnimation
+
+# $ ->
+# 	initAnimation()

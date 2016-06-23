@@ -42,8 +42,9 @@ $ ->
 			# requires inclusion of iscroll-probe.js
 			probeType: 3
 		)
-		window.controller.scrollPos ->
-			-scroller.y
+		$(document).trigger 'animation.start'
+		# window.controller.scrollPos ->
+		# 	-scroller.y
 
 	$(".select7").select7()
 

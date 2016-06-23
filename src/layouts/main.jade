@@ -10,7 +10,7 @@ block root
 	
 
 	if file.fixedPanel
-		+b.fixed-panel:+i
+		+b.fixed-panel: +i({ title: file.fixedPanel.title, link: file.fixedPanel.link })
 
 block fonts
 	link(href="//cloud.webtype.com/css/73ce1cd5-dad0-4708-b74b-591cdd14b2e8.css" rel="stylesheet" type="text/css")

@@ -1,23 +1,20 @@
 .fixed-panel
 	position fixed
+	z-index 1000
 	left 0
 	right 0
 	bottom 0
 	opacity 0
 	height 40px
 	padding 10px 0
-	background brandColor
+	background-color brandColor
 	font-family nobel
 	font-size 12px
 	font-weight 600
-	color white !important
 	text-transform uppercase
-	text-decoration none
 	text-align center
-	box-shadow 700px 0 0 0.01px brandColor, -700px 0 0 0.01px brandColor
-	cursor pointer
-	z-index 1000
-	transition .15s opacity
+	color #fff
+	transition .15s opacity ease-in-out
 	&:hover
 		&:after
 			transform translateX(5px)
@@ -32,4 +29,7 @@
 	&.active
 		opacity 1
 	&__link
-		color white !important
+		color #fff
+		text-decoration none
+		&:hover
+			color #fff
