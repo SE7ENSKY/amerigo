@@ -1,7 +1,7 @@
 .container
-	+e("a").logo(href="/")
+	+e("a").logo(href=site.baseUrl)
 		+e("img").logo-img(src=asset("i/amerigo-logo.svg") alt="" width="80" height="54")
-	+b("nav").menu.header__menu: +i({ prefix: "main", hideTitle: "Main menu", items: mainMenu, activeMenuIndex: activeMenuIndex })
+	+b("nav").menu.header__menu: +i({ prefix: "main", items: mainMenu, activeMenuIndex: activeMenuIndex })
 	+e.menu-toggle
 		+e.menu-toggle-line
 		+e.menu-toggle-line
