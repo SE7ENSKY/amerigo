@@ -15,6 +15,7 @@ html
 		block styles
 		block scripts
 	body(class=file.bodyClasses)
+		+b.preloader: +i
 		.root.animsition
 			block root
 				!= content

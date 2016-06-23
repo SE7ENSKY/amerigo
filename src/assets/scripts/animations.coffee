@@ -55,7 +55,8 @@ initAnimation = ->
 			.fromTo($text, 1, {autoAlpha: 0, y: 10}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
 
 	scene '.feedback button[type="submit"]', new TimelineMax()
-		.fromTo('.feedback__stamp', .2, {autoAlpha: 0, scale: 2}, {autoAlpha: 1, scale: 1, ease: Power2.easeIn})
+		.fromTo('.feedback__stamp', .2, {autoAlpha: 0, scale: 2}, {autoAlpha: 1, scale: 1, ease: Power2.easeIn}, 0)
+	, 0, 0, .9
 
 	scene '.footer__inner', new TimelineMax()
 		.fromTo('.footer__inner', 0.5, {autoAlpha: 0}, {autoAlpha: 1, ease: Power2.easeIn})

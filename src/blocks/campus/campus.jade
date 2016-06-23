@@ -1,6 +1,7 @@
 +e("a").link(href=itemLink, title="")
 	+e("span").image(style="background-image: url('#{image}');")
+		+e("span").more
+			+e("span").more-label= tr("At a glance")
 	+e("span").caption
 		+e("span").title!= title
 		+e("span").location!= location
-	+e("span").more= tr("At a glance")
