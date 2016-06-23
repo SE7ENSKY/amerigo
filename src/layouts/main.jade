@@ -12,8 +12,12 @@ block root
 	
 	+b("footer").footer: +i
 
+	if file.fixedPanel
+		+b.fixed-panel:+i
+
 block fonts
 	link(href="//cloud.webtype.com/css/73ce1cd5-dad0-4708-b74b-591cdd14b2e8.css" rel="stylesheet" type="text/css")
+
 
 block styles
 	link(rel="icon" sizes="192x192" href=asset("i/app/app-icon-192x192.png"))

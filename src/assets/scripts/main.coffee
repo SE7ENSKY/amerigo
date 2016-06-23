@@ -17,9 +17,11 @@ window.debounce = debounce = (fn, delay) ->
 $ ->
 	$window = $(window)
 	$window.on 'resize', debounce($window.trigger.bind($window, 'resize-debounce'), 200)
-	# $window.on 'scroll', debounce($window.trigger.bind($window, 'scroll-debounce'), 200)
+	$window.on 'scroll', debounce($window.trigger.bind($window, 'scroll-debounce'), 200)
 
-	$(window).load ->
+
+
+		$(window).load ->
 		window.loaded = true
 		
 	$('.front-page, .tiles-page, .campuses-page, .default-page').find('.main').fullpage
