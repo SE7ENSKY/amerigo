@@ -17,6 +17,7 @@
 			$('.preloader').fadeOut 500
 			$("html").removeClass 'preloading'
 			$(document).trigger 'preloaded'
+			sessionStorage.setItem('preloaded', 'true')
 		, 1000
 
 	siteLoad()

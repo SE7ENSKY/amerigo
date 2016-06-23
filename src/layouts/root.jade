@@ -11,10 +11,67 @@ html
 					| #{file.title} – #{site.title}
 				else
 					| #{site.title}
-		block fonts
-		block styles
-		block scripts
+		script.
+			var preloaded = sessionStorage.getItem('preloaded');
+			if (preloaded == 'true') {
+				var root = document.documentElement;
+				root.className += ' preloaded';
+			}
+			
 	body
+		style
+			:stylus
+				html.preloaded .preloader
+					display none
+				.preloader
+					position fixed
+					top 0
+					right 0
+					bottom 0
+					left 0
+					background-color #fff
+					z-index 99999
+					&__badge
+						position absolute
+						top 0
+						left 50%
+						margin-left -62px
+						background url("/assets/i/logo-badge.svg") no-repeat 0 bottom
+						width 124px
+						height 60%
+						max-height 1500px
+						@media phone
+							height 40%
+					&__logo
+						position absolute
+						z-index 2
+						top 60%
+						left 50%
+						width 318px
+						margin-top 80px
+						margin-left -(@width / 2)
+						@media phone
+							top 40%
+							width 300px
+							margin-left -150px
+						&-main
+							display block
+							margin 0 auto
+							width 318px
+							height 23px
+							@media phone
+								width 300px
+						&-text
+							display block
+							margin 30px auto 0
+							width 236px
+							height 10px
+					&__stamp
+						position absolute
+						right 30px
+						bottom 30px
+					
+
 		+b.preloader: +i
 		.animsition
 			+b("header").header: +i({activeMenuIndex: file.activeMenuIndex})
@@ -27,4 +84,7 @@ html
 			+b.mobile-menu: +i
 			+b.modals: +i
 
+		block fonts
+		block styles
+		block scripts
 		block analytics

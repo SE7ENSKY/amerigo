@@ -21,9 +21,7 @@ $ ->
 	$window.on 'resize', debounce($window.trigger.bind($window, 'resize-debounce'), 200)
 	$window.on 'scroll', debounce($window.trigger.bind($window, 'scroll-debounce'), 200)
 
-
-
-		$(window).load ->
+	$(window).load ->
 		window.loaded = true
 		window.scroller = new IScroll('.root',
 			scrollbars: true
@@ -53,7 +51,7 @@ $ ->
 		outClass: 'fade-out'
 		inDuration: 500
 		outDuration: 500
-		linkElement: '.main-menu__link'
+		linkElement: '.main-menu__item-link'
 		# // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])
 		loading: true
 		loadingParentElement: 'body'
