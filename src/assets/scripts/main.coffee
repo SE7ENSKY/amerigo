@@ -42,6 +42,8 @@ $ ->
 			# requires inclusion of iscroll-probe.js
 			probeType: 3
 		)
+		window.controller.scrollPos ->
+			-scroller.y
 
 	$(".select7").select7()
 
