@@ -1,19 +1,19 @@
 extends main
 
 block main
-	h1.sr-only= site.title
+
 	if file.visual
 		- classes = ""
 		if file.visual.textPosition
 			- classes = "visual_text-" + file.visual.textPosition
 		if file.visual.textColor
 			- classes += " visual_text-" + file.visual.textColor
-		+b.visual.section(class=classes data-anchor="welcome" style="background-image: url('#{file.visual.image}');"): +i({ text: file.visual.text, arrowAnchor: "about", arrowColor: file.visual.arrowColor })
-
+		if file.visual.title
+			+b.visual.visual_mobile.section(class=classes data-anchor="welcome-mobile"): +i({ title: file.visual.title, image: file.visual.image })
+		+b.visual.section(class=classes data-anchor="welcome" style="background-image: url('#{file.visual.image}');"): +i({ text: file.visual.text, arrowAnchor: file.visual.arrowAnchor, arrowColor: file.visual.arrowColor })
+		
 	if file.about
 		+b("section").about.section.fp-auto-height(data-anchor="about"): +i({ image: file.about.image, title: file.about.title, text: file.about.text })
 
 	if file.overview
 		+b("section").overview.section.fp-auto-height(data-anchor="overview"): +i({toggle: file.overview.toggle, title: file.overview.title, text: file.overview.text, listTitle: file.overview.listTitle, items: file.overview.list })
-
-

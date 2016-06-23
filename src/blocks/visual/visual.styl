@@ -1,26 +1,31 @@
 .visual
 	display block
 	height 100vh
-	background-color greyColor
 	background-size cover
 	background-repat no-repeat
 	background-position center
-	&__img
-		position fixed
-		top 0
-		left 0
-		bottom 0
-		right 0
-		background-size cover
-		background-repat no-repeat
-		background-position center
 	&_mobile
 		position relative
 		@media tablet_desktop
 			display none !important
 		@media phone
+			.fp-tableCell
+				vertical-align bottom
 			+ .visual
 				background none !important
+				.visual__text
+					color #000
+				.fp-tableCell
+					vertical-align middle
+		.visual__img
+			position fixed
+			top 0
+			left 0
+			bottom 0
+			right 0
+			background-size cover
+			background-repat no-repeat
+			background-position center
 	&_text
 		&-left-bottom
 			.fp-tableCell
@@ -41,7 +46,11 @@
 		@media phone
 			font-size 20px
 	&__title
-		font-size 1.5em
+		font-size 1.3em
+		display block
+		text-align center
+		text-transform uppercase
+		line-height 1.2
 	&__inner
 		&.container
 			padding-top 110px

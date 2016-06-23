@@ -1,10 +1,9 @@
 initAnimation = ->
 	wh = window.innerHeight
-	controller = new (ScrollMagic.Controller)
+	window.controller = new (ScrollMagic.Controller)
 
-	controller.scrollPos ->
-		-window.scroller.y
-
+	# controller.scrollPos ->
+	# 	-scroller.y
 
 	scene = (el, tween, duration = 0, offset = 0, hook = 0.75) ->
 		return unless $(el).length
@@ -37,31 +36,15 @@ initAnimation = ->
 		$img = $this.find('.visual__img')
 
 		tween = new TimelineMax()
-			# .add( -> 
-			# 	$img.hide().css('position', 'absolute')
-			# )
-			# .add( -> 
-			# 	$img.show().css('position', 'fixed')
-			# )
-			.fromTo($img, 1, opacity: 1, {opacity: 0 })
-			# .add( -> 
-			# 	$img.show().css('position', 'fixed')
-			# )
-			# .add( -> 
-			# 	$img.hide().css('position', 'absolute')
-			# )
+			.fromTo($img, 1, autoAlpha: 1, {autoAlpha: 0 })
 
 		new ScrollMagic.Scene(
 				triggerElement: @
 				triggerHook: 0
-				duration: 500
+				duration: '300%'
 			)
 			.setTween(tween)
-			# .setPin($img.get(0))
 			.addTo(controller)
-
-	# scene '.visual__mobile', new TimelineMax()
-	# 	.fromTo('.visual__img', 1, {autoAlpha: 0, y: 20}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0)
 
 	scene '.visual', new TimelineMax()
 		.fromTo('.visual__text', 1, {autoAlpha: 0, y: 20}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0)
@@ -129,5 +112,14 @@ initAnimation = ->
 		.fromTo('.page_contacts.page__content', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
 	, 0, 0, 1
 
-$ ->
-	initAnimation()
+	scene '.campuses', new TimelineMax()
+		.fromTo('.fixed-panel', .2, {autoAlpha: 0}, {autoAlpha: 1, ease: Power2.easeOut}, 0)
+
+	scene '.feedback', new TimelineMax()
+		.to('.fixed-panel', .2, {autoAlpha: 0, ease: Power2.easeIn}, 0)
+	, 0, 0, 1
+
+$(document).on 'animation.start', initAnimation
+
+# $ ->
+# 	initAnimation()
