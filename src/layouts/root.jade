@@ -14,7 +14,7 @@ html
 		block fonts
 		block styles
 		block scripts
-	body(class=file.bodyClasses)
+	body
 		+b.preloader: +i
 		.animsition
 			+b("header").header: +i({activeMenuIndex: file.activeMenuIndex})
