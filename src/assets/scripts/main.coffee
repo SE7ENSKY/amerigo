@@ -23,7 +23,6 @@ $ ->
 
 	$(".select7").select7()
 
-
 	$('a[href*="#"]').each ->
 		anchor = @hash.slice(1)
 		$(@).attr('data-menuanchor', anchor) if anchor
@@ -38,8 +37,6 @@ $ ->
 
 	$('#main').fullpage
 		lockAnchors: true
-		# responsiveWidth: 768
-		# responsiveHeight: 650
 		autoScrolling: false
 		scrollOverflow: false
 		fitToSection: false
@@ -86,6 +83,8 @@ $ ->
 		# window.controller.scrollPos ->
 		# 	-scroller.y
 
+
+		# SCROLL TO ON LOAD
 		locationHash = location.hash.replace(/(\=|\?|\+|\.|\,|\!|\@|\$|\%|\^|\&|\*|\(|\)|\;|\\|\/|\||\<|\>|\"|\').*/g, '')
 		if locationHash
 			anchor = locationHash.slice(1)
@@ -94,6 +93,7 @@ $ ->
 				scrollTo $target
 				history.pushState("", document.title, window.location.pathname + window.location.search)
 
+		# SCROLL TO ON CLICK
 		$(document).on 'click', '[data-menuanchor], a[href^="#"]', (e) ->
 			$this = $ e.currentTarget
 
@@ -108,7 +108,3 @@ $ ->
 			return unless $target.length
 			e.preventDefault()
 			scrollTo $target
-
-
-
-

@@ -119,6 +119,39 @@ initAnimation = ->
 		.to('.fixed-panel', .2, {autoAlpha: 0, ease: Power2.easeIn}, 0)
 	, 0, 0, 1
 
+
+	$("[data-anchor]").each ->
+		$this = $(@)
+		{ anchor } = $this.data()
+		$menuAnchors = $('[data-menuanchor]')
+		$menuAnchorTarget = $menuAnchors.filter("[data-menuanchor='#{anchor}']")
+		$menuAnchorTargetParent = $menuAnchorTarget.parent()
+
+		thisHeight = $this.outerHeight()
+		
+		getThisHeight = ->
+			return thisHeight
+
+		thisScene = new ScrollMagic.Scene({triggerElement: @, triggerHook: 0.5, duration: getThisHeight})
+			.addTo(controller)
+			.on("enter leave", (e) ->
+				if e.type == "enter"
+					$menuAnchorTarget.addClass('active')
+					$menuAnchorTargetParent.addClass('active')
+				else
+					$menuAnchorTarget.removeClass('active')
+					$menuAnchorTargetParent.removeClass('active')
+			)
+			.on("start end", (e) ->
+				thisHeight = $this.outerHeight()
+			)
+			# .on("update", (e) ->
+			# 	console.log('update')
+			# )
+			# .on("progress", (e) ->
+			# 	console.log('progress')
+			# )
+
 $(document).on 'animation.start', initAnimation
 
 # $ ->

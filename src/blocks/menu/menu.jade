@@ -1,4 +1,4 @@
-mixin menu(prefix, items, addUlClasses, addLiClasses)
+mixin menu(prefix, items, addUlClasses, addLiClasses, activeMenuIndex)
 	- ulClasses = [ prefix + "-menu" ]
 	- if (!!addUlClasses) ulClasses.push(addUlClasses);
 
@@ -7,12 +7,13 @@ mixin menu(prefix, items, addUlClasses, addLiClasses)
 			- liClasses = [ prefix + "-menu__item" ]
 			- if (!!item.children) liClasses.push(prefix + "-menu__item-has_sub");
 			- if (!!addLiClasses) liClasses.push(addLiClasses);
-			//- if activeMenuIndex
-			- if (activeMenuIndex == i) liClasses.push("active");
+
+			- if (!!activeMenuIndex)
+				- if (activeMenuIndex == i + 1) liClasses.push("active");
 
 			li(class=liClasses)
 				a(href=item.url, title=item.title, class="#{prefix}-menu__item-link")= item.title
 				if item.children
 					+menu(prefix + "-sub", item.children)
 
-+menu(prefix, items, addUlClasses, addLiClasses)
++menu(prefix, items, addUlClasses, addLiClasses, activeMenuIndex)
