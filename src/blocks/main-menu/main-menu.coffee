@@ -1,67 +1,49 @@
 $ ->
-  $body = $('body')
-  $header = $('.header')
-  $menu = $('.header__menu')
-  $mobileMenu = $('.header__menu-toggle')
-  $mobileSubmenu = $('.mobile-menu')
-  $menuItem = $('.main-menu__item')
-  $firstMenuItem = $menuItem.first()
-  $firstSubMenu = $firstMenuItem.find('.main-sub-menu')
-  selected = undefined
+  $body = $("body")
+  $menuToggle = $(".header__menu-toggle")
+  $mobileMenu = $(".mobile-menu")
+  $menuItem = $(".main-menu__item")
+  breakpoint = 999
 
-  TweenMax.set($mobileSubmenu, { autoAlpha: 0, scaleY: 0 })
-  $mobileSubmenu.animation = new TimelineLite({ paused: true } ).to($mobileSubmenu, 0.1, { autoAlpha: 1, scaleY: 1, ease: Power1.easeOut })
+  TweenMax.set($mobileMenu, { autoAlpha: 0, display: "none", scaleY: 0 })
+  $mobileMenu.animation = new TimelineLite({ paused: true } ).to($mobileMenu, 0.1, { autoAlpha: 1, display: "block", scaleY: 1, ease: Power1.easeOut })
 
-  switchClass = ($element, className = 'active') ->
-    if selected
-      selected.removeClass(className)
-
-    selected = $element
-    selected.addClass(className)
+  $menuItem.filter('.active').addClass 'current'
 
   checkOffset = ($element) ->
+    $subMenu = $element.find(".main-sub-menu")
+    return unless $subMenu.length
+
+    $menu = $element.closest(".main-menu")
+
     headerOffsetRight = $menu.offset().left + $menu.outerWidth()
-    subMenuOffsetRight = $element.offset().left + $element.outerWidth()
+    subMenuOffsetRight = $subMenu.offset().left + $subMenu.outerWidth()
 
-    if subMenuOffsetRight > headerOffsetRight and not parseInt($element.css('marginLeft'))
-      $element.css('marginLeft', (headerOffsetRight - subMenuOffsetRight) + 'px')
+    if subMenuOffsetRight > headerOffsetRight and not parseInt($subMenu.css("marginLeft"))
+      $subMenu.css("marginLeft", (headerOffsetRight - subMenuOffsetRight) + "px")
 
-  setMenuState = ($activeElement, $offsetElement) ->
-    switchClass($activeElement)
-    $header.addClass('active')
-    checkOffset($offsetElement)
-
-  activateSubMenu = (event) ->
+  activateMenu = (event) ->
     $target = $(event.currentTarget)
-    $currentSubMenu = $target.find('.main-sub-menu')
-    if $currentSubMenu.length
-      setMenuState($target, $currentSubMenu)
+    $menuItem.removeClass("active").filter($target).addClass("active").end()
+    checkOffset $target
+
+  deactivateMenu = ->
+    $menuItem.removeClass("active").filter('.current').addClass 'active'
+
+
+
+  $menuItem.hover(activateMenu, deactivateMenu)
+
+  $menuToggle.on "click", ->
+    if $menuToggle.toggleClass("active").hasClass("active")
+      $body.addClass("menu-open")
+      $mobileMenu.animation.play()
     else
-      $header.removeClass('active')
-      switchClass($target)
+      $body.removeClass("menu-open")
+      $mobileMenu.animation.reverse()
 
-  deactivateSubMenu = ->
-      $header.removeClass('active')
-      selected.removeClass('active')
-      setMenuState($firstMenuItem, $firstSubMenu)
-
-  setMenuState($firstMenuItem, $firstSubMenu)
-
-  $menuItem.on('mouseover touchstart', activateSubMenu)
-  $menuItem.on('mouseleave touchend', deactivateSubMenu)
-
-  $mobileMenu.on 'click', ->
-    $mobileMenu.toggleClass('active')
-    if $mobileSubmenu.toggleClass('active').hasClass('active')
-      $body.addClass('menu-open')
-      $mobileSubmenu.animation.play()
-    else
-      $body.removeClass('menu-open')
-      $mobileSubmenu.animation.reverse()
-
-  $(window).on 'resize-debounce', ->
-    if window.innerWidth > 999 and $mobileSubmenu.hasClass('active')
-      $mobileMenu.removeClass('active')
-      $mobileSubmenu.removeClass('active')
-      $body.removeClass('menu-open')
-      $mobileSubmenu.animation.reverse()
+  $(window).on "resize-debounce", ->
+    if window.innerWidth > breakpoint and $menuToggle.hasClass("active")
+      $body.removeClass("menu-open")
+      $menuToggle.removeClass("active")
+      $mobileMenu.animation.reverse()

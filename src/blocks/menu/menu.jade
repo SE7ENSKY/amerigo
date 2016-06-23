@@ -7,12 +7,10 @@ mixin menu(prefix, items, addUlClasses, addLiClasses)
 			- liClasses = [ prefix + "-menu__item" ]
 			- if (!!item.children) liClasses.push(prefix + "-menu__item-has_sub");
 			- if (!!addLiClasses) liClasses.push(addLiClasses);
+			- if (activeMenuIndex == i) liClasses.push("active");
 
 			li(class=liClasses)
-				if item.anchor
-					a(data-menuanchor=item.anchor title=item.title, class="#{prefix}-menu__item-link")= item.title
-				else
-					a(href=item.url, title=item.title, class="#{prefix}-menu__item-link")= item.title
+				a(href=item.url, title=item.title, class="#{prefix}-menu__item-link")= item.title
 				if item.children
 					+menu(prefix + "-sub", item.children)
 if hideTitle
