@@ -1,5 +1,5 @@
 $ ->
-	$input = $('.intl-tel-input')
+	$input = $('.ginput_container_phone input')
 
 	keyupTimeout = undefined
 	$input.intlTelInput
