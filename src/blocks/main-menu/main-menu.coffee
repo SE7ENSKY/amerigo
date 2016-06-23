@@ -8,8 +8,6 @@ $ ->
     TweenMax.set($mobileMenu, { autoAlpha: 0, display: "none", scaleY: 0 })
     $mobileMenu.animation = new TimelineLite({ paused: true } ).to($mobileMenu, 0.1, { autoAlpha: 1, display: "block", scaleY: 1, ease: Power1.easeOut })
 
-    $menuItem.filter(".active").addClass("current")
-
     checkOffset = ($element) ->
         $subMenu = $element.find(".main-sub-menu")
         return unless $subMenu.length
@@ -21,10 +19,12 @@ $ ->
         if subMenuOffsetRight > headerOffsetRight and not parseInt($subMenu.css("marginLeft"))
           $subMenu.css("marginLeft", (headerOffsetRight - subMenuOffsetRight) + "px")
 
+    checkOffset($menuItem.filter(".active").addClass("current"))
+
     activateMenu = (event) ->
         $target = $(event.currentTarget)
         $menuItem.removeClass("active").filter($target).addClass("active").end()
-        checkOffset $target
+        checkOffset($target)
 
     deactivateMenu = ->
         $menuItem.removeClass("active").filter(".current").addClass "active"
