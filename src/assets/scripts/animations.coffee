@@ -94,4 +94,4 @@ initAnimation = ->
 	, 0, 0, 1
 
 $ ->
-	initAnimation() if window.innerWidth >= 768 and !Modernizr?.touchevents
+	initAnimation()

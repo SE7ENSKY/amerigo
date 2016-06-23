@@ -1,16 +1,13 @@
 extends root
 
 block root
-	+b("header").header: +i({activeMenuIndex: file.activeMenuIndex})
-	
-	main.main
+	.main#main
 		block main
 			!= content
 		
 		if file.showFeedback
 			+b("section").feedback.section.fp-auto-height#feedback(data-anchor='feedback'): +i({ title: "get in touch", text: "Questions or inquiries can easily be sent to us <br>via email through the form submission below" })
 	
-	+b("footer").footer: +i
 
 	if file.fixedPanel
 		+b.fixed-panel:+i

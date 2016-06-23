@@ -16,11 +16,15 @@ html
 		block scripts
 	body(class=file.bodyClasses)
 		+b.preloader: +i
-		.root.animsition
-			block root
-				!= content
+		.animsition
+			+b("header").header: +i({activeMenuIndex: file.activeMenuIndex})
+			.root
+				.root__body
+					block root
+						!= content
+					+b("footer").footer: +i
+
+			+b.mobile-menu: +i
+			+b.modals: +i
 
 		block analytics
-
-		+b.mobile-menu: +i
-		+b.modals: +i

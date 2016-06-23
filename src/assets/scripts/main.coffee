@@ -14,6 +14,8 @@ window.debounce = debounce = (fn, delay) ->
 			fn.apply context, args
 		, delay)
 
+window.scroller = null
+
 $ ->
 	$window = $(window)
 	$window.on 'resize', debounce($window.trigger.bind($window, 'resize-debounce'), 200)
@@ -23,14 +25,11 @@ $ ->
 
 		$(window).load ->
 		window.loaded = true
-		
-	$('.front-page, .tiles-page, .campuses-page, .default-page').find('.main').fullpage
-		lockAnchors: true
-		# responsiveWidth: 768
-		# responsiveHeight: 650
-		autoScrolling: false
-		scrollOverflow: false
-		fitToSection: false
+		window.scroller = new IScroll('.root',
+			scrollbars: true
+			mouseWheel: true
+			click: true
+		)
 
 	$(".select7").select7()
 
@@ -39,12 +38,15 @@ $ ->
 		anchor = $this.data('menuanchor')
 		$.fn.fullpage.moveTo(anchor)
 
-	fixFooterFn = ->
-		$(".root").css paddingBottom: "#{$(".footer").outerHeight()}px"
-
-	fixFooterFn()
-	$(window).on 'resize-debounce', ->
-		fixFooterFn()
+	$('#main').fullpage
+		lockAnchors: true
+		# responsiveWidth: 768
+		# responsiveHeight: 650
+		autoScrolling: false
+		scrollOverflow: false
+		fitToSection: false
+		afterResize: ->
+			scroller.refresh()
 
 	$(".animsition").animsition
 		inClass: 'fade-in'
