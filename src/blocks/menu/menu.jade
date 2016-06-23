@@ -7,6 +7,7 @@ mixin menu(prefix, items, addUlClasses, addLiClasses)
 			- liClasses = [ prefix + "-menu__item" ]
 			- if (!!item.children) liClasses.push(prefix + "-menu__item-has_sub");
 			- if (!!addLiClasses) liClasses.push(addLiClasses);
+			//- if activeMenuIndex
 			- if (activeMenuIndex == i) liClasses.push("active");
 
 			li(class=liClasses)

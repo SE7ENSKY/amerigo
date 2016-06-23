@@ -21,39 +21,20 @@ $ ->
 	$window.on 'resize', debounce($window.trigger.bind($window, 'resize-debounce'), 200)
 	$window.on 'scroll', debounce($window.trigger.bind($window, 'scroll-debounce'), 200)
 
-	$(window).load ->
-		window.loaded = true
-		window.scroller = new IScroll('.root',
-			scrollbars: true
-			mouseWheel: true
-			click: true
-			# don't scroll horizontal
-			scrollX: false
-			# but do scroll vertical
-			scrollY: true
-			# show scrollbars
-			scrollbars: true
-			# deactivating -webkit-transform because pin wouldn't work because of a webkit bug: https://code.google.com/p/chromium/issues/detail?id=20574
-			# if you dont use pinning, keep "useTransform" set to true, as it is far better in terms of performance.
-			useTransform: false
-			# deativate css-transition to force requestAnimationFrame (implicit with probeType 3)
-			useTransition: false
-			# set to highest probing level to get scroll events even during momentum and bounce
-			# requires inclusion of iscroll-probe.js
-			probeType: 3
-		)
-		$(document).trigger 'animation.start'
-		# window.controller.scrollPos ->
-		# 	-scroller.y
-
 	$(".select7").select7()
 
-	$(document).on 'click', '[data-menuanchor]', (e) ->
-		$this = $ e.currentTarget
-		anchor = $this.data('menuanchor')
-		$.fn.fullpage.moveTo(anchor)
-		# possible solution 
-		# scroller.scrollToElement(document.querySelector(anchor))
+
+	$('a[href*="#"]').each ->
+		anchor = @hash.slice(1)
+		$(@).attr('data-menuanchor', anchor) if anchor
+
+	window.scrollTo = ($target) ->
+		$header = $('.header')
+		headerHeight = if $header.length then $header.outerHeight() else 0
+		y = $target.offset().top - headerHeight
+		if window.testing?
+			console.log $target.offset().top, headerHeight, $target
+		scroller?.scrollBy(0, -y, 666,)
 
 	$('#main').fullpage
 		lockAnchors: true
@@ -63,7 +44,7 @@ $ ->
 		scrollOverflow: false
 		fitToSection: false
 		afterResize: ->
-			scroller.refresh()
+			scroller?.refresh()
 
 	$(".animsition").animsition
 		inClass: 'fade-in'
@@ -83,3 +64,51 @@ $ ->
 		overlay : false
 		overlayClass : 'animsition-overlay-slide'
 		overlayParentElement : 'body'
+
+	$(window).load ->
+		window.loaded = true
+		window.scroller = new IScroll('.root',
+			scrollbars: true
+			mouseWheel: true
+			click: true
+			scrollX: false
+			scrollY: true
+			# deactivating -webkit-transform because pin wouldn't work because of a webkit bug: https://code.google.com/p/chromium/issues/detail?id=20574
+			# if you dont use pinning, keep "useTransform" set to true, as it is far better in terms of performance.
+			useTransform: false
+			# deativate css-transition to force requestAnimationFrame (implicit with probeType 3)
+			useTransition: false
+			# set to highest probing level to get scroll events even during momentum and bounce
+			# requires inclusion of iscroll-probe.js
+			probeType: 3
+		)
+		$(document).trigger 'animation.start'
+		# window.controller.scrollPos ->
+		# 	-scroller.y
+
+		locationHash = location.hash.replace(/(\=|\?|\+|\.|\,|\!|\@|\$|\%|\^|\&|\*|\(|\)|\;|\\|\/|\||\<|\>|\"|\').*/g, '')
+		if locationHash
+			anchor = locationHash.slice(1)
+			$target = $("[data-anchor='#{anchor}']").first()
+			if $target.length
+				scrollTo $target
+				history.pushState("", document.title, window.location.pathname + window.location.search)
+
+		$(document).on 'click', '[data-menuanchor], a[href^="#"]', (e) ->
+			$this = $ e.currentTarget
+
+			anchor = $this.data('menuanchor')
+			unless anchor
+				anchor = $this.get(0).hash.slice(1)
+
+			$target = $("[data-anchor='#{anchor}']").first()
+			unless $target.length
+				$target = $("##{anchor}").first()
+
+			return unless $target.length
+			e.preventDefault()
+			scrollTo $target
+
+
+
+
