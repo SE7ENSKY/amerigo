@@ -41,7 +41,7 @@ initAnimation = ->
 		new ScrollMagic.Scene(
 				triggerElement: @
 				triggerHook: 0
-				duration: '300%'
+				duration: '200%'
 			)
 			.setTween(tween)
 			.addTo(controller)
