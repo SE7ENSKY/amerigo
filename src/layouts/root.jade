@@ -20,6 +20,27 @@ html
 			}
 		- wp_head()
 
+		link(rel="apple-touch-icon-precomposed" sizes="57x57" href=asset("i/app/Amerigo_favicon_57.png"))
+		link(rel="apple-touch-icon-precomposed" sizes="114x114" href=asset("i/app/Amerigo_favicon_114.png"))
+		link(rel="apple-touch-icon-precomposed" sizes="72x72" href=asset("i/app/Amerigo_favicon_72.png"))
+		link(rel="apple-touch-icon-precomposed" sizes="144x144" href=asset("i/app/Amerigo_favicon_144.png"))
+		link(rel="apple-touch-icon-precomposed" sizes="60x60" href=asset("i/app/Amerigo_favicon_60.png"))
+		link(rel="apple-touch-icon-precomposed" sizes="120x120" href=asset("i/app/Amerigo_favicon_120.png"))
+		link(rel="apple-touch-icon-precomposed" sizes="76x76" href=asset("i/app/Amerigo_favicon_76.png"))
+		link(rel="apple-touch-icon-precomposed" sizes="152x152" href=asset("i/app/Amerigo_favicon_152.png"))
+		link(rel="icon" type="image/png" href=asset("i/app/Amerigo_favicon_196.png") sizes="196x196")
+		link(rel="icon" type="image/png" href=asset("i/app/Amerigo_favicon_96.png") sizes="96x96")
+		link(rel="icon" type="image/png" href=asset("i/app/Amerigo_favicon_32.png") sizes="32x32")
+		link(rel="icon" type="image/png" href=asset("i/app/Amerigo_favicon_16.png") sizes="16x16")
+		link(rel="icon" type="image/png" href=asset("i/app/Amerigo_favicon_128.png") sizes="128x128")
+		meta(name="application-name" content="&nbsp;")
+		meta(name="msapplication-TileColor" content="#FFFFFF")
+		meta(name="msapplication-TileImage" content=asset("i/app/Amerigo_favicon_144.png"))
+		meta(name="msapplication-square70x70logo" content=asset("i/app/Amerigo_favicon_70.png"))
+		meta(name="msapplication-square150x150logo" content=asset("i/app/Amerigo_favicon_150.png"))
+		meta(name="msapplication-wide310x150logo" content=asset("i/app/Amerigo_favicon_310x150.png" ))
+		meta(name="msapplication-square310x310logo" content=asset("i/app/Amerigo_favicon_310.png"))
+
 			
 	body
 		style#preloader-styles
@@ -27,57 +48,23 @@ html
 				html.preloaded .preloader
 					display none
 				.preloader
-					position fixed
-					top 0
-					right 0
-					bottom 0
-					left 0
-					background-color #fff
-					z-index 999
 					&__badge
-						position absolute
-						top 0
-						left 50%
-						margin-left -62px
-						background url("/assets/i/logo-badge.svg") no-repeat 0 bottom
-						width 124px
 						height 60%
-						max-height 1500px
-						@media phone
+						@media (max-width: 767px)
 							height 40%
 					&__logo
-						position absolute
-						z-index 2
-						top 60%
-						left 50%
-						width 318px
-						margin-top 80px
-						margin-left -(@width / 2)
-						@media phone
-							top 40%
-							width 300px
-							margin-left -150px
+						@media (max-width: 767px)
+							top 40% !important
+							width 300px !important
+							margin-left -150px !important
 						&-main
-							display block
-							margin 0 auto
-							width 318px
-							height 23px
-							@media phone
-								width 300px
-						&-text
-							display block
-							margin 30px auto 0
-							width 236px
-							height 10px
-					&__stamp
-						position absolute
-						right 30px
-						bottom 30px
+							@media (max-width: 767px)
+								width 300px !important
 				.animsition
 					opacity 0
 					
 
-		+b.preloader: +i
+		+b.preloader(style="position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-color: #fff; z-index: 999;"): +i
 		.animsition
 			+b("header").header: +i({activeMenuIndex: file.activeMenuIndex})
 			.root
