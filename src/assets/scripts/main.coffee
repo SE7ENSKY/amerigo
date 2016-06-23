@@ -52,6 +52,8 @@ $ ->
 		$this = $ e.currentTarget
 		anchor = $this.data('menuanchor')
 		$.fn.fullpage.moveTo(anchor)
+		# possible solution 
+		# scroller.scrollToElement(document.querySelector(anchor))
 
 	$('#main').fullpage
 		lockAnchors: true
