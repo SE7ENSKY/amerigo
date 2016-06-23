@@ -2,11 +2,11 @@
 +e("form").form
 	fieldset
 		.form-group
-			each item, i in langs
+			each item in langs
 				.radio
 					label
 						if item.active
-							input(type="radio" name="language" value=item.url checked)
+							input.active(type="radio" name="language" value=item.url checked)
 						else
 							input(type="radio" name="language" value=item.url)
 						span= item.title

@@ -11,15 +11,18 @@ html
 					| #{file.title} – #{site.title}
 				else
 					| #{site.title}
+		- wp_title()
 		script.
 			var preloaded = sessionStorage.getItem('preloaded');
 			if (preloaded == 'true') {
 				var root = document.documentElement;
 				root.className += ' preloaded';
 			}
+		- wp_head()
+
 			
 	body
-		style
+		style#preloader-styles
 			:stylus
 				html.preloaded .preloader
 					display none
@@ -70,6 +73,8 @@ html
 						position absolute
 						right 30px
 						bottom 30px
+				.animsition
+					opacity 0
 					
 
 		+b.preloader: +i
@@ -88,3 +93,5 @@ html
 		block styles
 		block scripts
 		block analytics
+
+		- wp_footer()

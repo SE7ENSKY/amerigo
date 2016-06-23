@@ -1,5 +1,10 @@
+if image
+	+e.img(style="background-image: url('#{image}');")
 +e.inner.container
-	+e.text!= text
+	+e.text
+		if title
+			+e.title!= title
+		+e.body!= text
 if arrowAnchor
 	- classes = ""
 	if arrowColor

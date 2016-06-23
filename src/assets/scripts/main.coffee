@@ -27,6 +27,20 @@ $ ->
 			scrollbars: true
 			mouseWheel: true
 			click: true
+			# don't scroll horizontal
+			scrollX: false
+			# but do scroll vertical
+			scrollY: true
+			# show scrollbars
+			scrollbars: true
+			# deactivating -webkit-transform because pin wouldn't work because of a webkit bug: https://code.google.com/p/chromium/issues/detail?id=20574
+			# if you dont use pinning, keep "useTransform" set to true, as it is far better in terms of performance.
+			useTransform: false
+			# deativate css-transition to force requestAnimationFrame (implicit with probeType 3)
+			useTransition: false
+			# set to highest probing level to get scroll events even during momentum and bounce
+			# requires inclusion of iscroll-probe.js
+			probeType: 3
 		)
 
 	$(".select7").select7()
