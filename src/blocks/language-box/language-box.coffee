@@ -13,6 +13,6 @@ $ ->
 			if val
 				sessionStorage.setItem('langSelected', 'true')
 				window.location = val
-
-		$block.closest('.modal').modal 'hide'
-		$(document).trigger 'preloader.hide'
+		else
+			$block.closest('.modal').modal 'hide'
+			$(document).trigger 'preloader.hide'

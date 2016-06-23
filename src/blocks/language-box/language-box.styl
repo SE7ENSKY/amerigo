@@ -28,6 +28,8 @@
 				color brandColor
 			label
 				cursor pointer
+				span
+					pointer-events none
 			span
 				transition .2s color ease-in-out
 			input
@@ -38,5 +40,5 @@
 				left 0
 				opacity 0
 				&:checked + span
-				&[checked="checked"] + span
+				// &[checked="checked"] + span
 					color brandColor
