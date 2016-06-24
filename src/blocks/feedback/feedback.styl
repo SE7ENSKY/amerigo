@@ -67,6 +67,9 @@
 						width 50%
 						padding 0 15px
 						margin 0 0 20px
+						@media phone
+							float none
+							width auto
 						&:last-child
 							float none
 							width auto
@@ -112,9 +115,11 @@
 						outline none
 			.gfield
 				position relative
-				&.gfield_phone
+				&.phone-input
 					.gfield_label
 						display none !important
+					input
+						padding-left 44px
 				&.has-value
 					.gfield
 						&_label
@@ -126,6 +131,8 @@
 					background none
 					border 0 none
 					margin 0 0 20px !important
+					&.gfield_contains_required
+						margin 0 0 20px !important
 					.validation_message
 						display none
 					.gfield_label
@@ -178,9 +185,6 @@
 						border-color greenColor
 					&.erorr-input
 						border-color brandColor
-				&_phone
-					input
-						padding-left 44px
 			textarea
 				display block
 				width 100% !important
