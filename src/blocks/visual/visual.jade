@@ -6,7 +6,7 @@ if image
 			+e.title!= title
 		+e.body!= text
 if arrowAnchor
-	- classes = ""
+	- var classes = ""
 	if arrowColor
 		- classes = "section-arrow_" + arrowColor
 	a.section-arrow(class=classes, data-menuanchor=arrowAnchor)
