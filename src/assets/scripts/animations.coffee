@@ -117,10 +117,10 @@ initAnimation = ->
 	, 0, 0, 0
 
 	scene '.campuses', new TimelineMax()
-		.fromTo('.fixed-panel', .2, {autoAlpha: 0}, {autoAlpha: 1, ease: Power2.easeOut}, 0)
+		.fromTo('.fixed-panel', .1, {autoAlpha: 0}, {autoAlpha: 1, ease: Power2.easeOut})
 
 	scene '.feedback', new TimelineMax()
-		.to('.fixed-panel', .2, {autoAlpha: 0, ease: Power2.easeIn}, 0)
+		.to('.fixed-panel', .2, {autoAlpha: 0, ease: Power2.easeIn})
 	, 0, 0, 1
 
 
