@@ -73,7 +73,7 @@ initAnimation = ->
 			.fromTo($position, 1, {autoAlpha: 0, y: 10}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.1)
 			.fromTo($text, 1, {autoAlpha: 0, y: 10}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
 
-	scene '.feedback button[type="submit"]', new TimelineMax()
+	scene '.feedback button[type="submit"], .feedback .gform_footer', new TimelineMax()
 		.fromTo('.feedback__stamp', .2, {autoAlpha: 0, scale: 2}, {autoAlpha: 1, scale: 1, ease: Power2.easeIn}, 0)
 	, 0, 100, 1
 

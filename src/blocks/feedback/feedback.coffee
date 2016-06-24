@@ -50,6 +50,10 @@ $ ->
 		$this = $(e.currentTarget)
 		$this.closest('.gform_wrapper form').addClass('submitting').submit()
 
+	$(document).on 'gform.success', (e) ->
+		$('#success-modal').modal('show')
+		scroller?.refresh()
+
 	$(window).load ->
 		tuneUpGravity()
 
