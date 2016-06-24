@@ -31,7 +31,7 @@ $ ->
 					$select.prepend('<option></option>')
 					$option.detach()
 
-			$select.addClass("select7_remove_current")
+			$select.addClass("select7_native_dropdown")
 			setTimeout ->
 				$select.select7()
 			, 10
