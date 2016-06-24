@@ -36,7 +36,7 @@ $ ->
 		scroller?.scrollBy(0, -y, 666,)
 
 	$('#main').fullpage
-		lockAnchors: true
+		lockAnchors: false
 		autoScrolling: false
 		scrollOverflow: false
 		fitToSection: false
