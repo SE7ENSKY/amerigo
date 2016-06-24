@@ -5,6 +5,7 @@ $ ->
     $menuItem = $(".main-menu__item")
     breakpoint = 999
 
+
     TweenMax.set($mobileMenu, { autoAlpha: 0, display: "none", scaleY: 0 })
     $mobileMenu.animation = new TimelineLite({ paused: true } ).to($mobileMenu, 0.1, { autoAlpha: 1, display: "block", scaleY: 1, ease: Power1.easeOut })
 
@@ -17,19 +18,15 @@ $ ->
         subMenuOffsetRight = $subMenu.offset().left + $subMenu.outerWidth()
 
         if subMenuOffsetRight > headerOffsetRight and not parseInt($subMenu.css("marginLeft"))
-          $subMenu.css("marginLeft", (headerOffsetRight - subMenuOffsetRight) + "px")
-
-    checkOffset($menuItem.filter(".active").addClass("current"))
+            $subMenu.css("marginLeft", (headerOffsetRight - subMenuOffsetRight + 10) + "px")
 
     activateMenu = (event) ->
         $target = $(event.currentTarget)
         $menuItem.removeClass("active").filter($target).addClass("active").end()
-        checkOffset($target)
+        checkOffset $target
 
     deactivateMenu = ->
         $menuItem.removeClass("active").filter(".current").addClass "active"
-
-    $menuItem.hover(activateMenu, deactivateMenu)
 
     $menuToggle.on "click", ->
         if $menuToggle.toggleClass("active").hasClass("active")
@@ -38,6 +35,10 @@ $ ->
         else
             $body.removeClass("menu-open")
             $mobileMenu.animation.reverse()
+
+    $(window).load ->
+        checkOffset $menuItem.filter(".active").addClass("current")
+        $menuItem.hover(activateMenu, deactivateMenu)
 
     $(window).on "resize", ->
         if window.innerWidth > breakpoint and $menuToggle.hasClass("active")
