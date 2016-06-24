@@ -40,3 +40,5 @@ $ ->
 			$input.removeClass 'erorr-input'
 
 			clearTimeout(keyupTimeout)
+
+	initIntlTelInput $('.intl-tel-input')
