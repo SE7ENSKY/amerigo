@@ -3,6 +3,11 @@ $ ->
 
 		initIntlTelInput $(".phone-input input")
 
+		$('.gfield').find('input, textarea').each ->
+			$this = $(@)
+			value = $this.val()
+			$this.closest(".gfield").addClass('has-value') if value
+
 		$('.gfield').find('input, textarea').on 'focus', (e) ->
 			$this = $(e.target)
 			$this.closest(".gfield").addClass('has-value')
@@ -12,11 +17,24 @@ $ ->
 			value = $this.val()
 			$this.closest(".gfield").removeClass('has-value') unless value
 
-		$select = $(".gfield_select")
-		$select.addClass("select7_remove_current")
-		setTimeout ->
-			$select.select7()
-		, 10
+		$(".gfield_select").each ->
+			$select = $(@)
+			$parent = $select.closest('.gfield')
+			$label = $parent.find('label')
+			placeholder = $label.text()
+			$label.detach()
+			$select.attr('placeholder', placeholder)
+
+			$select.find('option').each ->
+				$option = $(@)
+				unless $option.text()
+					$select.prepend('<option></option>')
+					$option.detach()
+
+			$select.addClass("select7_remove_current")
+			setTimeout ->
+				$select.select7()
+			, 10
 
 		$('.gform_footer').each ->
 			$this = $(@)
@@ -25,6 +43,7 @@ $ ->
 			$oldBtn.detach()
 			$this.prepend "<button type='submit' class='gform_button button'>#{value}</button>"
 
+		scroller?.refresh()
 
 	$(document).on 'click', "[type='submit']", (e) ->
 		e.preventDefault()
