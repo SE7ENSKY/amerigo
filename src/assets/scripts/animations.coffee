@@ -75,7 +75,7 @@ initAnimation = ->
 
 	scene '.feedback button[type="submit"]', new TimelineMax()
 		.fromTo('.feedback__stamp', .2, {autoAlpha: 0, scale: 2}, {autoAlpha: 1, scale: 1, ease: Power2.easeIn}, 0)
-	, 0, 0, .9
+	, 0, 100, 1
 
 	scene '.footer__inner', new TimelineMax()
 		.fromTo('.footer__inner', 0.5, {autoAlpha: 0}, {autoAlpha: 1, ease: Power2.easeIn})
@@ -112,9 +112,9 @@ initAnimation = ->
 		.fromTo('.history__image', 1, {autoAlpha: 0, x: 50}, {autoAlpha: 1, x: 0, ease: Power2.easeOut}, 0.2)
 
 	scene '.page_contacts', new TimelineMax()
-		.fromTo('.page_contacts.page__sidebar', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
-		.fromTo('.page_contacts.page__content', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
-	, 0, 0, 1
+		.fromTo('.page_contacts .page__sidebar', 1, {autoAlpha: 0, y: -50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, .2)
+		.fromTo('.page_contacts .page__content', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, .3)
+	, 0, 0, 0
 
 	scene '.campuses', new TimelineMax()
 		.fromTo('.fixed-panel', .2, {autoAlpha: 0}, {autoAlpha: 1, ease: Power2.easeOut}, 0)
