@@ -31,4 +31,4 @@ $ ->
 	$(document).on 'click', "[type='submit']", (e) ->
 		e.preventDefault()
 		$this = $(e.currentTarget)
-		$this.closest('form').submit()
+		$this.closest('.gform_wrapper form').submit()
