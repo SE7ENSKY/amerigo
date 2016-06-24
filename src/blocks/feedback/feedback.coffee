@@ -26,9 +26,10 @@ $ ->
 			$oldBtn.detach()
 			$this.prepend "<button type='submit' class='gform_button button'>#{value}</button>"
 
-	tuneUpGravity()
 
 	$(document).on 'click', "[type='submit']", (e) ->
 		e.preventDefault()
 		$this = $(e.currentTarget)
 		$this.closest('.gform_wrapper form').submit()
+	$(window).load ->
+		tuneUpGravity()
