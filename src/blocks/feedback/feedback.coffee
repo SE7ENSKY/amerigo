@@ -1,8 +1,7 @@
 $ ->
 	tuneUpGravity = ->
 
-		initIntlTelInput $(".ginput_container_phone")
-		$(".ginput_container_phone").closest(".gfield").addClass('gfield_phone')
+		initIntlTelInput $(".phone-input input")
 
 		$('.gfield').find('input, textarea').on 'focus', (e) ->
 			$this = $(e.target)
@@ -30,6 +29,10 @@ $ ->
 	$(document).on 'click', "[type='submit']", (e) ->
 		e.preventDefault()
 		$this = $(e.currentTarget)
-		$this.closest('.gform_wrapper form').submit()
+		$this.closest('.gform_wrapper form').addClass('submitting').submit()
+
 	$(window).load ->
 		tuneUpGravity()
+
+		$(document).on 'gform_post_render', (e) ->
+			tuneUpGravity()
