@@ -63,15 +63,16 @@
 					clearfix()
 					.gfield
 						clear none
-						float left
-						width 50%
+						display inline-block
+						width 49%
+						vertical-align top
 						padding 0 15px
 						margin 0 0 20px
 						@media phone
-							float none
+							display block
 							width auto
 						&:last-child
-							float none
+							display block
 							width auto
 							clear both
 							padding-top 10px

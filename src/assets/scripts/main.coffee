@@ -28,6 +28,7 @@ $ ->
 		$(@).attr('data-menuanchor', anchor) if anchor
 
 	window.scrollTo = ($target) ->
+		return unless $target.length
 		$header = $('.header')
 		headerHeight = if $header.length then $header.outerHeight() else 0
 		y = $target.offset().top - headerHeight
