@@ -68,6 +68,7 @@ $ ->
 			preventDefaultException: { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|UL)$/i }
 			interactiveScrollbars: true
 			scrollbars: true
+			resizeScrollbars: false
 			mouseWheel: true
 			click: true
 			scrollX: false
