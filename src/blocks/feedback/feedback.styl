@@ -38,6 +38,8 @@
 			@media phone
 				width auto
 				max-width 340px
+			.validation_error
+				display none
 			.gform
 				&_heading
 					width auto
@@ -120,6 +122,16 @@
 							font-size 10px
 						&_required
 							font-size 12px
+				&.gfield_error
+					background none
+					border 0 none
+					margin 0 0 20px !important
+					.validation_message
+						display none
+					.gfield_label
+						color #939598
+					input
+						border-color brandColor
 				&_required
 					position relative
 					top 0
@@ -154,7 +166,7 @@
 					font-size 13px
 					line-height 1.3
 					color #252525
-					border-width 0 0 1px
+					border-width 0 0 1px !important
 					border-style solid
 					border-color #000
 					border-radius 0
@@ -183,3 +195,34 @@
 				color #252525
 				&:focus
 					outline none
+	
+			form
+				position relative
+				transition opacity .2s ease-in-out	
+				&.submitting
+					opacity .5
+					&:after
+						position absolute
+						top 0
+						left 0
+						right 0
+						bottom 0
+					&:before
+						content ""
+						position absolute
+						left 50%
+						top 50%
+						width 80px
+						height @width
+						margin-left (@width / (-2))
+						margin-top (@height / (-2))
+						border-radius 100%
+						background-color brandColor
+						animation scaleout 1s infinite ease-in-out
+
+@keyframes scaleout
+	0% 
+		transform scale(0.0)
+	100%
+		transform scale(1.0)
+		opacity 0
