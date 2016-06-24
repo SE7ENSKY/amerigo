@@ -29,14 +29,29 @@
 				background-color #fff
 			&__subtitle
 				color brandColor
+			&__body
+			&__image
+				&-mask
+					display none
 	&__body
 	&__image
+		&-mask
+			position absolute
+			top 0
+			left 0
+			right 0
+			bottom 0
+			background #fff
+			z-index 2
 		@media desktop
 			width 50%
 	&__body
 		margin-right auto
 		background-color brandColor
 		color #fff
+		position relative
+		&-mask
+			transform-origin 50% 0
 		&-inner
 			position relative
 			padding-top 50px
@@ -57,6 +72,8 @@
 		background-position center center
 		background-repeat no-repeat
 		background-size cover
+		&-mask
+			transform-origin 50% 100%
 		@media desktop
 			position absolute
 			left 0

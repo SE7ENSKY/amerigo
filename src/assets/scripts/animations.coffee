@@ -84,15 +84,19 @@ initAnimation = ->
 	$('.info-card').each ->
 		$item = $(@)
 		$image = $item.find('.info-card__image')
+		$mask = $item.find('.info-card__body-mask, .info-card__image-mask')
+
 		$title = $item.find('.info-card__title')
 		$subtitle = $item.find('.info-card__subtitle')
 		$text = $item.find('.info-card__text')
 
 		scene @, new TimelineMax()
-			.fromTo($image, 1, {autoAlpha: 0, y: -50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.1)
+			.fromTo($mask, .7, {scaleY: 1}, {scaleY: 0, ease: Power1.easeInOut}, 0)
+			.fromTo($image, 1, {y: -50, autoAlpha: 0}, {y: 0, autoAlpha: 1, ease: Power2.easeOut}, 0.1)
 			.fromTo($title, 1, {autoAlpha: 0, y: 20}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0)
 			.fromTo($subtitle, 1, {autoAlpha: 0, y: 30}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
 			.fromTo($text, 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.4)
+		, 0, -45, 0.5
 
 	$('.campus').each ->
 		$item = $(@)
