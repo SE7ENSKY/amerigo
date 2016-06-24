@@ -1,23 +1,34 @@
 $ ->
-	$block = $(".feedback")
-	return unless $block.length
-	$form = $(".feedback").find("form")
-	$select = $block.find(".gfield_select")
-	$input = $block.find(".ginput_container input")
-	$phoneWrap = $block.find(".ginput_container_phone")
+	tuneUpGravity = ->
 
-	$form.find('input, textarea').on 'focus', (e) ->
-		$this = $(e.target)
-		$this.closest(".gfield").addClass('has-value')
+		initIntlTelInput $(".ginput_container_phone")
+		$(".ginput_container_phone").closest(".gfield").addClass('gfield_phone')
 
-	$form.find('input, textarea').on 'blur', (e) ->
-		$this = $(e.target)
-		value = $this.val()
-		$this.closest(".gfield").removeClass('has-value') unless value
+		$('.gfield').find('input, textarea').on 'focus', (e) ->
+			$this = $(e.target)
+			$this.closest(".gfield").addClass('has-value')
 
-	$phoneWrap.closest(".gfield").addClass('gfield_phone')
+		$('.gfield').find('input, textarea').on 'blur', (e) ->
+			$this = $(e.target)
+			value = $this.val()
+			$this.closest(".gfield").removeClass('has-value') unless value
 
-	$select.addClass("select7_remove_current")
-	setTimeout ->
-		$select.select7()
-	, 10
+		$select = $(".gfield_select")
+		$select.addClass("select7_remove_current")
+		setTimeout ->
+			$select.select7()
+		, 10
+
+		$('.gform_footer').each ->
+			$this = $(@)
+			$oldBtn = $this.find("input[type='submit']")
+			value = $oldBtn.val()
+			$oldBtn.detach()
+			$this.prepend "<button type='submit' class='gform_button button'>#{value}</button>"
+
+	tuneUpGravity()
+
+	$(document).on 'click', "[type='submit']", (e) ->
+		e.preventDefault()
+		$this = $(e.currentTarget)
+		$this.closest('form').submit()
