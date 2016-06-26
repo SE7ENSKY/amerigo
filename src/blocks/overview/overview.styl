@@ -38,6 +38,12 @@
 			display none
 		@media phone
 			margin-bottom 10px
+			&-less
+				display none
+			&.active &-less
+				display inline
+			&.active &-more
+				display none
 			&.active
 				display block !important
 	&__list
