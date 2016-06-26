@@ -1,0 +1,19 @@
+mixin visual
+	if file.visual
+		- classes = ""
+		if file.visual.textPosition
+			- classes = "visual_text-" + file.visual.textPosition
+		if file.visual.textColor
+			- classes += " visual_text-" + file.visual.textColor
+		if file.visual.titleColor
+			- classes += " visual_title-color-" + file.visual.titleColor
+		
+		if file.visual.mobileImage
+			- mobileImage = file.visual.mobileImage
+		else 
+			- mobileImage = file.visual.image
+
+		if file.visual.title
+			+b.visual.visual_mobile.section(class=classes data-anchor="welcome-mobile"): +i({ title: file.visual.title, mobileImage: mobileImage })
+		
+		+b.visual.section(class=classes data-anchor="welcome" style="background-image: url('#{file.visual.image}');"): +i({ text: file.visual.text, arrowAnchor: file.visual.arrowAnchor, arrowColor: file.visual.arrowColor, mobileImage: mobileImage })
