@@ -124,3 +124,10 @@ $ ->
 			return unless $target.length
 			e.preventDefault()
 			scrollTo $target
+
+		# SCROLL HACKS
+		$(document).on 'resize-debounce', ->
+			$(window).scroll()
+			
+		scroller?.on 'scroll', ->
+			$(window).scroll()

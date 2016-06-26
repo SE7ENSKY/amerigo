@@ -17,7 +17,7 @@ $ ->
 			value = $this.val()
 			$this.closest(".gfield").removeClass('has-value') unless value
 
-		$(".gfield_select").each ->
+		$(".gfield_select, .form-group select").each ->
 			$select = $(@)
 			$parent = $select.closest('.gfield')
 			$label = $parent.find('label')
@@ -35,8 +35,18 @@ $ ->
 			# , 10
 
 			$select.select2()
+			closeBehavior = ->
+				$(document).on 'resize-debounce', ->
+					$select.select2("close")
 
-		$(".feedback select").select2()
+				scroller?.on 'scroll', ->
+					$select.select2("close")
+
+			if window.loaded
+				closeBehavior()
+			else 
+				$(window).load ->
+					closeBehavior()
 
 		$('.gform_footer').each ->
 			$this = $(@)

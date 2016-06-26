@@ -38,7 +38,6 @@
 				.to($preloader, .7, { autoAlpha: 0, ease: Power2.easeOut }, 1 )
 				.to($text, .6, { autoAlpha: 0, ease: Power2.easeOut }, 0)
 
-#			$('.preloader').fadeOut 500
 			$("html").removeClass 'preloading'
 			$(document).trigger 'preloaded'
 			sessionStorage.setItem('preloaded', 'true')

@@ -7,6 +7,12 @@ $ ->
 			nationalMode: false
 			dropdownContainer: 'body'
 
+		if window.loaded
+				closeBehavior()
+		else 
+			$(window).load ->
+				closeBehavior()
+
 		$input.on 'keyup change', ->
 			clearTimeout(keyupTimeout)
 			value = $input.val()
