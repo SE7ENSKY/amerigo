@@ -12,31 +12,34 @@
 		@media phone
 			.visual__title
 				display block
+			.visual__img
+				position fixed !important
 			.fp-tableCell
 				vertical-align bottom
 			+ .visual
 				background none !important
 				.visual__text
 					color #000
+				.visual__img
+					display none !important
 				.fp-tableCell
 					vertical-align middle
-		.visual__img
-			position fixed
-			top 0
-			left 0
-			bottom 0
-			right 0
-			background-size cover
-			background-repat no-repeat
-			background-position center
+	&_title
+		&-color-light
+			.visual__title
+				color #fff
+		&-color-dark
+			.visual__title
+				color #000
 	&_text
 		&-right-top
-			.fp-tableCell
-				vertical-align top
-			.visual__text
-				padding-top 60px
-				margin-left auto
-				text-align right
+			@media tablet_desktop
+				.fp-tableCell
+					vertical-align top
+				.visual__text
+					padding-top 60px
+					margin-left auto
+					text-align right
 		&-left-bottom
 			.fp-tableCell
 				vertical-align bottom
@@ -61,6 +64,7 @@
 		text-align center
 		text-transform uppercase
 		line-height 1.2
+		color brandColor
 
 	&__inner
 		&.container
@@ -69,3 +73,14 @@
 			@media phone
 				padding-top 60px
 				padding-bottom 60px
+	&__img
+		@media phone
+			position absolute
+			top 0
+			left 0
+			bottom 0
+			right 0
+			background-size cover
+			background-repat no-repeat
+			background-position center
+	
