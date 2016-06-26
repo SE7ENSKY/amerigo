@@ -2,16 +2,10 @@ $ ->
 	window.initIntlTelInput = ($input) ->
 		keyupTimeout = undefined
 		$input.intlTelInput
-			allowExtensions: true
-			autoHideDialCode: false
+			# allowExtensions: true
+			autoHideDialCode: true
 			nationalMode: false
 			dropdownContainer: 'body'
-
-		if window.loaded
-				closeBehavior()
-		else 
-			$(window).load ->
-				closeBehavior()
 
 		$input.on 'keyup change', ->
 			clearTimeout(keyupTimeout)
@@ -35,7 +29,7 @@ $ ->
 			if not $input.intlTelInput('isValidNumber')
 				if $input.val().length is 0
 					$input.removeClass 'erorr-input'
-					$error.fadeOut()
+					# $error.fadeOut()
 				else
 					$input.addClass 'erorr-input'
 			else
