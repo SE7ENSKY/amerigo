@@ -2,6 +2,7 @@ title: "AMERIGO EDUCATION | ACADEMY OF GLOBAL EDUCATION"
 keywords: "Academy, global education, american education, education, college prepatory, exchange student, students, asia"
 baseUrl: "http://amerigoeducation.com"
 address: "401 North Michigan Av,<br>Suite 3300<br>Chicago, IL 60611<br> T <a href='callto:3124657017'>+ 312 465 7017</a>"
+contactsLink: '/contactsLink'
 socials:
   - icon: "facebook"
     url: "/"

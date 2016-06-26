@@ -10,11 +10,11 @@
 								+e("li").menu-sub-item
 									+e("a").menu-sub-link(href=subItem.url)= subItem.title
 		+e.section
-			+e.section-title Contact us
+			+e("a").section-title(href=site.contactsLink)= tr('Contact us')
 			+e.address!= site.address
 			+b.socials.footer__socials: +i({ items: site.socials })
 		+e.section
-			+e.section-title Language
+			+e.section-title= tr('Language')
 			+e("ul").language
 				each item, i in langs
 					+e("li").language-item
