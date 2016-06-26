@@ -5,6 +5,7 @@ $ ->
 			allowExtensions: true
 			autoHideDialCode: false
 			nationalMode: false
+			dropdownContainer: 'body'
 
 		$input.on 'keyup change', ->
 			clearTimeout(keyupTimeout)
@@ -24,19 +25,16 @@ $ ->
 			), 2000
 
 		$input.on 'blur', ->
+			clearTimeout(keyupTimeout)
 			if not $input.intlTelInput('isValidNumber')
 				if $input.val().length is 0
 					$input.removeClass 'erorr-input'
 					$error.fadeOut()
-					clearTimeout(keyupTimeout)
 				else
 					$input.addClass 'erorr-input'
-
-					clearTimeout(keyupTimeout)
 			else
 				$input.removeClass 'erorr-input'
 
-			clearTimeout(keyupTimeout)
 
 		$input.on 'keydown focus', ->
 			$input.removeClass 'erorr-input'

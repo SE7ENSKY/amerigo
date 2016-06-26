@@ -43,6 +43,10 @@
 			bottom 0
 			background #fff
 			z-index 2
+			.touchevents &
+				display none !important
+			@media phone
+				display none !important
 		@media desktop
 			width 50%
 	&__body

@@ -77,6 +77,7 @@ $ ->
 	$(window).load ->
 		window.loaded = true
 		window.scroller = new IScroll('.root',
+			# preventDefault: false
 			preventDefaultException: { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|UL)$/i }
 			interactiveScrollbars: true
 			scrollbars: true

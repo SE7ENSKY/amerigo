@@ -23,18 +23,20 @@ $ ->
 			$label = $parent.find('label')
 			placeholder = $label.text()
 			$label.detach()
-			$select.attr('placeholder', placeholder)
+			# $select.attr('placeholder', placeholder)
+			# $select.find('option').each ->
+			# 	$option = $(@)
+			# 	unless $option.text()
+			# 		$select.prepend('<option></option>')
+			# 		$option.detach()
+			# $select.addClass("select7_native_dropdown")
+			# setTimeout ->
+			# 	$select.select7()
+			# , 10
 
-			$select.find('option').each ->
-				$option = $(@)
-				unless $option.text()
-					$select.prepend('<option></option>')
-					$option.detach()
+			$select.select2()
 
-			$select.addClass("select7_native_dropdown")
-			setTimeout ->
-				$select.select7()
-			, 10
+		$(".feedback select").select2()
 
 		$('.gform_footer').each ->
 			$this = $(@)
