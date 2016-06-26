@@ -41,7 +41,7 @@ $ ->
 		$header = $('.header')
 		headerHeight = if $header.length then $header.outerHeight() else 0
 		y = $target.offset().top - headerHeight
-		# y -= 30 if window.innerWidth > 999
+		y -= 30 if window.innerWidth > 999
 		scroller?.scrollBy(0, -y, 666,)
 
 	$('#main').fullpage
