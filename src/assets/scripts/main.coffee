@@ -16,6 +16,9 @@ window.debounce = debounce = (fn, delay) ->
 
 window.scroller = null
 
+window.locationHash = location.hash.replace(/(\=|\?|\+|\.|\,|\!|\@|\$|\%|\^|\&|\*|\(|\)|\;|\\|\/|\||\<|\>|\"|\').*/g, '')
+history.pushState("", document.title, window.location.pathname + window.location.search) if locationHash
+
 $ ->
 	$window = $(window)
 	$window.on 'resize', debounce($window.trigger.bind($window, 'resize-debounce'), 200)
@@ -26,6 +29,12 @@ $ ->
 	$('a[href*="#"]').each ->
 		anchor = @hash.slice(1)
 		$(@).attr('data-menuanchor', anchor) if anchor
+
+	$('.visual__title').each ->
+		$this = $(@)
+		html = $this.html()
+		newHtml = html.replace('|', '<br>')
+		$this.html newHtml
 
 	window.scrollTo = ($target) ->
 		return unless $target.length
@@ -87,14 +96,14 @@ $ ->
 		# 	-scroller.y
 
 
-		# SCROLL TO ON LOAD
-		locationHash = location.hash.replace(/(\=|\?|\+|\.|\,|\!|\@|\$|\%|\^|\&|\*|\(|\)|\;|\\|\/|\||\<|\>|\"|\').*/g, '')
-		if locationHash
+		# SCROLL TO ON LOAD		
+		if window.locationHash
 			anchor = locationHash.slice(1)
 			$target = $("[data-anchor='#{anchor}']").first()
-			if $target.length
-				scrollTo $target
-				history.pushState("", document.title, window.location.pathname + window.location.search)
+			unless $target.length
+				$target = $("##{anchor}").first()
+			return unless $target.length
+			scrollTo $target
 
 		# SCROLL TO ON CLICK
 		$(document).on 'click', '[data-menuanchor], a[href^="#"]', (e) ->
