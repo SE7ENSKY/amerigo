@@ -40,7 +40,8 @@ $ ->
 		return unless $target.length
 		$header = $('.header')
 		headerHeight = if $header.length then $header.outerHeight() else 0
-		y = $target.offset().top - headerHeight
+		y = $target.offset().top
+		y -= headerHeight unless $target.hasClass('visual')
 		y -= 30 if window.innerWidth > 999
 		scroller?.scrollBy(0, -y, 666,)
 
