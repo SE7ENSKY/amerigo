@@ -20,6 +20,8 @@ window.locationHash = location.hash.replace(/(\=|\?|\+|\.|\,|\!|\@|\$|\%|\^|\&|\
 history.pushState("", document.title, window.location.pathname + window.location.search) if locationHash
 
 $ ->
+	FastClick.attach($('.header').get(0))
+
 	$window = $(window)
 	$window.on 'resize', debounce($window.trigger.bind($window, 'resize-debounce'), 200)
 	$window.on 'scroll', debounce($window.trigger.bind($window, 'scroll-debounce'), 200)
@@ -107,7 +109,7 @@ $ ->
 			scrollTo $target
 
 		# SCROLL TO ON CLICK
-		$(document).on 'click', '[data-menuanchor], a[href^="#"]', (e) ->
+		$(document).on 'click touchstart', '[data-menuanchor], a[href^="#"]', (e) ->
 			$this = $ e.currentTarget
 
 			anchor = $this.data('menuanchor')
