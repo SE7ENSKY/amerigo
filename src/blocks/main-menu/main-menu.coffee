@@ -8,7 +8,8 @@ $ ->
 
     TweenMax.set($mobileMenu, { autoAlpha: 0, display: "none", scaleY: 0 })
     $mobileMenu.animation = new TimelineLite({ paused: true } ).to($mobileMenu, 0.1, { autoAlpha: 1, display: "block", scaleY: 1, ease: Power1.easeOut })
-
+    $menuItem.filter(".active").addClass("current")
+    
     checkOffset = ($element) ->
         $subMenu = $element.find(".main-sub-menu")
         return unless $subMenu.length
@@ -37,7 +38,7 @@ $ ->
             $mobileMenu.animation.reverse()
 
     $(window).load ->
-        checkOffset $menuItem.filter(".active").addClass("current")
+        checkOffset $menuItem.filter(".active")
         $menuItem.hover(activateMenu, deactivateMenu)
 
     $(window).on "resize", ->
