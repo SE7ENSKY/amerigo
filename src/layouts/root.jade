@@ -46,7 +46,43 @@ html
 			:stylus
 				html.preloaded .preloader
 					display none
+				@keyframes preloader-loading
+					0%
+						transform: rotate(0deg)
+					100%
+						transform: rotate(360deg)
+
+				@keyframes preloader-spinner-fade-in
+					0%
+						opacity: 0
+					100%
+						opacity: 1
 				.preloader
+					&__spinner
+						animation preloader-loading 0.8s linear infinite, preloader-spinner-fade-in .5s linear 1s normal 1 forwards running
+						border-top 3px solid lighten(#e63c27, 20%) !important
+						border-right 3px solid lighten(#e63c27, 20%) !important
+						border-bottom 3px solid lighten(#e63c27, 20%) !important
+						border-left 3px solid lighten(#e63c27, 80%) !important
+						width 32px
+						height 32px
+						border-radius 100%
+						transform-origin 50%
+						margin-left -16px
+						opacity 0
+						transform translateZ(0)
+						@media (max-width: 767px)
+							bottom 20%
+						@media (max-height: 480px), (min-width: 768px)
+							bottom 10%
+						@media (max-height: 340px), (min-width: 768px) and (max-height: 550px)
+							width 20px
+							height 20px
+							margin-left -10px
+						@media (max-height: 295px), (min-width: 768px) and (max-height: 675px)
+							bottom 5%
+						@media (min-width: 768px) and (max-height: 500px)
+							display none
 					&__badge
 						height 60%
 						max-height 1500px

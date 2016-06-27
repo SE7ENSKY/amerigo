@@ -15,6 +15,7 @@
 	
 	showLangModal = ->
 		return if sessionStorage.getItem('preloaded') == 'true'
+		TweenMax.to('.preloader__spinner', .6, { autoAlpha: 0, ease: Power2.easeOut, delay: .5 })
 		if sessionStorage.getItem('langSelected') == 'true'
 			hidePreloader()
 		else
@@ -35,8 +36,8 @@
 			new TimelineLite()
 				.to($badge, 1, { height: 0, paddingTop: 102, y: 0, scale: 0.3, ease: Power2.easeOut }, 0)
 				.to($logo, 1, { top: 0, marginTop: 14, scale: 0.25, ease: Power2.easeOut }, 0)
-				.to($preloader, .7, { autoAlpha: 0, ease: Power2.easeOut }, 1 )
 				.to($text, .6, { autoAlpha: 0, ease: Power2.easeOut }, 0)
+				.to($preloader, .7, { autoAlpha: 0, ease: Power2.easeOut }, 1 )
 
 			$("html").removeClass 'preloading'
 			$(document).trigger 'preloaded'
