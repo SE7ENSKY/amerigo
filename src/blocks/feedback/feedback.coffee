@@ -1,6 +1,5 @@
 $ ->
 	tuneUpGravity = ->
-
 		initIntlTelInput $(".phone-input input")
 
 		$('.gfield').find('input, textarea, select').each ->
@@ -61,11 +60,22 @@ $ ->
 		scroller?.refresh()
 
 	$(document).on 'click', "[type='submit']", (e) ->
+		$form = $(e.currentTarget).closest('.gform_wrapper form')
+		return unless $form.length
+		
 		e.preventDefault()
-		$this = $(e.currentTarget)
-		$this.closest('.gform_wrapper form').addClass('submitting').submit()
+		window.$lastSendingForm = $form.closest('.gform_wrapper').clone(true, true)
+		window.$lastSendingFormParent = $(e.currentTarget).closest('.gform_wrapper').parent()
+		
+		$form.addClass('submitting').submit()
 
 	$(document).on 'gform.success', (e) ->
+		if $lastSendingFormParent.length and $lastSendingForm.length
+			$lastSendingForm.addClass('disabled').css('pointerEvents', 'none')
+				.find('.gfield_error').removeClass('gfield_error').end()
+				.find('.erorr-input').removeClass('erorr-input').end()
+				
+			$lastSendingFormParent.prepend($lastSendingForm)
 		$('#success-modal').modal('show')
 		scroller?.refresh()
 
