@@ -26,8 +26,6 @@ $ ->
 	$window.on 'resize', debounce($window.trigger.bind($window, 'resize-debounce'), 200)
 	$window.on 'scroll', debounce($window.trigger.bind($window, 'scroll-debounce'), 200)
 
-	$(".select7").select7()
-
 	$('a[href*="#"]').each ->
 		anchor = @hash.slice(1)
 		$(@).attr('data-menuanchor', anchor) if anchor
@@ -78,7 +76,7 @@ $ ->
 		window.loaded = true
 		window.scroller = new IScroll('.root',
 			# preventDefault: false
-			preventDefaultException: { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|UL)$/i }
+			# preventDefaultException: { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|UL)$/i }
 			interactiveScrollbars: true
 			scrollbars: true
 			resizeScrollbars: false

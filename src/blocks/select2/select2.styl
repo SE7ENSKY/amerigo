@@ -1,0 +1,60 @@
+body
+	.select2
+		font-family mainFont
+		font-size 13px
+		line-height 1.3
+		color #252525
+	.select2-container--default 
+		.select2-selection--single
+			position relative
+			z-index 2
+			display block
+			width 100%
+			height 36px
+			padding 10px 0 5px
+			border-width 0 0 1px
+			border-style solid
+			border-color #000
+			border-radius 0
+			background none
+			transition border-color .3s ease
+			outline none
+			-webkit-appearance none
+			.select2-selection__arrow
+				height 100%
+				b
+					border-width 4px 4px 0 4px
+		&.select2-container--open
+			.select2-selection--single
+				.select2-selection__arrow
+					b
+						border-width 0 4px 4px 4px
+	
+	.gfield_error 
+		.select2-container--default 
+			.select2-selection--single
+				border-color red
+
+	.select2-container .select2-selection--single .select2-selection__rendered
+		padding-left 0
+
+	.select2-results__option
+		padding 0 5px
+		
+	.select2-container--default 
+		.select2-results__option
+			font-family mainFont
+			font-size 13px
+			line-height 2
+			color #252525
+			&[aria-selected=true]
+				background-color #eee
+			&.select2-results__option--highlighted[aria-selected]
+				background-color #f4f4f4
+				color #222
+				
+	.select2-dropdown
+		border-radius 0
+	.select2-container--open .select2-dropdown--above
+		border 1px solid #aaa
+		border-radius 0

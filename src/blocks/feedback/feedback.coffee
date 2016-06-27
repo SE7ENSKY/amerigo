@@ -3,38 +3,41 @@ $ ->
 
 		initIntlTelInput $(".phone-input input")
 
-		$('.gfield').find('input, textarea').each ->
+		$('.gfield').find('input, textarea, select').each ->
 			$this = $(@)
 			value = $this.val()
-			$this.closest(".gfield").addClass('has-value') if value
+			$this.closest(".gfield, .form-group").addClass('has-value') if value
 
-		$('.gfield').find('input, textarea').on 'focus', (e) ->
+		$('.gfield').find('input, textarea, select').on 'focus', (e) ->
 			$this = $(e.target)
-			$this.closest(".gfield").addClass('has-value')
+			$this.closest(".gfield, .form-group").addClass('has-value')
 
-		$('.gfield').find('input, textarea').on 'blur', (e) ->
+		$('.gfield').find('input, textarea, select').on 'blur', (e) ->
 			$this = $(e.target)
 			value = $this.val()
-			$this.closest(".gfield").removeClass('has-value') unless value
+			$this.closest(".gfield, .form-group").removeClass('has-value') unless value
 
 		$(".gfield_select, .form-group select").each ->
 			$select = $(@)
-			$parent = $select.closest('.gfield')
-			$label = $parent.find('label')
-			placeholder = $label.text()
-			$label.detach()
-			# $select.attr('placeholder', placeholder)
-			# $select.find('option').each ->
-			# 	$option = $(@)
-			# 	unless $option.text()
-			# 		$select.prepend('<option></option>')
-			# 		$option.detach()
-			# $select.addClass("select7_native_dropdown")
-			# setTimeout ->
-			# 	$select.select7()
-			# , 10
+			$parent = $select.closest('.gfield, .form-group')
 
-			$select.select2()
+			$select.select2
+				minimumResultsForSearch: -1
+				width: '100%'
+
+			$select.on 'select2:select', (e) ->
+				$parent.addClass('has-value') if $select.val()
+
+			$select.on 'select2:unselect', (e) ->
+				$parent.removeClass('has-value') unless $select.val()
+
+			$(document).on 'touchstart', 'form .select2.select2-container:not(.select2-container--open)', (e) ->
+				$(e.currentTarget).parent().find('select.select2-hidden-accessible').select2("open")
+
+			$(document).on 'touchstart', 'form .select2.select2-container.select2-container--open', (e) ->
+				$(e.currentTarget).parent().find('select.select2-hidden-accessible').select2("close")
+
+
 			closeBehavior = ->
 				$(document).on 'resize-debounce', ->
 					$select.select2("close") unless $select.length
