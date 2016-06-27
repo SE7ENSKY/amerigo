@@ -129,9 +129,11 @@ initAnimation = ->
 	, 0, 0, 1
 
 
+	# $("[data-anchor], [id]").each ->
 	$("[data-anchor]").each ->
 		$this = $(@)
 		{ anchor } = $this.data()
+		# anchor = $this.attr('id') unless anchor
 		$menuAnchors = $('[data-menuanchor]')
 		$menuAnchorTarget = $menuAnchors.filter("[data-menuanchor='#{anchor}']")
 		$menuAnchorTargetParent = $menuAnchorTarget.parent()

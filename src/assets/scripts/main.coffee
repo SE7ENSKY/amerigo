@@ -43,15 +43,16 @@ $ ->
 		y = $target.offset().top
 		y -= headerHeight unless $target.hasClass('visual')
 		y -= 30 if window.innerWidth > 999
-		scroller?.scrollBy(0, -y, 666,)
+		scroller?.scrollBy(0, -y, 666)
 
-	$('#main').fullpage
-		lockAnchors: false
-		autoScrolling: false
-		scrollOverflow: false
-		fitToSection: false
-		afterResize: ->
-			scroller?.refresh()
+	if $('#main > .section').length
+		$('#main').fullpage
+			lockAnchors: false
+			autoScrolling: false
+			scrollOverflow: false
+			fitToSection: false
+			afterResize: ->
+				scroller?.refresh()
 
 	$(".animsition").animsition
 		inClass: 'fade-in'
