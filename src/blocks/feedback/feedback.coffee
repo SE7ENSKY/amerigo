@@ -39,10 +39,10 @@ $ ->
 
 			closeBehavior = ->
 				$(document).on 'resize-debounce', ->
-					$select.select2("close") unless $select.length
+					$select.select2("close") if $select.length
 
 				scroller?.on 'scroll', ->
-					$select.select2("close") unless $select.length
+					$select.select2("close") if $select.length
 
 			if window.loaded
 				closeBehavior()
