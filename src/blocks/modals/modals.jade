@@ -12,7 +12,8 @@ mixin modal(name, title, classes)
 					block
 
 
-+modal("language-modal", "", "fullwidth-modal modal-language")
-	+b.language-box: +i({ title: tr("Please select your language"), btnText: tr("Confirm") })
+if enableLangModal
+	+modal("language-modal", "", "fullwidth-modal modal-language")
+		+b.language-box: +i({ title: tr("Please select your language"), btnText: tr("Confirm") })
 +modal("success-modal", "", "fullwidth-modal modal-success")
 	+b.success-box: +i({ title: tr("THANK YOU FOR GETTING IN TOUCH!"), text: tr('If your inquiry is urgent, please use the telephone number listed below, to talk to one of our staff members. Otherwise, we will reply by email shortly.'), btnText: tr("close") })

@@ -12,4 +12,5 @@ socials:
     url: "/"
   - icon: "instagram"
     url: "/"
+enableLangModal: true
 
