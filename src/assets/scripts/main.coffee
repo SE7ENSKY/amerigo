@@ -76,7 +76,7 @@ $ ->
 	$(window).load ->
 		window.loaded = true
 		window.scroller = new IScroll('.root',
-			# preventDefault: false
+			preventDefault: Modernizr.touchevents
 			# preventDefaultException: { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|UL)$/i }
 			interactiveScrollbars: true
 			scrollbars: true
