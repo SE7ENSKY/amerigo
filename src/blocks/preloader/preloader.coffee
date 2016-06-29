@@ -33,11 +33,11 @@
 			$logo = $('.preloader__logo')
 			$preloader = $('.preloader')
 			$text = $('.preloader__logo-text')
-			TweenMax.set($badge, { transformOrigin: '50% 0' })
+			TweenMax.set($badge, { transformOrigin: '50% 0', y: 0 })
 
 			new TimelineLite()
-				.to($badge, 1, { height: 42, paddingTop: 110, y: 0, scale: 0.3, ease: Power2.easeOut }, 0)
-				.to($logo, 1, { top: 0, marginTop: 15, scale: 0.255, ease: Power2.easeOut }, 0)
+				.to($badge, 1, { height: 0, scale: 0.3, paddingTop: 110, ease: Power0.linear }, 0)
+				.to($logo, 1, { top: 0, marginTop: 15, scale: 0.255, ease: Power1.easeOut }, 0)
 				.to($text, .6, { autoAlpha: 0, ease: Power2.easeOut }, 0)
 				.to($preloader, .7, { autoAlpha: 0, ease: Power2.easeOut }, 1 )
 				
