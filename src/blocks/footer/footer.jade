@@ -12,10 +12,12 @@
 		+e.section
 			+e("a").section-title(href=site.contactsLink)= tr('Contact us')
 			+e.address!= site.address
-			+b.socials.footer__socials: +i({ items: site.socials })
-		+e.section
-			+e.section-title= tr('Language')
-			+e("ul").language
-				each item, i in langs
-					+e("li").language-item
-						+e("a").language-link(href=item.url)= item.title
+			+e.socials
+				+b.socials: +i({ items: site.socials })
+		if langs && langs.length > 1
+			+e.section
+				+e.section-title= tr('Language')
+				+e("ul").language
+					each item in langs
+						+e("li").language-item
+							+e("a").language-link(href=item.url)= item.title
