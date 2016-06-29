@@ -15,6 +15,7 @@
 		padding 0
 		list-style none
 		font-size 13px
+		clearfix()
 		@media tablet_desktop
 			flex 3
 		@media phone
@@ -84,3 +85,16 @@
 		margin-top 5px
 		@media phone
 			margin-top 10px
+
+.no-flexbox
+	.footer
+		&__menu
+			float left
+			width 60%
+			@media phone
+				width 100%
+		&__section
+			float left
+			width 20%
+			@media phone
+				width 100%
