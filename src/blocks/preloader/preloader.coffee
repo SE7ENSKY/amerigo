@@ -34,9 +34,10 @@
 			$preloader = $('.preloader')
 			$text = $('.preloader__logo-text')
 			TweenMax.set($badge, { transformOrigin: '50% 0' })
+			
 			new TimelineLite()
-				.to($badge, 1, { height: 0, paddingTop: 102, y: 0, scale: 0.3, ease: Power2.easeOut }, 0)
-				.to($logo, 1, { top: 0, marginTop: 14, scale: 0.25, ease: Power2.easeOut }, 0)
+				.to($badge, 1, { paddingTop: 109, y: -24, scale: 0.3, ease: Power2.easeOut }, 0)
+				.to($logo, 1, { top: 0, marginTop: 16, scale: 0.27, ease: Power2.easeOut }, 0)
 				.to($text, .6, { autoAlpha: 0, ease: Power2.easeOut }, 0)
 				.to($preloader, .7, { autoAlpha: 0, ease: Power2.easeOut }, 1 )
 				

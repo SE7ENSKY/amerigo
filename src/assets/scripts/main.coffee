@@ -39,13 +39,13 @@ $ ->
 	window.scrollTo = ($target) ->
 		return unless $target.length
 		$header = $('.header')
+		$menuToggle = $header.find(".header__menu-toggle")
 		headerHeight = if $header.length then $header.outerHeight() else 0
 		y = $target.offset().top
 		y -= headerHeight unless $target.hasClass('visual')
 		y -= 30 if window.innerWidth > 999
 		scroller?.scrollBy(0, -y, 666)
-
-		# $header.find(".header__menu-toggle").trigger("click")
+		$menuToggle.trigger("menu-close")
 
 	if $('#main > .section').length
 		$('#main').fullpage

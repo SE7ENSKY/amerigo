@@ -29,13 +29,24 @@ $ ->
     deactivateMenu = ->
         $menuItem.removeClass("active").filter(".current").addClass "active"
 
+    openMenu = ->
+        $menuToggle.addClass("active")
+        $body.addClass("menu-open")
+        $mobileMenu.animation.play()
+
+    closeMenu = ->
+        $menuToggle.removeClass("active")
+        $body.removeClass("menu-open")
+        $mobileMenu.animation.reverse()
+
     $menuToggle.on "click", ->
-        if $menuToggle.toggleClass("active").hasClass("active")
-            $body.addClass("menu-open")
-            $mobileMenu.animation.play()
+        if not $menuToggle.hasClass("active")
+            $menuToggle.trigger("menu-open")
         else
-            $body.removeClass("menu-open")
-            $mobileMenu.animation.reverse()
+            $menuToggle.trigger("menu-close")
+
+    $menuToggle.on "menu-open", openMenu
+    $menuToggle.on "menu-close", closeMenu
 
     $(window).load ->
         checkOffset $menuItem.filter(".active")
