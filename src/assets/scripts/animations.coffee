@@ -118,7 +118,10 @@ initAnimation = ->
 
 	scene '.page_contacts', new TimelineMax()
 		.fromTo('.page_contacts .page__sidebar', 1, {autoAlpha: 0, y: -50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, .2)
-		.fromTo('.page_contacts .page__content', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, .3)
+		if Modernizr?.touchevents
+			.fromTo('.page_contacts .page__content', 1, {autoAlpha: 0}, {autoAlpha: 1, ease: Power2.easeOut}, .3)
+		else
+			.fromTo('.page_contacts .page__content', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, .3)
 	, 0, 0, 0
 
 	scene '.campuses', new TimelineMax()
