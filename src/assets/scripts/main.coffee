@@ -45,6 +45,8 @@ $ ->
 		y -= 30 if window.innerWidth > 999
 		scroller?.scrollBy(0, -y, 666)
 
+		$(".header__menu-toggle").trigger("click")
+
 	if $('#main > .section').length
 		$('#main').fullpage
 			lockAnchors: false
