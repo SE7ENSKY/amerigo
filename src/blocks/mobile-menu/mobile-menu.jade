@@ -1,9 +1,10 @@
 +b("nav").menu.__nav: +i({ prefix: "nav", items: mainMenu, activeMenuIndex: activeMenuIndex })
 +e.section
-    +e.address!= site.address
-+e.section
-    +e.section-title Language
-    +e("ul").language
-        each item, i in langs
-            +e("li").language-item
-                +e("a").language-link(href=item.url)= item.title
+	+e.address!= site.address
+if langs && langs.length > 1
+	+e.section
+		+e.section-title Language
+		+e("ul").language
+			each item in langs
+				+e("li").language-item
+					+e("a").language-link(href=item.url)= item.title

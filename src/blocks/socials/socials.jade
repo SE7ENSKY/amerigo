@@ -1,3 +1,4 @@
 if items
 	each item in items
-		+e("a").item(href=item.url class="socials__item_#{item.icon}")
+		if item.url
+			+e("a").item(href=item.url class="socials__item_#{item.icon}")
