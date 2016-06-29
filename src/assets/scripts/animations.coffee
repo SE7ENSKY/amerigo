@@ -107,8 +107,9 @@ initAnimation = ->
 			scene @, new TimelineMax()
 				.fromTo(@, 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.1)
 
+
 	scene '.page-content', new TimelineMax()
-		.fromTo('.page-content', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
+		.fromTo('.page-content .container', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
 
 	unless Modernizr?.touchevents
 		scene '.history', new TimelineMax()
@@ -116,13 +117,15 @@ initAnimation = ->
 			.fromTo('.history__text', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
 			.fromTo('.history__image', 1, {autoAlpha: 0, x: 50}, {autoAlpha: 1, x: 0, ease: Power2.easeOut}, 0.2)
 
-	scene '.page_contacts', new TimelineMax()
-		.fromTo('.page_contacts .page__sidebar', 1, {autoAlpha: 0, y: -50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, .2)
-		if Modernizr?.touchevents
-			.fromTo('.page_contacts .page__content', 1, {autoAlpha: 0}, {autoAlpha: 1, ease: Power2.easeOut}, .3)
-		else
-			.fromTo('.page_contacts .page__content', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, .3)
-	, 0, 0, 0
+
+	contactsTL = new TimelineMax()
+	contactsTL.fromTo('.page_contacts .page__sidebar', 1, {autoAlpha: 0, y: -50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, .2)
+	if Modernizr?.touchevents
+		contactsTL.fromTo('.page_contacts .page__content', 1, {autoAlpha: 0}, {autoAlpha: 1, ease: Power2.easeOut}, .3)
+	else
+		contactsTL.fromTo('.page_contacts .page__content', 1, {autoAlpha: 0, y: 50}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, .3)
+	
+	scene '.page_contacts', contactsTL, 0, 0, 0
 
 	scene '.campuses', new TimelineMax()
 		.fromTo('.fixed-panel', .1, {autoAlpha: 0}, {autoAlpha: 1, ease: Power2.easeOut})
