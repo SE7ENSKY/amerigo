@@ -49,7 +49,8 @@ $ ->
 
 	if $('#main > .section').length
 		$('#main').fullpage
-			lockAnchors: false
+			anchors: []
+			lockAnchors: true
 			autoScrolling: false
 			scrollOverflow: false
 			fitToSection: false
@@ -71,9 +72,9 @@ $ ->
 		timeoutCountdown: 5000
 		onLoadEvent: true
 		browser: [ 'animation-duration', '-webkit-animation-duration']
-		overlay : false
-		overlayClass : 'animsition-overlay-slide'
-		overlayParentElement : 'body'
+		overlay: false
+		overlayClass: 'animsition-overlay-slide'
+		overlayParentElement: 'body'
 
 	$(window).load ->
 		window.loaded = true
