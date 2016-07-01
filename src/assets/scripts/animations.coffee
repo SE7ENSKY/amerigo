@@ -2,9 +2,6 @@ initAnimation = ->
 	wh = window.innerHeight
 	window.controller = new (ScrollMagic.Controller)
 
-	# controller.scrollPos ->
-	# 	-scroller.y
-
 	scene = (el, tween, duration = 0, offset = 0, hook = 0.75) ->
 		return unless $(el).length
 		new ScrollMagic.Scene(

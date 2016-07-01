@@ -19,6 +19,34 @@ window.scroller = null
 window.locationHash = location.hash.replace(/(\=|\?|\+|\.|\,|\!|\@|\$|\%|\^|\&|\*|\(|\)|\;|\\|\/|\||\<|\>|\"|\').*/g, '')
 history.pushState("", document.title, window.location.pathname + window.location.search) if locationHash
 
+window.getScrollbarWidth = getScrollbarWidth = ->
+	outer = document.createElement('div')
+	outer.style.visibility = 'hidden'
+	outer.style.width = '100px'
+	document.body.appendChild outer
+	widthNoScroll = outer.offsetWidth
+	# force scrollbars
+	outer.style.overflow = 'scroll'
+	# add innerdiv
+	inner = document.createElement('div')
+	inner.style.width = '100%'
+	outer.appendChild inner
+	widthWithScroll = inner.offsetWidth
+	# remove divs
+	outer.parentNode.removeChild outer
+	widthNoScroll - widthWithScroll
+
+iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+iOSversion = ->
+	if /iPad|iPhone|iPod/.test(navigator.userAgent) and !window.MSStream
+		return 8 if ! !window.indexedDB
+		return 7 if ! !window.SpeechSynthesisUtterance
+		return 6 if ! !window.webkitAudioContext
+		return 5 if ! !window.matchMedia
+		return 4 if ! !window.history and 'pushState' of window.history
+		return 3
+	return 0
+
 $ ->
 	FastClick.attach($('.header').get(0))
 
@@ -44,7 +72,10 @@ $ ->
 		y = $target.offset().top
 		y -= headerHeight unless $target.hasClass('visual')
 		y -= 30 if window.innerWidth > 999
-		scroller?.scrollBy(0, -y, 666)
+		if scroller?
+			scroller.scrollBy(0, -y, 666)
+		else
+			TweenMax.to('body', 0.6, { scrollTo: { y: y }, ease: Power1.easeOut })
 		$menuToggle.trigger("menu-close")
 
 	if $('#main > .section').length
@@ -78,25 +109,29 @@ $ ->
 
 	$(window).load ->
 		window.loaded = true
-		window.scroller = new IScroll('.root',
-			preventDefault: Modernizr.touchevents
-			# preventDefaultException: { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|UL)$/i }
-			interactiveScrollbars: true
-			scrollbars: true
-			resizeScrollbars: false
-			mouseWheel: true
-			click: true
-			scrollX: false
-			scrollY: true
-			# deactivating -webkit-transform because pin wouldn't work because of a webkit bug: https://code.google.com/p/chromium/issues/detail?id=20574
-			# if you dont use pinning, keep "useTransform" set to true, as it is far better in terms of performance.
-			useTransform: false
-			# deativate css-transition to force requestAnimationFrame (implicit with probeType 3)
-			useTransition: false
-			# set to highest probing level to get scroll events even during momentum and bounce
-			# requires inclusion of iscroll-probe.js
-			probeType: 3
-		)
+		if getScrollbarWidth() > 0 or (iOSversion() < 8 && iOSversion() > 0)
+			window.scroller = new IScroll('.root',
+				preventDefault: Modernizr.touchevents
+				# preventDefaultException: { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|UL)$/i }
+				interactiveScrollbars: true
+				scrollbars: true
+				resizeScrollbars: false
+				mouseWheel: true
+				click: true
+				scrollX: false
+				scrollY: true
+				# deactivating -webkit-transform because pin wouldn't work because of a webkit bug: https://code.google.com/p/chromium/issues/detail?id=20574
+				# if you dont use pinning, keep "useTransform" set to true, as it is far better in terms of performance.
+				useTransform: false
+				# deativate css-transition to force requestAnimationFrame (implicit with probeType 3)
+				useTransition: false
+				# set to highest probing level to get scroll events even during momentum and bounce
+				# requires inclusion of iscroll-probe.js
+				probeType: 3
+			)
+		else
+			$('html').addClass 'native-scroll'
+
 		$(document).trigger 'animation.start'
 		# window.controller.scrollPos ->
 		# 	-scroller.y

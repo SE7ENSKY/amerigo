@@ -30,12 +30,12 @@ $ ->
 			$select.on 'select2:unselect', (e) ->
 				$parent.removeClass('has-value') unless $select.val()
 
-			$(document).on 'touchstart', 'form .select2.select2-container:not(.select2-container--open)', (e) ->
-				$(e.currentTarget).parent().find('select.select2-hidden-accessible').select2("open")
+			if scroller?
+				$(document).on 'touchstart', 'form .select2.select2-container:not(.select2-container--open)', (e) ->
+					$(e.currentTarget).parent().find('select.select2-hidden-accessible').select2("open")
 
-			$(document).on 'touchstart', 'form .select2.select2-container.select2-container--open', (e) ->
-				$(e.currentTarget).parent().find('select.select2-hidden-accessible').select2("close")
-
+				$(document).on 'touchstart', 'form .select2.select2-container.select2-container--open', (e) ->
+					$(e.currentTarget).parent().find('select.select2-hidden-accessible').select2("close")
 
 			closeBehavior = ->
 				$(document).on 'resize-debounce', ->

@@ -19,6 +19,7 @@ body
 	height 100% !important
 
 body
+	background red
 	position relative
 	font-family mainFont
 	font-size 16px
@@ -30,10 +31,14 @@ body
 	-webkit-tap-highlight-color transparent
 	&.menu-open
 		overflow hidden !important
+	.native-scroll &
+		overflow auto !important
+		
 
 [data-menuanchor]
 	cursor pointer
 
+	
 .animsition-loading
 	background-color: transparent !important
 	border-top: 3px solid lighten(brandColor, 20%) !important
@@ -42,12 +47,20 @@ body
 	border-left: 3px solid lighten(brandColor, 80%) !important
 
 .root
+	overflow hidden
 	position fixed
 	top 0
 	left 0
 	right 0
 	bottom 0
 	background-color #ececeb
+	.native-scroll &
+		overflow auto
+		position relative
+		top auto
+		left auto
+		right auto
+		bottom auto
 	&__body
 		background-color #ffffff
 		position relative
