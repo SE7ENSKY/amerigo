@@ -30,9 +30,16 @@ body
 	background-color #fff
 	-webkit-tap-highlight-color transparent
 	&.menu-open
+	.native-scroll &.menu-open
 		overflow hidden !important
+		pointer-events none
+		.header, .mobile-menu
+			pointer-events auto !important
+			
 	.native-scroll &
 		overflow auto !important
+		-webkit-overflow-scrolling touch
+		
 		
 
 [data-menuanchor]
