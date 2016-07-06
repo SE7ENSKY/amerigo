@@ -64,7 +64,13 @@ $ ->
 		newHtml = html.replace('|', '<br>')
 		$this.html newHtml
 
-	window.scrollTo = ($target) ->
+
+	getScrollX = ->
+		if window.pageXOffset != null then window.pageXOffset else if document.documentElement.scrollLeft != null then document.documentElement.scrollLeft else document.body.scrollLeft
+	getScrollY = ->
+		if window.pageYOffset != null then window.pageYOffset else if document.documentElement.scrollTop != null then document.documentElement.scrollTop else document.body.scrollTop
+
+	window.scrollToElemet = ($target) ->
 		return unless $target.length
 		$header = $('.header')
 		$menuToggle = $header.find(".header__menu-toggle")
@@ -73,9 +79,22 @@ $ ->
 		y -= headerHeight unless $target.hasClass('visual')
 		y -= 30 if window.innerWidth > 999
 		if scroller?
-			scroller.scrollBy(0, -y, 666)
+			if y && !$('body').hasClass('scroller-active')
+				scroller.scrollBy(0, -y, 400)
+				$('body').addClass 'scroller-active'
+				setTimeout ->
+					$('body').removeClass 'scroller-active'
+				, 401
 		else
-			TweenMax.to('body', 0.6, { scrollTo: { y: y }, ease: Power1.easeOut })
+			# TweenMax.to(window, 0.6, { scrollTo: { y: y }, ease: Power1.easeOut })
+			curScroll = y: getScrollY()
+			TweenMax.to curScroll, .4,
+				y: y
+				ease: Power1.easeOut
+				onUpdate: (tween) ->
+					window.scrollTo 0, tween.target.y
+				onUpdateParams: [ '{self}' ]
+		
 		$menuToggle.trigger("menu-close")
 
 	if $('#main > .section').length
@@ -144,7 +163,7 @@ $ ->
 			unless $target.length
 				$target = $("##{anchor}").first()
 			return unless $target.length
-			scrollTo $target
+			scrollToElemet $target
 
 		# SCROLL TO ON CLICK
 		$(document).on 'click touchstart', '[data-menuanchor], a[href^="#"]', (e) ->
@@ -160,7 +179,7 @@ $ ->
 
 			return unless $target.length
 			e.preventDefault()
-			scrollTo $target
+			scrollToElemet $target
 
 		# SCROLL HACKS
 		$(document).on 'resize-debounce', ->
