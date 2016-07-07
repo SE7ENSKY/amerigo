@@ -1,4 +1,6 @@
 node_modules
+coffeelint.json
+.stylintrc
 out
 .idea
 Thumbs.db
