@@ -3,6 +3,7 @@ $ ->
 		keyupTimeout = undefined
 		wrongKeyTimeout = undefined
 		$input.intlTelInput
+			allowDropdown: true
 			autoHideDialCode: true
 			nationalMode: false
 			dropdownContainer: 'body'
