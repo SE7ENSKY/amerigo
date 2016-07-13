@@ -28,24 +28,6 @@
 		@media phone
 			margin-bottom 20px
 			font-size 28px
-	&__toggle
-		text-transform uppercase
-		color brandColor
-		cursor pointer
-		@media desktop
-			display none
-		@media tablet
-			display none
-		@media phone
-			margin-bottom 10px
-			&-less
-				display none
-			&.active &-less
-				display inline
-			&.active &-more
-				display none
-			&.active
-				display block !important
 	&__list
 		&-item
 			clearfix()
@@ -74,7 +56,6 @@
 							text-align center
 					&-text
 						@media phone
-							display none
 							padding-left 30px
 							text-align left
 
@@ -96,15 +77,14 @@
 							text-align center
 					&-text
 						@media phone
-							display none
 							padding-left 30px
 							text-align left
 		&-image
 			width 140px
 			height 190px
 			@media tablet
-				width 180px
-				height 230px
+				width 170px
+				height 231px
 			@media phone
 				float none
 				width 80%
@@ -113,6 +93,7 @@
 				max-width 100%
 		&-content
 			overflow hidden
+			position relative
 		&-name
 			font-family bodoni
 			font-size 30px
@@ -130,7 +111,56 @@
 			color #939598
 		&-text
 			@media phone
+				display none
 				padding 0 !important
 				text-align left
+				.overview__list-item.active &
+					display block
+		
+	&__toggle
+		text-transform uppercase
+		color brandColor
+		cursor pointer
+		display none
+		&-less
+			display none
+		&.active &-less
+			display inline
+		&.active &-more
+			display none
+		@media phone
+			display block
+			margin-bottom 10px
+					
+	
+	&__list-item.collapsed
+		.overview
+			&__list-content
+				@media desktop
+					height 190px
+				@media tablet
+					height 230px
+			&__toggle
+				display block
+				@media tablet_desktop
+					position absolute
+					bottom -5px
+					left 0
+					right 0
+					background-size 100% 100%
+					background-repeat repeat-x
+					background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAyCAYAAABlG0p9AAAAAXNSR0IArs4c6QAAAFhJREFUSA1j/P//PzsDEYAFqEaACHUMJCnkHwImEu1r6nuGm9jg4aC6QqITBdEKiXYj9U0c7FYzERN9IDWgzMVIjOJRhXhDaSgED9GJYlQh3rgeDR68wQMAQJsEohQMQ1cAAAAASUVORK5CYII=')
+					z-index 5
+					padding-top 30px
+		&.active .overview
+			&__toggle
+				@media tablet_desktop
+					padding-top 0
+			&__list-content
+				@media tablet_desktop
+					padding-bottom 30px
+					height auto
+					
+					
 
 

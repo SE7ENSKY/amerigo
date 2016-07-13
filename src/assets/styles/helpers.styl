@@ -52,8 +52,17 @@ for item in 1..12
 	&-desktop
 		@media desktop
 			display none !important
+	&-phone
+		@media phone
+			display none !important
 .visible
 	&-desktop
 		display none
 		@media desktop
 			display block
+	&-phone
+		display none
+		@media phone
+			display block
+			span&
+				display inline

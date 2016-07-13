@@ -12,6 +12,10 @@
 						+e.list-name!= item.name
 						+e.list-position!= item.position
 						+e.toggle
-							+e("span").toggle-more!= tr('Read bio')
-							+e("span").toggle-less!= tr('Collapse bio')
+							+e("span").toggle-more
+								span.hidden-phone!= tr('Show more')
+								span.visible-phone!= tr('Read bio')
+							+e("span").toggle-less
+								span.hidden-phone!= tr('Show less')
+								span.visible-phone!= tr('Collapse bio')
 						+e.list-text!= item.text
