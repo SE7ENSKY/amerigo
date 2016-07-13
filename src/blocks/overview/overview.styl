@@ -114,6 +114,8 @@
 				display none
 				padding 0 !important
 				text-align left
+				visibility visible !important
+				opacity 1 !important
 				.overview__list-item.active &
 					display block
 		
@@ -137,9 +139,16 @@
 		.overview
 			&__list-content
 				@media desktop
-					height 190px
+					height 190px + 3px
 				@media tablet
-					height 230px
+					height 230px + 3px
+			
+			&__list-text
+				overflow hidden
+				@media desktop
+					height 190px - 60px - 20px
+				@media tablet
+					height 230px - 60px - 20px
 			&__toggle
 				display block
 				@media tablet_desktop
@@ -149,13 +158,14 @@
 					right 0
 					background-size 100% 100%
 					background-repeat repeat-x
-					background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAyCAYAAABlG0p9AAAAAXNSR0IArs4c6QAAAFhJREFUSA1j/P//PzsDEYAFqEaACHUMJCnkHwImEu1r6nuGm9jg4aC6QqITBdEKiXYj9U0c7FYzERN9IDWgzMVIjOJRhXhDaSgED9GJYlQh3rgeDR68wQMAQJsEohQMQ1cAAAAASUVORK5CYII=')
 					z-index 5
-					padding-top 30px
 		&.active .overview
 			&__toggle
 				@media tablet_desktop
 					padding-top 0
+			&__list-text
+				@media tablet_desktop
+					height auto
 			&__list-content
 				@media tablet_desktop
 					padding-bottom 30px

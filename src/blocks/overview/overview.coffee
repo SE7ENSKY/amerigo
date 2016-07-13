@@ -2,14 +2,28 @@ $ ->
 	$block = $(".overview")
 	return unless $block.length
 
-	$toggle = $block.find('.overview__toggle')
+	$window = $ window
+
+	$toggle = $block.find '.overview__toggle'
+	$items = $block.find '.overview__list-item'
+	$text = $items.find '.overview__list-text'
+
 	$toggle.on 'click', ->
-		$(@).closest('.overview__list-item').toggleClass 'active'
-		$(@).toggleClass 'active'
+		$this = $(@)
+		$item = $this.closest('.overview__list-item')
+		if $this.hasClass 'active'
+			$this.removeClass 'active'
+			$item.removeClass 'active'
+			$text.dotdotdot()
+		else
+			$this.addClass 'active'
+			$item.addClass 'active'
+			$text.trigger 'destroy'
+		
 		scroller?.refresh()
 
-	$items = $block.find '.overview__list-item'
 	initCollapse = ->
+		$text.trigger 'destroy'
 		$items.each ->
 			$this = $ @
 			$this.removeClass 'collapsed'
@@ -17,11 +31,13 @@ $ ->
 			$content = $this.find '.overview__list-content'
 			$this.toggleClass 'collapsed', $image.height() < $content.height() - 20
 		scroller?.refresh()
+		$text.dotdotdot() if $window.width() > 767 
+
 
 	initCollapse()
 
-	$(window).load ->
+	$window.load ->
 		initCollapse()
 
-	$(window).resize ->
+	$window.resize ->
 		initCollapse()
