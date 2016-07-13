@@ -53,6 +53,7 @@ initAnimation = ->
 
 	scene '.overview', new TimelineMax()
 		.fromTo('.overview__title', 1, {autoAlpha: 0, y: 20}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0)
+		.fromTo('.overview__title', 1, {autoAlpha: 0, y: 20}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0)
 		.fromTo('.overview__text', 1, {autoAlpha: 0, y: 40}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.1)
 	
 	scene '.overview__subtitle', new TimelineMax()
@@ -62,14 +63,14 @@ initAnimation = ->
 		$('.overview__list-item').each ->
 			$item = $(@)
 			$image = $item.find('.overview__list-image')
+			$content = $item.find('.overview__list-content')
 			$name = $item.find('.overview__list-name')
 			$position = $item.find('.overview__list-position')
-			$text = $item.find('.overview__list-text')
 			scene @, new TimelineMax()
 				.fromTo($image, 1, {autoAlpha: 0, y: -20}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0)
+				.fromTo($content, 1, {autoAlpha: 0, y: 10}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0)
 				.fromTo($name, 1, {autoAlpha: 0, y: 10}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0)
 				.fromTo($position, 1, {autoAlpha: 0, y: 10}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.1)
-				.fromTo($text, 1, {autoAlpha: 0, y: 10}, {autoAlpha: 1, y: 0, ease: Power2.easeOut}, 0.2)
 
 	scene '.feedback button[type="submit"], .feedback .gform_footer', new TimelineMax()
 		.fromTo('.feedback__stamp', .2, {autoAlpha: 0, scale: 2}, {autoAlpha: 1, scale: 1, ease: Power2.easeIn}, 0)

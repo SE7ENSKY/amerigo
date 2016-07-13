@@ -1,7 +1,8 @@
 $ ->
 	$body = $("body")
 	$menuToggle = $(".header__menu-toggle")
-	$mobileMenu = $(".mobile-menu")
+	window.$mobileMenu = $(".mobile-menu").first()
+	window.$mobileMenuInner = $mobileMenu.find '.mobile-menu__inner'
 	$menuItem = $(".main-menu__item")
 	breakpoint = 999
 
@@ -34,7 +35,10 @@ $ ->
 	openMenu = ->
 		$menuToggle.addClass("active")
 		$body.addClass("menu-open")
+		$mobileMenu.css 'display', 'block'
 		$mobileMenu.animation.play()
+		scrollBarWidth =  $mobileMenu.outerWidth() - $mobileMenuInner.outerWidth()
+		$mobileMenuInner.css 'paddingLeft', scrollBarWidth if scrollBarWidth
 
 	closeMenu = ->
 		$menuToggle.removeClass("active")
